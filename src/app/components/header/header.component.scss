@@ -1,0 +1,78 @@
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
+.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    @include square(100%, 110px, #fff);
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0%);
+}
+
+.container {
+    max-width: 1920px;
+    height: 100%;
+    margin: 0 auto;
+    @include d-flex(center, center);
+
+    .header-logo {
+        @include d-flex(start, center);
+        padding: 0 22px;
+        height: 100%;
+        background: $main-color;
+    }
+}
+
+
+.header-nav-wrapper {
+    .main-nav {
+        @include d-flex(start, center);
+        margin-left: 50px;
+
+        li {
+            width: 99px;
+            height: 85px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            text-align: center;
+            transition: .35s;
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: relative;
+            }
+
+            div {
+                position: absolute;
+                left: 50%;
+                bottom: 9px;
+                transform: translate(-50%, 0);
+                transition: .35s;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                span {
+                    display: block;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #252525;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+    }
+}
+
+.burger-menu {
+    @include border;
+    margin-right: auto;
+    margin-left: 15px;
+}

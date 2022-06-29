@@ -1,63 +1,74 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AdminComponent } from './admin/admin.component';
-import { ActionsComponent } from './admin/actions/actions.component';
-import { CategoriesComponent } from './admin/categories/categories.component';
-import { ProductsComponent } from './admin/products/products.component';
-import { OrdersComponent } from './admin/orders/orders.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ProductComponent } from './pages/product/product.component';
-import { ProductCategoryComponent } from './pages/product-category/product-category.component';
-import { DostavkaTaOplataComponent } from './pages/dostavka-ta-oplata/dostavka-ta-oplata.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { ActionDetailsComponent } from './pages/action-details/action-details.component';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { KabinetComponent } from './pages/kabinet/kabinet.component';
-import { PersonalDataComponent } from './pages/kabinet/personal-data/personal-data.component';
-import { HistoryComponent } from './pages/kabinet/history/history.component';
-import { PasswordComponent } from './pages/kabinet/password/password.component';
 
+import { HomeComponent } from './pages/home/home.component';
+import { ProductCategoryComponent } from './pages/product-category/product-category.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ActionsComponent } from './pages/actions/actions.component';
+import { ActionDetailsComponent } from './pages/action-details/action-details.component';
+import { DeliveryPaymentComponent } from './pages/delivery-payment/delivery-payment.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { OfertaComponent } from './pages/oferta/oferta.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { CabinetPersonalComponent } from './pages/cabinet/cabinet-personal/cabinet-personal.component';
+import { CabinetHistoryComponent } from './pages/cabinet/cabinet-history/cabinet-history.component';
+import { CabinetPasswordComponent } from './pages/cabinet/cabinet-password/cabinet-password.component';
+
+import { AdminComponent } from './admin/admin.component';
+import { AdminActionComponent } from './admin/admin-action/admin-action.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AdminComponent,
-    ActionsComponent,
-    CategoriesComponent,
-    ProductsComponent,
-    OrdersComponent,
     HomeComponent,
-    ProductComponent,
     ProductCategoryComponent,
-    DostavkaTaOplataComponent,
-    AboutUsComponent,
+    ProductComponent,
+    ActionsComponent,
     ActionDetailsComponent,
+    DeliveryPaymentComponent,
+    AboutUsComponent,
+    OfertaComponent,
     CheckoutComponent,
-    KabinetComponent,
-    PersonalDataComponent,
-    HistoryComponent,
-    PasswordComponent
+    CabinetComponent,
+    CabinetPersonalComponent,
+    CabinetHistoryComponent,
+    CabinetPasswordComponent,
+    AdminComponent,
+    AdminActionComponent,
+    AdminCategoryComponent,
+    AdminProductComponent,
+    AdminOrderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
