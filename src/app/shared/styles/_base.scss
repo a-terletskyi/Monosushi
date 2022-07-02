@@ -2,8 +2,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'RotondaC', system-ui, -apple-system, sans-serif, cursive;
+}
+
+li, p, a, b, button, input {
+    color: #252525;
+}
+
+p {
+    font-size: 16px;
 }
 
 li {
     list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+b { 
+    font-family: 'RotondaC-bold';
+}
+
+:focus-visible {
+    outline: black auto 1px;
 }

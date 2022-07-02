@@ -12,4 +12,5 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
 }
