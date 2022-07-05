@@ -12,5 +12,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
+  toggleClassActive(element: HTMLElement): void {
+    element.classList.toggle('active')
+  // добавити типу якщо клік був не на менюшці закривати його
+  }
+
+  openPopup(): void {
+    // встановити звязок з іншою компонентою (Pop up) та toggle її клас active
+  }
 }

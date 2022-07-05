@@ -28,3 +28,21 @@ b {
 :focus-visible {
     outline: black auto 1px;
 }
+
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 16px 22px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'RotondaC-bold';
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: 0.35s;
+}
+
+.button:active {
+    transform: translateY(3px);
+}
