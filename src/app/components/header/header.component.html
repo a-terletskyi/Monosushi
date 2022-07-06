@@ -1,61 +1,95 @@
 <header class="scrolled">
-    <div class="container">
+    <div class="header-wrapper">
         <a class="header-logo" [routerLink]="[ '/' ]">
-            <img src="assets/images/logo.svg" alt="logo monosushi">
-            <!-- <img src="assets/images/logo-mobile.svg" alt="logo monosushi">  якщо на мобілці-->
+            <img class="logo-image" src="assets/images/logo.svg" alt="logo monosushi">
+            <img class="logo-image-mobile" src="assets/images/logo-mobile.svg" alt="logo monosushi">
         </a>
-        <div class="header-nav-wrapper">
+        <div class="header-nav-wrapper" #headerNav
+            [className]="burgerMenu.classList.contains('active') ? 'header-nav-wrapper active' : 'header-nav-wrapper'">
             <nav>
                 <ul class="main-nav">
-                    <li class="hover-border"><a [routerLink]="[ '/actions' ]" routerLinkActive="route-active" class="nav-link">
-                            <div>
+                    <li class="main-nav__item hover-border"><a [routerLink]="[ '/actions' ]"
+                            routerLinkActive="route-active" class="nav-link">
+                            <div class="link-block">
                                 <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg"
                                     alt="discounts">
                                 <span>Акції</span>
                             </div>
                         </a></li>
-                    <li class="hover-border"><a [routerLink]="[ '/product-category/roli' ]" routerLinkActive="route-active" class="nav-link">
-                            <div>
+                    <li class="main-nav__item hover-border"><a [routerLink]="[ '/product-category/roli' ]"
+                            routerLinkActive="route-active" class="nav-link">
+                            <div class="link-block">
                                 <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg"
                                     alt="roles">
                                 <span>Роли</span>
                             </div>
                         </a></li>
-                    <li class="hover-border"><a [routerLink]="[ '/product-category/setu' ]" routerLinkActive="route-active" class="nav-link">
-                            <div>
+                    <li class="main-nav__item hover-border"><a [routerLink]="[ '/product-category/roli' ]"
+                            routerLinkActive="route-active" class="nav-link">
+                            <div class="link-block">
+                                <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg"
+                                    alt="roles">
+                                <span>Роли</span>
+                            </div>
+                        </a></li>
+                    <li class="main-nav__item hover-border"><a [routerLink]="[ '/product-category/setu' ]"
+                            routerLinkActive="route-active" class="nav-link">
+                            <div class="link-block">
                                 <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg"
                                     alt="sets">
                                 <span>Сети</span>
                             </div>
                         </a></li>
-                    <li class="hover-border"><a [routerLink]="[ '/product-category/drinks' ]" routerLinkActive="route-active"
-                            class="nav-link">
-                            <div>
+                    <li class="main-nav__item hover-border"><a [routerLink]="[ '/product-category/drinks' ]"
+                            routerLinkActive="route-active" class="nav-link">
+                            <div class="link-block">
                                 <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg"
                                     alt="drinks">
                                 <span>Напої</span>
                             </div>
                         </a></li>
-                    <li class="hover-border"><a [routerLink]="[ '/product-category/sousi' ]" routerLinkActive="route-active"
-                            class="nav-link">
-                            <div>
+                    <li class="main-nav__item hover-border"><a [routerLink]="[ '/product-category/sousi' ]"
+                            routerLinkActive="route-active" class="nav-link">
+                            <div class="link-block">
                                 <img src="https://monosushi.com.ua/wp-content/uploads/2021/09/icon.svg" alt="sauces">
                                 <span>Соуси</span>
                             </div>
                         </a></li>
                 </ul>
+                <ul class="burger-nav">
+                    <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/dostavka-ta-oplata' ]"
+                            routerLinkActive="route-active">Доставка та оплата</a></li>
+                    <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/about-us' ]"
+                            routerLinkActive="route-active">Про наc</a></li>
+                    <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/actions' ]"
+                            routerLinkActive="route-active">Акції</a></li>
+                    <li class="menu-item address"><a class="menu-link" href="tel:0978780837">(097) 878 08 37</a>
+                        <div class="header-info__work-time">Працюємо з <b>11:00</b> до <b>21:30</b></div>
+                    </li>
+                    <li class="menu-item call"><button class="button">
+                            <img src="assets/icons/phone.svg" alt="phone">
+                            <span>МИ ЗАТЕЛЕФОНУЄМО</span>
+                        </button></li>
+                </ul>
             </nav>
         </div>
         <div class="burger-menu hover-border" #burgerMenu (click)="toggleClassActive(burgerMenu)">
             <svg class="hamburger" viewBox="0 0 100 100" width="80">
-                <path class="line top" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path>
+                <path class="line top"
+                    d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
+                </path>
                 <path class="line middle" d="m 30,50 h 40"></path>
-                <path class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path>
+                <path class="line bottom"
+                    d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20">
+                </path>
             </svg>
             <ul class="secondary-nav">
-                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/dostavka-ta-oplata' ]" routerLinkActive="route-active">Доставка та оплата</a></li>
-                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/about-us' ]" routerLinkActive="route-active">Про наc</a></li>
-                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/actions' ]" routerLinkActive="route-active">Акції</a></li>
+                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/dostavka-ta-oplata' ]"
+                        routerLinkActive="route-active">Доставка та оплата</a></li>
+                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/about-us' ]"
+                        routerLinkActive="route-active">Про наc</a></li>
+                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/actions' ]"
+                        routerLinkActive="route-active">Акції</a></li>
             </ul>
         </div>
         <div class="header-callback">
@@ -63,31 +97,37 @@
                 <img src="assets/icons/phone.svg" alt="phone">
                 <span>МИ ЗАТЕЛЕФОНУЄМО</span>
             </button>
-            <!-- <a class="btn" href="tel:(097) 878 08 37">  якщо на мобілці 
+            <a class="phone-mobile" href="tel:(097) 878 08 37">
                 <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="">
-            </a> -->
+            </a>
         </div>
         <div class="header-info" (click)="openPopup()">
             <a class="header-info__phone" href="tel:0978780837">(097) 878 08 37</a>
             <div class="header-info__work-time">Працюємо з <b>11:00</b> до <b>21:30</b></div>
         </div>
-        <div class="header-user hover-border" #headerUser (click)="toggleClassActive(headerUser)">
+        <div class="header-user hover-border" #headerUser (click)="toggleClassActive(headerUser)"
+            [routerLink]="[ 'admin' ]">
             <img src="assets/icons/user.svg" alt="user">
-            <ul class="user-profile">
-                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/kabinet' ]" routerLinkActive="route-active">Особисті дані</a></li>
-                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/kabinet/history' ]" routerLinkActive="route-active">Історія замовлень</a></li>
-                <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/kabinet/password' ]" routerLinkActive="route-active">Зміна паролю</a></li>
-                <li class="menu-item hover-border"><a class="menu-link">Вихід</a></li>
-            </ul>
+            <ng-container *ngIf="isAuthorizated">
+                <ul class="user-profile">
+                    <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/kabinet' ]"
+                            routerLinkActive="route-active">Особисті дані</a></li>
+                    <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/kabinet/history' ]"
+                            routerLinkActive="route-active">Історія замовлень</a></li>
+                    <li class="menu-item hover-border"><a class="menu-link" [routerLink]="[ '/kabinet/password' ]"
+                            routerLinkActive="route-active">Зміна паролю</a></li>
+                    <li class="menu-item hover-border"><a class="menu-link">Вихід</a></li>
+                </ul>
+            </ng-container>
         </div>
         <div class="header-basket">
-            <div class="basket-icon-block">
+            <div class="icon-block">
                 <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket">
-                <span>1</span>
+                <span>0</span>
             </div>
             <div class="basket-price">
-                <b id="basket-total-price" class="card-total-price">182 </b>
-                <span>грн</span>
+                <b id="basket-total-price" class="card-total-price">0</b>
+                <span> грн</span>
             </div>
         </div>
     </div>
