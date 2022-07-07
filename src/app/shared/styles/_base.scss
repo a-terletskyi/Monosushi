@@ -5,7 +5,12 @@
     font-family: 'RotondaC', system-ui, -apple-system, sans-serif, cursive;
 }
 
-li, p, a, b, button, input {
+li,
+p,
+a,
+b,
+button,
+input {
     color: #252525;
 }
 
@@ -21,12 +26,12 @@ a {
     text-decoration: none;
 }
 
-b { 
+b {
     font-family: 'RotondaC-bold';
 }
 
 :focus-visible {
-    outline: black auto 1px;
+    outline: #000000 auto 1px;
 }
 
 .button {
@@ -46,4 +51,3 @@ b {
 .button:active {
     transform: translateY(3px);
 }
-
