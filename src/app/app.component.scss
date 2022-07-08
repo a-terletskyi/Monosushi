@@ -1,15 +1,16 @@
 main {
-    min-height: calc(100vh - 110px);
+    flex: 1 1 auto;
+    margin-top: 110px;
 }
 
 @media screen and (max-width: 1599px) {
     main {
-        min-width: calc(100vh - 95px);
+        margin-top: 95px;
     }
 }
 
 @media screen and (max-width: 1199px) {
     main {
-        min-width: calc(100vh - 60px);
+        margin-top: 60px;
     }
 }

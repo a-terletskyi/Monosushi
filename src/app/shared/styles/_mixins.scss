@@ -14,3 +14,16 @@
     border: 2px solid transparent;
     border-radius: 10px;
 }
+
+@mixin background($url) {
+    background-image: url($url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin text($color, $fz, $lh) {
+    color: $color;
+    font-size: $fz;
+    line-height: $lh;
+}

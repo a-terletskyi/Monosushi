@@ -1,0 +1,126 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
+.home-banner {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    height: 650px;
+}
+
+.bg-full,
+.bg-mobile {
+    position: relative;
+    @include square(100%, 100%, transparent);
+}
+
+.bg-full {
+    @include background('../../../assets/images/banner-img-1-1920x650.jpg');
+}
+
+.bg-mobile {
+    display: none;
+    @include background('../../../assets/images/banner-img-1-mob-650x650.jpg');
+}
+
+.banner-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: 1750px;
+    height: max-content;
+    padding: 0 15px;
+    margin: auto;
+
+    .content-container {
+        width: 83%;
+        margin: 0 auto;
+    }
+
+    .left-info {
+        max-width: 625px;
+
+        &-title {
+            margin-bottom: 11px;
+            font-family: 'RotondaC-bold';
+            @include text(#fff, 42px, 1.2em);
+
+            b {
+                color: $main-color;
+            }
+        }
+
+        &-text {
+            opacity: 0.75;
+            margin-bottom: 27px;
+            @include text(#fff, 20px, 1.5em);
+        }
+
+        .banner-details-btn {
+            padding: 16px 44px;
+            background: $main-color;
+        }
+
+        .banner-details-btn:hover {
+            color: #fff;
+            background-color: transparent;
+            border-color: $main-color;
+        }
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .home-banner {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .banner-content {
+        max-width: 960px;
+
+        .content-container {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .banner-content {
+        max-width: 720px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bg-full {
+        display: none;
+    }
+
+    .bg-mobile {
+        display: block;
+    }
+
+    .banner-content {
+        inset: auto 0 0;
+        max-width: 540px;
+        padding-bottom: 30px;
+
+        .left-info {
+            &-title {
+                font-size: 24px;
+            }
+
+            &-text {
+                margin-bottom: 17px;
+                font-size: 12px;
+            }
+
+            .banner-details-btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+        }
+    }
+}

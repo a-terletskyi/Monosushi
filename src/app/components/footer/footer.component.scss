@@ -5,7 +5,7 @@
 
 footer {
     border-top: 4px solid $main-color;
-
+    background-color: #fff;
     .footer-wrapper {
         max-width: 1920px;
         margin: 0 auto;
@@ -159,7 +159,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1399px) {
     .footer-top {
         padding: 15px 25px;
 
