@@ -3,124 +3,218 @@
 @import '../../shared/styles/variables';
 @import '../../shared/styles/mixins';
 
+.container {
+    max-width: 1750px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
 .home-banner {
     position: relative;
     z-index: 2;
     max-width: 100%;
     height: 650px;
-}
 
-.bg-full,
-.bg-mobile {
-    position: relative;
-    @include square(100%, 100%, transparent);
-}
-
-.bg-full {
-    @include background('../../../assets/images/banner-img-1-1920x650.jpg');
-}
-
-.bg-mobile {
-    display: none;
-    @include background('../../../assets/images/banner-img-1-mob-650x650.jpg');
-}
-
-.banner-content {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    max-width: 1750px;
-    height: max-content;
-    padding: 0 15px;
-    margin: auto;
-
-    .content-container {
-        width: 83%;
-        margin: 0 auto;
+    .bg-full,
+    .bg-mobile {
+        position: relative;
+        @include square(100%, 100%, transparent);
     }
 
-    .left-info {
-        max-width: 625px;
+    .bg-full {
+        @include background('../../../assets/images/banner-img-1-1920x650.jpg');
+    }
 
-        &-title {
-            margin-bottom: 11px;
-            font-family: 'RotondaC-bold';
-            @include text(#fff, 42px, 1.2em);
+    .bg-mobile {
+        display: none;
+        @include background('../../../assets/images/banner-img-1-mob-650x650.jpg');
+    }
 
-            b {
-                color: $main-color;
+    .banner-content {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        max-width: 1750px;
+        height: max-content;
+        padding: 0 15px;
+        margin: auto;
+
+        .content-container {
+            width: 83%;
+            margin: 0 auto;
+        }
+
+        .left-info {
+            max-width: 625px;
+
+            &-title {
+                margin-bottom: 11px;
+                font-family: 'RotondaC-bold';
+                @include text(#fff, 42px, 1.2em);
+
+                b {
+                    color: $main-color;
+                }
+            }
+
+            &-text {
+                opacity: 0.75;
+                margin-bottom: 27px;
+                @include text(#fff, 20px, 1.5em);
+            }
+
+            .banner-details-btn {
+                padding: 16px 44px;
+                background: $main-color;
+            }
+
+            .banner-details-btn:hover {
+                color: #fff;
+                background-color: transparent;
+                border-color: $main-color;
             }
         }
-
-        &-text {
-            opacity: 0.75;
-            margin-bottom: 27px;
-            @include text(#fff, 20px, 1.5em);
-        }
-
-        .banner-details-btn {
-            padding: 16px 44px;
-            background: $main-color;
-        }
-
-        .banner-details-btn:hover {
-            color: #fff;
-            background-color: transparent;
-            border-color: $main-color;
-        }
     }
 }
 
-@media screen and (max-width: 1399px) {
+.after-banner {
+    padding: 40px 0;
+    margin-bottom: 90px;
+    background-image: url('https://monosushi.com.ua/wp-content/themes/monosushi/img/bg-monosushi-logo.svg'),
+        url('https://monosushi.com.ua/wp-content/themes/monosushi/img/bg-monosushi-logo.svg');
+    background-color: $main-color;
+    background-position: 0 0, 190px -52px;
+    background-repeat: repeat;
+
+    .col-md-4:nth-child(n+2) {
+        position: relative;
+    }
+
+    .col-md-4::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        @include square(1px, 133px, #ffffff66);
+    }
+
+    &-item {
+        @include d-flex(center, center);
+        max-width: 350px;
+        margin: 0 auto;
+        font-size: 18px;
+
+        .button {
+            background-color: #fff;
+        }
+
+    }
+
+    &-img {
+        max-width: 135px;
+        margin-right: 30px;
+
+        img {
+            min-width: 75px;
+            width: 100%;
+        }
+    }
+
+    &-info {
+        max-width: 230px;
+        text-align: center;
+    }
+}
+
+.seo-block {}
+
+@media screen and (max-width: 1400px) {
     .home-banner {
         height: 450px;
     }
+
+    .after-banner {
+        margin-bottom: 60px;
+    }
 }
 
-@media screen and (max-width: 1199px) {
-    .banner-content {
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .home-banner .banner-content {
         max-width: 960px;
 
         .content-container {
             width: 100%;
         }
     }
+
+    .after-banner {
+        padding: 20px 0;
+
+        &-item {
+            flex-direction: column;
+        }
+
+        &-img {
+            margin: 0 0 20px 0;
+        }
+    }
 }
 
-@media screen and (max-width: 991px) {
-    .banner-content {
+@media screen and (max-width: 992px) {
+    .container,
+    .home-banner .banner-content {
         max-width: 720px;
     }
 }
 
-@media screen and (max-width: 767px) {
-    .bg-full {
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+
+    .home-banner {
+        .bg-full {
+            display: none;
+        }
+
+        .bg-mobile {
+            display: block;
+        }
+
+        .banner-content {
+            inset: auto 0 0;
+            max-width: 540px;
+            padding-bottom: 30px;
+
+            .left-info {
+                &-title {
+                    font-size: 24px;
+                }
+
+                &-text {
+                    margin-bottom: 17px;
+                    font-size: 12px;
+                }
+
+                .banner-details-btn {
+                    padding: 10px 20px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .after-banner,
+    .seo-block {
         display: none;
     }
 
-    .bg-mobile {
-        display: block;
-    }
-
-    .banner-content {
-        inset: auto 0 0;
-        max-width: 540px;
-        padding-bottom: 30px;
-
-        .left-info {
-            &-title {
-                font-size: 24px;
-            }
-
-            &-text {
-                margin-bottom: 17px;
-                font-size: 12px;
-            }
-
-            .banner-details-btn {
-                padding: 10px 20px;
-                font-size: 12px;
-            }
-        }
+    .after-banner {
+        margin-bottom: 30px;
     }
 }

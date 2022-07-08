@@ -159,7 +159,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1400px) {
     .footer-top {
         padding: 15px 25px;
 
@@ -207,7 +207,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1200px) {
     .footer-top {
         padding: 15px;
 
@@ -235,7 +235,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 992px) {
     .footer-top {
         @include d-flex(center, center);
 
@@ -250,7 +250,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .footer-top {
         justify-content: center;
         flex-wrap: wrap;
