@@ -1,0 +1,79 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
+.container {
+    padding: 0 15px;
+    margin: 60px auto 120px;
+
+    .article {
+        max-width: 75%;
+        margin: 0 auto;
+
+        &__title {
+            margin-bottom: 20px;
+            @include text(#252525, 42px, 1.2em);
+        }
+
+        &-text {
+            font-size: 18px;
+
+            &-link {
+                position: relative;
+                display: inline-block;
+                color: $main-color;
+                font-family: 'RotondaC-bold';
+                transition: all 0.35s ease-out;
+            }
+
+            &-link::before {
+                content: "";
+                position: absolute;
+                left: auto;
+                right: 0;
+                bottom: 0;
+                @include square(0, 2px, $main-color);
+                transition: all 0.35s ease-out;
+            }
+
+            &-link:hover::before {
+                left: 0;
+                right: auto;
+                width: 100%;
+            }
+
+            p {
+                color: #5a5a5a;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        margin: 40px auto 90px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container .article {
+        max-width: 84%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container .article {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 30px auto 50px;
+
+        .article__title {
+            font-size: 26px;
+        }
+    }
+}

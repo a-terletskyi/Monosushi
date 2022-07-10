@@ -9,13 +9,10 @@ li,
 p,
 a,
 b,
+strong,
 button,
 input {
     color: #252525;
-}
-
-p {
-    font-size: 16px;
 }
 
 li {
@@ -27,7 +24,13 @@ a {
 }
 
 b,
-strong, h1,h2,h3,h4,h5,h6 {
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'RotondaC-bold';
 }
 
@@ -51,4 +54,38 @@ strong, h1,h2,h3,h4,h5,h6 {
 
 .button:active {
     transform: translateY(3px);
+}
+
+.center-info {
+    text-align: center;
+    margin-bottom: 40px;
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        padding-top: 10px;
+        font-size: 42px;
+        line-height: 1.2em;
+    }
+
+    &__title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 5px;
+        background-color: #b5d8f7;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .center-info {
+        margin-bottom: 20px;
+
+        &__title {
+            font-size: 34px;
+        }
+    }
 }
