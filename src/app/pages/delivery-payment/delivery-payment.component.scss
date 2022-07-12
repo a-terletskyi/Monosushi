@@ -6,16 +6,265 @@
 .container {
     padding: 0 15px;
     margin: 60px auto 120px;
+    max-width: 1750px;
+}
+
+.delivery {
+    @include d-flex(center, center);
+    padding: 20px 15px 0;
+
+    &-info {
+        position: relative;
+        @include d-flex(center, center);
+        width: 100%;
+        padding: 0 15px;
+
+        &-img {
+            max-width: 276px;
+            margin-right: 40px;
+        }
+
+        &-text {
+            max-width: 270px;
+
+            .title {
+                margin-bottom: 10px;
+                font-size: 26px;
+                line-height: 1.2em;
+                letter-spacing: 0.07em;
+            }
+
+            .text {
+                color: $sec-text-color;
+                line-height: 1.6em;
+            }
+
+            .text+.text {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &-info.yellow::before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translate(0, -50%);
+        @include square(1px, 230px, #dcdcdc);
+    }
+}
+
+.map {
+    @include d-flex(center, center);
+    margin: 80px 0 60px 0;
+
+    .google-map {
+        width: 1200px;
+        height: 650px;
+    }
+}
+
+.delivery-text {
+    @include d-flex(center, center);
+    max-width: 64%;
+    margin: 0 auto 90px;
+
+    .text {
+        color: $sec-text-color;
+        font-size: 18px;
+    }
+}
+
+.payment {
+    margin-bottom: 90px;
+
+    &__title {
+        margin-bottom: 40px;
+        font-size: 42px;
+        line-height: 1.2em;
+    }
+
+    .payment-info {
+        @include d-flex(center, center);
+    }
+
+    .payment-info-item {
+        position: relative;
+        display: flex;
+        max-width: 427px;
+        margin: 0 20px;
+        padding: 0 15px;
+    }
+
+    .payment-info-item:nth-child(n+2):before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -40px;
+        @include square(1px, 100%, #dcdcdc);
+    }
+
+    .payment-info-img {
+        position: relative;
+        @include d-flex(center, center);
+        @include square(100%, 60px, $main-color);
+        max-width: 63px;
+        margin-right: 20px;
+        border-radius: $brd-radius;
+    }
+
+    .payment-info-text {
+        .title {
+            margin: 15px 0;
+            line-height: 1.1em;
+        }
+
+        .text p {
+            color: $sec-text-color;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1600px) {
+    .delivery-info.yellow::before {
+        display: none;
+    }
+
+    .delivery-info-img {
+        margin-right: 15px;
+    }
 }
 
 @media screen and (max-width: 1400px) {
     .container {
         margin: 40px auto 90px;
     }
+
+    .delivery {
+        padding: 0 15px;
+    }
+
+    .map {
+        margin: 40px 0;
+    }
+
+    .delivery-text {
+        margin: 0 auto 60px;
+    }
+
+    .payment{
+        margin-bottom: 60px;
+
+        .payment-info-item{
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .map .google-map {
+        width: 920px;
+        height: 500px;
+    }
+
+    .delivery-text {
+        max-width: 95%;
+    }
+
+    .payment{
+        .payment-info-img {
+            max-width: 53px;
+            height: 50px;
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .delivery {
+        flex-direction: column;
+
+        &-info.yellow {
+            margin-top: 40px;
+        }
+    }
+
+    .map .google-map {
+        width: 660px;
+    }
+
+    .delivery-text {
+        max-width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .container {
+        max-width: 540px;
         margin: 30px auto 50px;
+    }
+
+    .delivery {
+        padding: 10px 0 0 0;
+
+        .delivery-info-img {
+            width: 47%;
+        }
+
+        .delivery-info-text {
+            width: 53%;
+
+            .title {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .delivery-text {
+        margin: 0 auto 30px;
+    }
+
+    .map {
+        margin-top: 20px;
+
+        .google-map {
+            width: 500px;
+            height: 330px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        max-width: none;
+        width: 100%;
+    }
+
+    .delivery .delivery-info {
+        flex-direction: column;
+
+        &-img,
+        &-text {
+            width: 100%;
+        }
+
+        &-img {
+            max-width: 170px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .map .google-map {
+        width: 100%;
     }
 }
