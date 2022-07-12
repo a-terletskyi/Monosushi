@@ -35,8 +35,7 @@
             }
 
             .text {
-                color: $sec-text-color;
-                line-height: 1.6em;
+                @include text($sec-text-color, 16px, 1.6em);
             }
 
             .text+.text {
@@ -60,8 +59,7 @@
     margin: 80px 0 60px 0;
 
     .google-map {
-        width: 1200px;
-        height: 650px;
+        @include square(1200px, 650px, transparent);
     }
 }
 
@@ -71,8 +69,7 @@
     margin: 0 auto 90px;
 
     .text {
-        color: $sec-text-color;
-        font-size: 18px;
+        @include text($sec-text-color, 18px, 1.5em);
     }
 }
 
@@ -81,50 +78,50 @@
 
     &__title {
         margin-bottom: 40px;
-        font-size: 42px;
-        line-height: 1.2em;
+        @include text($default-text-color, 42px, 1.2em);
+        text-align: center;
     }
 
     .payment-info {
         @include d-flex(center, center);
-    }
+        margin: 0 auto;
 
-    .payment-info-item {
-        position: relative;
-        display: flex;
-        max-width: 427px;
-        margin: 0 20px;
-        padding: 0 15px;
-    }
-
-    .payment-info-item:nth-child(n+2):before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -40px;
-        @include square(1px, 100%, #dcdcdc);
-    }
-
-    .payment-info-img {
-        position: relative;
-        @include d-flex(center, center);
-        @include square(100%, 60px, $main-color);
-        max-width: 63px;
-        margin-right: 20px;
-        border-radius: $brd-radius;
-    }
-
-    .payment-info-text {
-        .title {
-            margin: 15px 0;
-            line-height: 1.1em;
+        &-item {
+            position: relative;
+            display: flex;
+            max-width: 427px;
+            padding: 0 15px;
+            margin: 0 20px;
         }
 
-        .text p {
-            color: $sec-text-color;
+        &-item:nth-child(n+2):before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -40px;
+            @include square(1px, 100%, #dcdcdc);
+        }
+
+        &-img {
+            position: relative;
+            @include d-flex(center, center);
+            @include square(100%, 60px, $main-color);
+            max-width: 63px;
+            margin-right: 20px;
+            border-radius: $brd-radius;
+        }
+
+        &-text {
+            .title {
+                margin: 15px 0;
+                line-height: 1.1em;
+            }
+
+            .text p {
+                color: $sec-text-color;
+            }
         }
     }
-
 }
 
 @media screen and (max-width: 1600px) {
@@ -154,11 +151,15 @@
         margin: 0 auto 60px;
     }
 
-    .payment{
+    .payment {
         margin-bottom: 60px;
 
-        .payment-info-item{
+        .payment-info-item {
             margin: 0;
+        }
+
+        .payment-info-item:nth-child(n+2):before {
+            left: -15px;
         }
     }
 }
@@ -177,11 +178,23 @@
         max-width: 95%;
     }
 
-    .payment{
-        .payment-info-img {
-            max-width: 53px;
-            height: 50px;
-            margin-right: 10px;
+    .payment {
+        .payment-info {
+            max-width: 74%;
+
+            &-item:nth-child(n+2):before {
+                left: -7px;
+            }
+
+            &-img {
+                max-width: 53px;
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            &-text .title {
+                margin: 5px 0;
+            }
         }
     }
 }
@@ -205,6 +218,23 @@
 
     .delivery-text {
         max-width: 100%;
+    }
+
+    .payment {
+        .payment-info {
+            flex-direction: column;
+            align-items: start;
+            max-width: 100%;
+
+            &-item {
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            &-item::before {
+                display: none;
+            }
+        }
     }
 }
 
@@ -240,6 +270,15 @@
         .google-map {
             width: 500px;
             height: 330px;
+        }
+    }
+
+    .payment {
+        margin-bottom: 30px;
+
+        &__title {
+            margin-bottom: 20px;
+            font-size: 34px;
         }
     }
 }
