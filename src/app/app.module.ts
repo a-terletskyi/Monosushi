@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { SwiperModule } from 'swiper/angular';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -64,6 +65,7 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SwiperModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],

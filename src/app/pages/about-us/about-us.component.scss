@@ -1,0 +1,234 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
+.container {
+    padding: 0 15px;
+    margin: 60px auto 120px;
+}
+
+.title {
+    margin-bottom: 25px;
+    @include text($default-text-color, 34px, 1.4em);
+}
+
+.text {
+    @include text($sec-text-color, 18px, 1.5em);
+}
+
+.simple-page {
+    max-width: 75%;
+    margin: 0 auto 120px;
+
+    &__text {
+        margin-bottom: 25px;
+    }
+
+    &-list .list-item {
+        position: relative;
+        padding-left: 24px;
+        @include text($sec-text-color, 18px, 1.47em);
+    }
+
+    li+li {
+        margin-top: 8px;
+    }
+
+    &-list .list-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        @include square(11px, 11px, $main-color);
+        border-radius: 100%;
+    }
+
+    &-list .list-item::after {
+        content: "";
+        position: absolute;
+        left: 1px;
+        top: 10px;
+        @include square(9px, 9px, transparent);
+        border: 2px solid #fff;
+        border-radius: 100%;
+    }
+}
+
+.acquaintance-page {
+    @include d-flex(center, center);
+    max-width: 90%;
+    margin: 0 auto 120px;
+
+    .block-img {
+        overflow: hidden;
+        margin: 0 15px;
+        border-radius: 10px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .block-info {
+        max-width: 460px;
+        padding: 0 15px;
+        margin: 0 auto 0 30px;
+    }
+}
+
+.swiper-page {
+    margin-bottom: 40px;
+
+    &__title {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .swiper {
+        padding-bottom: 50px;
+
+        .advantages-item {
+            max-width: 240px;
+            margin: 0 auto;
+            text-align: center;
+
+            &-img {
+                @include d-flex(center, center);
+                @include square(85px, 85px, $main-color);
+                margin: 30px auto 20px;
+                border-radius: $brd-radius;
+            }
+
+            &__title {
+                line-height: 1.7em;
+            }
+
+            &__text p {
+                @include text($sec-text-color, 16px, 1.6em);
+            }
+        }
+
+        .advantages-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -15px;
+            @include square(1px, 100%, #dcdcdc);
+        }
+    }
+}
+
+.question-page {
+    max-width: 76%;
+    margin: 0 auto;
+
+    &__title {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .accordion {
+        position: relative;
+        z-index: 1;
+
+        &-item {
+            position: relative;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom: 1px solid #dcdcdc;
+
+            .accordion-title {
+                position: relative;
+                padding: 32px 20px 37px 0;
+                @include text($sec-text-color, 20px, 1.2em);
+                font-weight: 700;
+                transition: 0.35s;
+                cursor: pointer;
+            }
+
+            .accordion-title:before {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 40px;
+                @include square(8px, 8px, transparent);
+                border-left: 2px solid $sec-text-color;
+                border-bottom: 2px solid $sec-text-color;
+                transform: rotate(-45deg);
+                transition: 0.35s;
+            }
+
+            .accordion-title.active {
+                padding-bottom: 24px;
+                color: $default-text-color;
+            }
+
+            .accordion-title.active:before {
+                top: 40px;
+                border-color: $default-text-color;
+                transform: rotate(-225deg);
+            }
+
+            .accordion-inner {
+                max-height: 0;
+                overflow: hidden;
+                transition: .35s;
+
+                // p:first-child {
+                //     margin-bottom: 20px;
+                // }
+
+                li{
+                    position: relative;
+                    padding-left: 24px;
+                }
+
+                li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 9px;
+                    @include square(11px, 11px, $main-color);
+                    border-radius: 100%;
+                }
+            
+                li::after {
+                    content: "";
+                    position: absolute;
+                    left: 1px;
+                    top: 10px;
+                    @include square(9px, 9px, transparent);
+                    border: 2px solid #fff;
+                    border-radius: 100%;
+                }
+
+                li+li {
+                    margin-top: 23px;
+                }
+            }
+
+            .accordion-inner.active {
+                padding: 0 30px 25px 0;
+                max-height: 200px;
+            }
+        }
+
+        &-item:first-child {
+            border-top: 1px solid #dcdcdc;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    .container {
+        margin: 40px auto 90px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 30px auto 50px;
+    }
+}

@@ -1,1 +1,148 @@
-<p>about-us works!</p>
+<div class="container">
+    <div class="center-info">
+        <h2 class="center-info__title">Про нас</h2>
+    </div>
+    <div class="simple-page">
+        <h3 class="simple-page__title title">Monosushi – доставка неймовірно смачних суші у Львові.</h3>
+        <p class="simple-page__text text">Головний пріоритет – висока якість їжі та сервісу. Ми – команда професіоналів,
+            яка
+            щодня працює для<br>
+            Вас. Якість та Швидкість! – це два основних пріоритети в роботі команди. В першу чергу звичайно ж<br>
+            Якість. Суші готуються без затримок, одразу ж після Вашого замовлення. А завдяки сучасним технологіям та<br>
+            відповідальному навчанню працівників, свіжі страви можливо доставляти до 59 хв в 75% замовлень.</p>
+        <ul class="simple-page-list">
+            <li class="list-item text">висока якість їжі та сервісу</li>
+            <li class="list-item text">команда професіоналів</li>
+            <li class="list-item text">сучасні технології приготування</li>
+        </ul>
+
+    </div>
+    <div class="acquaintance-page">
+        <div class="block-img">
+            <img src="../../../assets/images/img_1127-scaled-568x568.jpg" alt="sushi">
+        </div>
+        <div class="block-info">
+            <h3 class="block-info__title title">Привіт! Познайомимось?</h3>
+            <p class="block-info__text text"><strong>Monosushi</strong> – це доставка найсмачніших суші у Львові, яка
+                була створена командою
+                перфекціоністів. Двоє
+                друзів, які обожнюють роли вирішили створити продукт, якого їм не вистачало на ринку Львова.
+                Продукт, в якому ідеальним буде все: смак, упакування, сервіс і все це за лояльною ціною!</p>
+        </div>
+    </div>
+    <div class="acquaintance-page">
+        <div class="block-info">
+            <h3 class="block-info__title title">Наш пріоритет - ваша посмішка від задоволення</h3>
+            <p class="block-info__text text"><strong>Monosushi</strong> – це доставка одного (mono) продукту. Роли вже
+                давно
+                стали рядовою стравою,
+                проте процес їх приготування всеодно залишається цілим мистецтвом. Суші потрібно готувати за чіткою
+                технологією суворо дотримуючись традицій. І в цьому ми справжні експерти! Сумніваєтесь? Тоді замовляйте
+                безкоштовну доставку Monosushi і насолоджуйтесь.</p>
+        </div>
+        <div class="block-img">
+            <img src="../../../assets/images/img_8051-scaled-568x568.jpeg" alt="sushi">
+        </div>
+    </div>
+    <div class="swiper-page">
+        <h3 class="swiper-page__title title">Наші переваги</h3>
+        <swiper class="mySwiper" [config]="swiperConfig">
+            <ng-template swiperSlide>
+                <div class="advantages-item text-center">
+                    <div class="advantages-item-img">
+                        <img src="../../../assets/icons/advantages-img-1.svg" alt="sushi">
+                    </div>
+                    <h5 class="advantages-item__title">Свіжі продукти</h5>
+                    <div class="advantages-item__text">
+                        <p>Наші інгредієнти ще вчора плавали у морі, а сьогодні вже у Ваших сушиках</p>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template swiperSlide>
+                <div class="advantages-item text-center">
+                    <div class="advantages-item-img">
+                        <img src="../../../assets/icons/advantages-img-2.svg" alt="sushi">
+                    </div>
+                    <h5 class="advantages-item__title">Неймовірний смак</h5>
+                    <div class="advantages-item__text">
+                        <p>Ми створили сушики, які змусять Ваші рецептори вибухнути від насолоди</p>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template swiperSlide>
+                <div class="advantages-item text-center">
+                    <div class="advantages-item-img">
+                        <img src="../../../assets/icons/advantages-img-3.svg" alt="delivery">
+                    </div>
+                    <h5 class="advantages-item__title">Великі порції</h5>
+                    <div class="advantages-item__text">
+                        <p>Ми віднайшли ідеальні порції ролів та завжди дотримуємось грамажу вказаного на сайті</p>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template swiperSlide>
+                <div class="advantages-item text-center">
+                    <div class="advantages-item-img">
+                        <img src="../../../assets/icons/advantages-img-4.svg" alt="purity">
+                    </div>
+                    <h5 class="advantages-item__title">Чистота на кухні</h5>
+                    <div class="advantages-item__text">
+                        <p>Ми як ніхто інший розуміємо, що морепродукти потребують абсолютної чистоти на кухні</p>
+                    </div>
+                </div>
+            </ng-template>
+        </swiper>
+    </div>
+    <div class="question-page">
+        <h3 class="question-page__title title">Популярні запитання</h3>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-title" #accordion1 (click)="toggleClassActive(accordion1)">Як можна замовити, якщо
+                    наша адреса не входить у вашу зону доставки?</div>
+                <div class="accordion-inner"
+                    [className]="accordion1.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                    <div class="text article">
+                        <p class="text mb-3">Якщо ваша адреса знаходиться поза межами нашої зони доставки, ви можете:</p>
+                        <ol>
+                            <li class="text">Забрати замовлення самовивозом за однією з наших адрес. (В такому випадку
+                                ви отримаєте
+                                “Запечені моно макі з лососем у подарунок).</li>
+                            <li class="text">Дізнатись в оператора чи є можливість зробити виключення для доставки поза
+                                межі зони в
+                                даний момент часу.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-title" #accordion2 (click)="toggleClassActive(accordion2)">Скільки часу очікувати на замовлення?</div>
+                <div class="accordion-inner" [className]="accordion2.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                    <div class="text article">
+                        <p class="text">Час доставки залежить від адреси замовлення.<br>
+                            Доставка в зелену зону – до 1 год.<br>
+                            Доставка в жовту зону – до 1,5 год.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-title" #accordion3 (click)="toggleClassActive(accordion3)">Доставка безкоштовна?</div>
+                <div class="accordion-inner" [className]="accordion3.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                    <div class="text article">
+                        <p class="text">Так, доставка безкоштовна при мінімальній сумі замовлення 200 грн в зелену зону доставки та
+                            300 грн в жовту зону.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-title" #accordion4 (click)="toggleClassActive(accordion4)">До якої години ви приймаєте замовлення?</div>
+                <div class="accordion-inner" [className]="accordion4.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                    <div class="text article">
+                        <p class="text">Ми приймаємо замовлення кожного дня з 11:00 по 21:30 ( у зв’язку з комендантською годиною )
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
