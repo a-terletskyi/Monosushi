@@ -1,3 +1,35 @@
+@mixin responsive ($breakpoint) {
+    @if $breakpoint == small {
+        @media screen and (max-width: 576px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == medium {
+        @media screen and (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == large {
+        @media screen and (max-width: 992px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == xlarge {
+        @media screen and (max-width: 1200px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == xxlarge {
+        @media screen and (max-width: 1400px) {
+            @content;
+        }
+    }
+}
+
 @mixin d-flex($jc, $ai) {
     display: flex;
     justify-content: $jc;
@@ -10,9 +42,10 @@
     background-color: $bg-color;
 }
 
-@mixin border() {
-    border: 2px solid transparent;
-    border-radius: 10px;
+@mixin text($color, $fz, $lh) {
+    color: $color;
+    font-size: $fz;
+    line-height: $lh;
 }
 
 @mixin background($url) {
@@ -22,8 +55,13 @@
     background-position: center;
 }
 
-@mixin text($color, $fz, $lh) {
-    color: $color;
-    font-size: $fz;
-    line-height: $lh;
+@mixin absolute($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+@mixin border() {
+    border: 2px solid transparent;
+    border-radius: 10px;
 }

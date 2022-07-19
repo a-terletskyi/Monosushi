@@ -1,50 +1,50 @@
-<div class="container">
+<div class="main-container">
     <div class="center-info">
         <h2 class="center-info__title">Про нас</h2>
     </div>
-    <div class="simple-page">
-        <h3 class="simple-page__title title">Monosushi – доставка неймовірно смачних суші у Львові.</h3>
-        <p class="simple-page__text text">Головний пріоритет – висока якість їжі та сервісу. Ми – команда професіоналів,
-            яка
-            щодня працює для<br>
-            Вас. Якість та Швидкість! – це два основних пріоритети в роботі команди. В першу чергу звичайно ж<br>
-            Якість. Суші готуються без затримок, одразу ж після Вашого замовлення. А завдяки сучасним технологіям та<br>
-            відповідальному навчанню працівників, свіжі страви можливо доставляти до 59 хв в 75% замовлень.</p>
-        <ul class="simple-page-list">
-            <li class="list-item text">висока якість їжі та сервісу</li>
-            <li class="list-item text">команда професіоналів</li>
-            <li class="list-item text">сучасні технології приготування</li>
-        </ul>
-
-    </div>
-    <div class="acquaintance-page">
-        <div class="block-img">
-            <img src="../../../assets/images/img_1127-scaled-568x568.jpg" alt="sushi">
-        </div>
-        <div class="block-info">
-            <h3 class="block-info__title title">Привіт! Познайомимось?</h3>
-            <p class="block-info__text text"><strong>Monosushi</strong> – це доставка найсмачніших суші у Львові, яка
-                була створена командою
-                перфекціоністів. Двоє
-                друзів, які обожнюють роли вирішили створити продукт, якого їм не вистачало на ринку Львова.
-                Продукт, в якому ідеальним буде все: смак, упакування, сервіс і все це за лояльною ціною!</p>
+    <div class="simple">
+        <div class="container">
+            <h3 class="title">Monosushi – доставка неймовірно смачних суші у Львові.</h3>
+            <p class="text">
+                Головний пріоритет – висока якість їжі та сервісу. Ми – команда
+                професіоналів, яка щодня працює для Вас. Якість та Швидкість! – це два основних пріоритети в роботі
+                команди. В першу чергу звичайно ж Якість. Суші готуються без затримок, одразу ж після Вашого замовлення.
+                А завдяки сучасним технологіям та відповідальному навчанню працівників, свіжі страви можливо
+                доставляти до 59 хв в 75% замовлень.
+            </p>
+            <ul class="menu-list">
+                <li class="menu-list__item text">висока якість їжі та сервісу</li>
+                <li class="menu-list__item text">команда професіоналів</li>
+                <li class="menu-list__item text">сучасні технології приготування</li>
+            </ul>
         </div>
     </div>
-    <div class="acquaintance-page">
-        <div class="block-info">
-            <h3 class="block-info__title title">Наш пріоритет - ваша посмішка від задоволення</h3>
-            <p class="block-info__text text"><strong>Monosushi</strong> – це доставка одного (mono) продукту. Роли вже
-                давно
-                стали рядовою стравою,
-                проте процес їх приготування всеодно залишається цілим мистецтвом. Суші потрібно готувати за чіткою
-                технологією суворо дотримуючись традицій. І в цьому ми справжні експерти! Сумніваєтесь? Тоді замовляйте
+    <div class="acquaintance">
+        <div class="img-block">
+            <img class="w-100" src="../../../assets/images/img_1127-scaled-568x568.jpg" alt="sushi">
+        </div>
+        <div class="left-info-block">
+            <h3 class="title">Привіт! Познайомимось?</h3>
+            <p class="text"><strong>Monosushi</strong> – це доставка найсмачніших суші у Львові, яка
+                була створена командою перфекціоністів. Двоє друзів, які обожнюють роли вирішили створити продукт, якого
+                їм не вистачало на ринку Львова. Продукт, в якому ідеальним буде все:
+                смак, упакування, сервіс і все це за лояльною ціною!</p>
+        </div>
+    </div>
+    <div class="acquaintance">
+        <div class="right-info-block">
+            <h3 class="title">Наш пріоритет - ваша посмішка від задоволення</h3>
+            <p class="text"><strong>Monosushi</strong> – це доставка одного (mono) продукту. Роли вже
+                давно стали рядовою стравою, проте процес їх приготування всеодно залишається цілим мистецтвом.
+                Суші потрібно готувати за чіткою технологією суворо дотримуючись традицій.
+                І в цьому ми справжні експерти! Сумніваєтесь? Тоді замовляйте
                 безкоштовну доставку Monosushi і насолоджуйтесь.</p>
         </div>
-        <div class="block-img">
-            <img src="../../../assets/images/img_8051-scaled-568x568.jpeg" alt="sushi">
+        <div class="img-block">
+            <img class="w-100" src="../../../assets/images/img_8051-scaled-568x568.jpeg" alt="sushi">
         </div>
     </div>
-    <div class="swiper-page">
+    <div class="swiper">
         <h3 class="swiper-page__title title">Наші переваги</h3>
         <swiper class="mySwiper" [config]="swiperConfig">
             <ng-template swiperSlide>
@@ -102,7 +102,8 @@
                 <div class="accordion-inner"
                     [className]="accordion1.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
                     <div class="text article">
-                        <p class="text mb-3">Якщо ваша адреса знаходиться поза межами нашої зони доставки, ви можете:</p>
+                        <p class="text mb-3">Якщо ваша адреса знаходиться поза межами нашої зони доставки, ви можете:
+                        </p>
                         <ol>
                             <li class="text">Забрати замовлення самовивозом за однією з наших адрес. (В такому випадку
                                 ви отримаєте
@@ -115,8 +116,10 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-title" #accordion2 (click)="toggleClassActive(accordion2)">Скільки часу очікувати на замовлення?</div>
-                <div class="accordion-inner" [className]="accordion2.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                <div class="accordion-title" #accordion2 (click)="toggleClassActive(accordion2)">Скільки часу очікувати
+                    на замовлення?</div>
+                <div class="accordion-inner"
+                    [className]="accordion2.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
                     <div class="text article">
                         <p class="text">Час доставки залежить від адреси замовлення.<br>
                             Доставка в зелену зону – до 1 год.<br>
@@ -125,20 +128,26 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-title" #accordion3 (click)="toggleClassActive(accordion3)">Доставка безкоштовна?</div>
-                <div class="accordion-inner" [className]="accordion3.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                <div class="accordion-title" #accordion3 (click)="toggleClassActive(accordion3)">Доставка безкоштовна?
+                </div>
+                <div class="accordion-inner"
+                    [className]="accordion3.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
                     <div class="text article">
-                        <p class="text">Так, доставка безкоштовна при мінімальній сумі замовлення 200 грн в зелену зону доставки та
+                        <p class="text">Так, доставка безкоштовна при мінімальній сумі замовлення 200 грн в зелену зону
+                            доставки та
                             300 грн в жовту зону.</p>
 
                     </div>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-title" #accordion4 (click)="toggleClassActive(accordion4)">До якої години ви приймаєте замовлення?</div>
-                <div class="accordion-inner" [className]="accordion4.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
+                <div class="accordion-title" #accordion4 (click)="toggleClassActive(accordion4)">До якої години ви
+                    приймаєте замовлення?</div>
+                <div class="accordion-inner"
+                    [className]="accordion4.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
                     <div class="text article">
-                        <p class="text">Ми приймаємо замовлення кожного дня з 11:00 по 21:30 ( у зв’язку з комендантською годиною )
+                        <p class="text">Ми приймаємо замовлення кожного дня з 11:00 по 21:30 ( у зв’язку з
+                            комендантською годиною )
                         </p>
                     </div>
                 </div>

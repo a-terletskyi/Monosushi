@@ -1,0 +1,122 @@
+.main-container {
+    max-width: 1750px;
+    padding: 0 15px;
+    margin: 60px auto 120px;
+
+    @include responsive(xxlarge) {
+        margin: 40px auto 90px;
+    }
+
+    @include responsive(xlarge) {
+        max-width: 960px;
+    }
+
+    @include responsive(large) {
+        max-width: 720px;
+    }
+
+    @include responsive(medium) {
+        max-width: 540px;
+        margin: 30px auto 50px;
+    }
+
+    @include responsive(small) {
+        max-width: 100%;
+    }
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 16px 22px;
+    line-height: 20px;
+    @include border();
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.35s;
+}
+
+.button:active {
+    transform: translateY(3px);
+}
+
+.green {
+    color: #27ae60;
+}
+
+.yellow {
+    color: #f2c94c;
+}
+
+.title {
+    @include text($default-text-color, 34px, 1.4em);
+
+    @include responsive(medium) {
+        font-size: 26px;
+    }
+}
+
+.text {
+    @include text($sec-text-color, 18px, 1.5em);
+
+    @include responsive(medium) {
+        font-size: 16px;
+    }
+}
+
+.menu-list {
+    &__item {
+        position: relative;
+        padding-left: 24px;
+
+    }
+
+    &__item+&__item {
+        margin-top: 8px;
+    }
+
+    ::before {
+        content: "";
+        @include absolute(9px, 0);
+        @include square(11px, 11px, $main-color);
+        border-radius: 100%;
+    }
+
+    ::after {
+        content: "";
+        @include absolute(10px, 1px);
+        @include square(9px, 9px, transparent);
+        border: 2px solid #ffffff;
+        border-radius: 100%;
+    }
+}
+
+.center-info {
+    margin-bottom: 40px;
+    text-align: center;
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        padding-top: 10px;
+        font-size: 42px;
+        line-height: 1.2em;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include square(100%, 5px, $main-color);
+            border-radius: $brd-radius;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+
+        &__title {
+            font-size: 34px;
+        }
+    }
+}
