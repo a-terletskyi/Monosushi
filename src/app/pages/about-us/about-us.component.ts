@@ -16,7 +16,8 @@ export class AboutUsComponent implements OnInit {
       576: { slidesPerView: 2 },
       992: { slidesPerView: 3 },
       1500: { slidesPerView: 4 },
-    }
+    },
+    speed: 700
   };
 
   readMoreStatus = false;
@@ -30,6 +31,6 @@ export class AboutUsComponent implements OnInit {
   toggleClassActive(element: HTMLElement): void {
     element.classList.toggle('active');
     this.readMoreStatus ? this.readMoreStatus = false : this.readMoreStatus = true;
-  // добавити типу якщо клік був не на менюшці закривати його
+    // добавити типу якщо клік був не на менюшці закривати його
   }
 }

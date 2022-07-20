@@ -44,18 +44,17 @@
             <img class="w-100" src="../../../assets/images/img_8051-scaled-568x568.jpeg" alt="sushi">
         </div>
     </div>
-    <div class="swiper">
-        <h3 class="swiper-page__title title">Наші переваги</h3>
+    <div class="advantages">
+        <h3 class="advantages__title title">Наші переваги</h3>
         <swiper class="mySwiper" [config]="swiperConfig">
             <ng-template swiperSlide>
-                <div class="advantages-item text-center">
+                <div class="advantages-item">
                     <div class="advantages-item-img">
                         <img src="../../../assets/icons/advantages-img-1.svg" alt="sushi">
                     </div>
                     <h5 class="advantages-item__title">Свіжі продукти</h5>
-                    <div class="advantages-item__text">
-                        <p>Наші інгредієнти ще вчора плавали у морі, а сьогодні вже у Ваших сушиках</p>
-                    </div>
+                    <p class="advantages-item__text">Наші інгредієнти ще вчора плавали у морі, а сьогодні вже у Ваших
+                        сушиках</p>
                 </div>
             </ng-template>
             <ng-template swiperSlide>
@@ -64,9 +63,7 @@
                         <img src="../../../assets/icons/advantages-img-2.svg" alt="sushi">
                     </div>
                     <h5 class="advantages-item__title">Неймовірний смак</h5>
-                    <div class="advantages-item__text">
-                        <p>Ми створили сушики, які змусять Ваші рецептори вибухнути від насолоди</p>
-                    </div>
+                    <p class="advantages-item__text">Ми створили сушики, які змусять Ваші рецептори вибухнути від насолоди</p>
                 </div>
             </ng-template>
             <ng-template swiperSlide>
@@ -75,9 +72,7 @@
                         <img src="../../../assets/icons/advantages-img-3.svg" alt="delivery">
                     </div>
                     <h5 class="advantages-item__title">Великі порції</h5>
-                    <div class="advantages-item__text">
-                        <p>Ми віднайшли ідеальні порції ролів та завжди дотримуємось грамажу вказаного на сайті</p>
-                    </div>
+                    <p class="advantages-item__text">Ми віднайшли ідеальні порції ролів та завжди дотримуємось грамажу вказаного на сайті</p>
                 </div>
             </ng-template>
             <ng-template swiperSlide>
@@ -86,15 +81,14 @@
                         <img src="../../../assets/icons/advantages-img-4.svg" alt="purity">
                     </div>
                     <h5 class="advantages-item__title">Чистота на кухні</h5>
-                    <div class="advantages-item__text">
-                        <p>Ми як ніхто інший розуміємо, що морепродукти потребують абсолютної чистоти на кухні</p>
-                    </div>
+                    <p class="advantages-item__text">Ми як ніхто інший розуміємо, що морепродукти потребують абсолютної
+                        чистоти на кухні</p>
                 </div>
             </ng-template>
         </swiper>
     </div>
-    <div class="question-page">
-        <h3 class="question-page__title title">Популярні запитання</h3>
+    <div class="questions">
+        <h3 class="questions__title title">Популярні запитання</h3>
         <div class="accordion">
             <div class="accordion-item">
                 <div class="accordion-title" #accordion1 (click)="toggleClassActive(accordion1)">Як можна замовити, якщо

@@ -51,7 +51,9 @@
         margin-bottom: 50px;
     }
 
-    .img-block, .left-info-block, .right-info-block {
+    .img-block,
+    .left-info-block,
+    .right-info-block {
         width: 32%;
 
         @include responsive(xlarge) {
@@ -74,6 +76,7 @@
         @include responsive(large) {
             margin-top: 25px;
         }
+
         @include responsive(medium) {
             margin-top: 15px;
         }
@@ -119,15 +122,36 @@
     }
 }
 
-.swiper {
-    margin-bottom: 40px;
+.advantages {
+    width: 76%;
+    margin: 0 auto 90px;
+
+    @include responsive(xxlarge) {
+        margin-bottom: 60px;
+    }
+
+    @include responsive(xlarge) {
+        width: 100%;
+    }
+
+    @include responsive(medium) {
+        margin-bottom: 30px;
+    }
 
     &__title {
         margin-bottom: 60px;
         text-align: center;
+
+        @include responsive(xxlarge) {
+            margin-bottom: 40px;
+        }
+
+        @include responsive(medium) {
+            margin-bottom: 30px;
+        }
     }
 
-    .swiper {
+    .mySwiper {
         padding-bottom: 50px;
 
         .advantages-item {
@@ -140,29 +164,32 @@
                 @include square(85px, 85px, $main-color);
                 margin: 30px auto 20px;
                 border-radius: $brd-radius;
+
+                @include responsive(small){
+                    margin: 0 auto 20px;
+                }
             }
 
             &__title {
+                font-size: 20px;
                 line-height: 1.7em;
             }
 
-            &__text p {
-                @include text($sec-text-color, 16px, 1.6em);
+            &__text {
+                color: $sec-text-color;
             }
         }
 
         .advantages-item::before {
             content: "";
-            position: absolute;
-            top: 0;
-            left: -15px;
+            @include absolute(0, -15px);
             @include square(1px, 100%, #dcdcdc);
         }
     }
 }
 
-.question-page {
-    max-width: 76%;
+.questions {
+    max-width: 59%;
     margin: 0 auto;
 
     &__title {
