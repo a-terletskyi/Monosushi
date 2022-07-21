@@ -153,6 +153,7 @@
 
     .mySwiper {
         padding-bottom: 50px;
+        cursor: grab;
 
         .advantages-item {
             max-width: 240px;
@@ -165,7 +166,7 @@
                 margin: 30px auto 20px;
                 border-radius: $brd-radius;
 
-                @include responsive(small){
+                @include responsive(small) {
                     margin: 0 auto 20px;
                 }
             }
@@ -179,12 +180,16 @@
                 color: $sec-text-color;
             }
         }
-
-        .advantages-item::before {
+        
+        ::before {
             content: "";
             @include absolute(0, -15px);
             @include square(1px, 100%, #dcdcdc);
         }
+    }
+
+    .mySwiper:active {
+        cursor: grabbing;
     }
 }
 
@@ -192,31 +197,59 @@
     max-width: 59%;
     margin: 0 auto;
 
+    @include responsive(xlarge) {
+        max-width: 84%;
+    }
+
+    @include responsive(large) {
+        max-width: none;
+    }
+
     &__title {
         margin-bottom: 40px;
         text-align: center;
+
+        @include responsive(medium) {
+            margin-bottom: 20px;
+        }
     }
 
     .accordion {
-        position: relative;
-        z-index: 1;
+        .accordion-inner {
+            max-height: 0;
+            padding-right: 30px;
+            overflow: hidden;
+            transition: .35s;
+
+            @include responsive(medium) {
+                padding-right: 5px;
+            }
+        }
+
+        .accordion-inner.active {
+            max-height: 250px;
+            padding-bottom: 25px;
+        }
 
         &-item {
-            position: relative;
+            border-bottom: 1px solid #dcdcdc;
             border-left-color: transparent;
             border-right-color: transparent;
-            border-bottom: 1px solid #dcdcdc;
 
-            .accordion-title {
+            &__title {
                 position: relative;
                 padding: 32px 20px 37px 0;
+                font-family: 'RotondaC-bold';
                 @include text($sec-text-color, 20px, 1.2em);
-                font-weight: 700;
-                transition: 0.35s;
                 cursor: pointer;
+                transition: 0.35s;
+
+                @include responsive(large) {
+                    padding: 22px 20px 27px 0;
+                }
             }
 
-            .accordion-title:before {
+            &__title::before {
                 content: "";
                 position: absolute;
                 right: 0;
@@ -226,56 +259,21 @@
                 border-bottom: 2px solid $sec-text-color;
                 transform: rotate(-45deg);
                 transition: 0.35s;
+
+                @include responsive(large) {
+                    top: 28px;
+                }
             }
 
-            .accordion-title.active {
+            &__title.active {
                 padding-bottom: 24px;
                 color: $default-text-color;
             }
 
-            .accordion-title.active:before {
+            &__title.active::before {
                 top: 40px;
                 border-color: $default-text-color;
                 transform: rotate(-225deg);
-            }
-
-            .accordion-inner {
-                max-height: 0;
-                overflow: hidden;
-                transition: .35s;
-
-                li {
-                    position: relative;
-                    padding-left: 24px;
-                }
-
-                li::before {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 9px;
-                    @include square(11px, 11px, $main-color);
-                    border-radius: 100%;
-                }
-
-                li::after {
-                    content: "";
-                    position: absolute;
-                    left: 1px;
-                    top: 10px;
-                    @include square(9px, 9px, transparent);
-                    border: 2px solid #fff;
-                    border-radius: 100%;
-                }
-
-                li+li {
-                    margin-top: 23px;
-                }
-            }
-
-            .accordion-inner.active {
-                padding: 0 30px 25px 0;
-                max-height: 200px;
             }
         }
 

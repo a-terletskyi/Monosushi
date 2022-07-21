@@ -5,6 +5,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, SwiperOptions } from 'sw
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss']
 })
+
 export class AboutUsComponent implements OnInit {
   swiperConfig: SwiperOptions = {
     slidesPerView: 1,
@@ -20,17 +21,11 @@ export class AboutUsComponent implements OnInit {
     speed: 700
   };
 
-  readMoreStatus = false;
-
   constructor() { }
 
   ngOnInit(): void {
     SwiperCore.use([Navigation, Pagination, Scrollbar]);
   }
 
-  toggleClassActive(element: HTMLElement): void {
-    element.classList.toggle('active');
-    this.readMoreStatus ? this.readMoreStatus = false : this.readMoreStatus = true;
-    // добавити типу якщо клік був не на менюшці закривати його
-  }
+  toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') };
 }

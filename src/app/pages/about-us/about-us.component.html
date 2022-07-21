@@ -63,7 +63,8 @@
                         <img src="../../../assets/icons/advantages-img-2.svg" alt="sushi">
                     </div>
                     <h5 class="advantages-item__title">Неймовірний смак</h5>
-                    <p class="advantages-item__text">Ми створили сушики, які змусять Ваші рецептори вибухнути від насолоди</p>
+                    <p class="advantages-item__text">Ми створили сушики, які змусять Ваші рецептори вибухнути від
+                        насолоди</p>
                 </div>
             </ng-template>
             <ng-template swiperSlide>
@@ -72,7 +73,8 @@
                         <img src="../../../assets/icons/advantages-img-3.svg" alt="delivery">
                     </div>
                     <h5 class="advantages-item__title">Великі порції</h5>
-                    <p class="advantages-item__text">Ми віднайшли ідеальні порції ролів та завжди дотримуємось грамажу вказаного на сайті</p>
+                    <p class="advantages-item__text">Ми віднайшли ідеальні порції ролів та завжди дотримуємось грамажу
+                        вказаного на сайті</p>
                 </div>
             </ng-template>
             <ng-template swiperSlide>
@@ -91,59 +93,48 @@
         <h3 class="questions__title title">Популярні запитання</h3>
         <div class="accordion">
             <div class="accordion-item">
-                <div class="accordion-title" #accordion1 (click)="toggleClassActive(accordion1)">Як можна замовити, якщо
-                    наша адреса не входить у вашу зону доставки?</div>
+                <p class="accordion-item__title" #accordion1 (click)="toggleClassActive(accordion1)">Як можна замовити,
+                    якщо
+                    наша адреса не входить у вашу зону доставки?</p>
                 <div class="accordion-inner"
                     [className]="accordion1.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
-                    <div class="text article">
-                        <p class="text mb-3">Якщо ваша адреса знаходиться поза межами нашої зони доставки, ви можете:
-                        </p>
-                        <ol>
-                            <li class="text">Забрати замовлення самовивозом за однією з наших адрес. (В такому випадку
-                                ви отримаєте
-                                “Запечені моно макі з лососем у подарунок).</li>
-                            <li class="text">Дізнатись в оператора чи є можливість зробити виключення для доставки поза
-                                межі зони в
-                                даний момент часу.</li>
-                        </ol>
-                    </div>
+                    <p class="text mb-3">Якщо ваша адреса знаходиться поза межами нашої зони доставки, ви можете: </p>
+                    <ol class="menu-list">
+                        <li class="menu-list__item text">Забрати замовлення самовивозом за однією з наших адрес. (В
+                            такому випадку
+                            ви отримаєте “Запечені моно макі з лососем“ у подарунок).</li>
+                        <li class="menu-list__item text">Дізнатись в оператора чи є можливість зробити виключення для
+                            доставки поза
+                            межі зони в даний момент часу.</li>
+                    </ol>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-title" #accordion2 (click)="toggleClassActive(accordion2)">Скільки часу очікувати
-                    на замовлення?</div>
+                <p class="accordion-item__title" #accordion2 (click)="toggleClassActive(accordion2)">Скільки часу
+                    очікувати
+                    на замовлення?</p>
                 <div class="accordion-inner"
                     [className]="accordion2.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
-                    <div class="text article">
-                        <p class="text">Час доставки залежить від адреси замовлення.<br>
-                            Доставка в зелену зону – до 1 год.<br>
-                            Доставка в жовту зону – до 1,5 год.</p>
-                    </div>
+                    <p class="text">Час доставки залежить від адреси замовлення.<br>
+                        Доставка в зелену зону – до 1 год.<br>
+                        Доставка в жовту зону – до 1,5 год.</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-title" #accordion3 (click)="toggleClassActive(accordion3)">Доставка безкоштовна?
-                </div>
+                <p class="accordion-item__title" #accordion3 (click)="toggleClassActive(accordion3)">Доставка безкоштовна?</p>
                 <div class="accordion-inner"
                     [className]="accordion3.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
-                    <div class="text article">
-                        <p class="text">Так, доставка безкоштовна при мінімальній сумі замовлення 200 грн в зелену зону
-                            доставки та
-                            300 грн в жовту зону.</p>
-
-                    </div>
+                    <p class="text">Так, доставка безкоштовна при мінімальній сумі замовлення 200 грн в зелену зону
+                        доставки та 300 грн в жовту зону.</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-title" #accordion4 (click)="toggleClassActive(accordion4)">До якої години ви
-                    приймаєте замовлення?</div>
+                <p class="accordion-item__title" #accordion4 (click)="toggleClassActive(accordion4)">До якої години ви
+                    приймаєте замовлення?</p>
                 <div class="accordion-inner"
                     [className]="accordion4.classList.contains('active') ? 'accordion-inner active' : 'accordion-inner'">
-                    <div class="text article">
-                        <p class="text">Ми приймаємо замовлення кожного дня з 11:00 по 21:30 ( у зв’язку з
-                            комендантською годиною )
-                        </p>
-                    </div>
+                    <p class="text">Ми приймаємо замовлення кожного дня з 11:00 по 21:30 ( у зв’язку з
+                        комендантською годиною )</p>
                 </div>
             </div>
         </div>
