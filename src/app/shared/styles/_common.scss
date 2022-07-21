@@ -40,14 +40,6 @@
     transform: translateY(3px);
 }
 
-.green {
-    color: #27ae60;
-}
-
-.yellow {
-    color: #f2c94c;
-}
-
 .title {
     @include text($default-text-color, 34px, 1.4em);
 
@@ -119,4 +111,28 @@
             font-size: 34px;
         }
     }
+}
+
+.border-hover {}
+
+.link-hover {
+    position: relative;
+    display: inline-block;
+    transition: all 0.35s ease-out;
+}
+
+.link-hover::before {
+    content: "";
+    position: absolute;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    @include square(0, 2px, $main-color);
+    transition: all 0.35s ease-out;
+}
+
+.link-hover:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
 }

@@ -4,15 +4,27 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/common';
 
-.container {
-    padding: 0 15px;
-    margin: 60px auto 120px;
-    max-width: 1750px;
-}
-
 .delivery {
     @include d-flex(center, center);
+    width: 86%;
     padding: 20px 15px 0;
+    margin: 0 auto;
+
+    @include responsive(xxlarge) {
+        padding: 0 15px;
+    }
+
+    @include responsive(xlarge) {
+        width: 100%;
+    }
+
+    @include responsive(large) {
+        flex-direction: column;
+    }
+
+    @include responsive(medium) {
+        padding: 10px 0 0 0;
+    }
 
     &-info {
         position: relative;
@@ -20,19 +32,49 @@
         width: 100%;
         padding: 0 15px;
 
+        @include responsive(small) {
+            flex-direction: column;
+        }
+
         &-img {
             max-width: 276px;
             margin-right: 40px;
+
+            @include responsive(xxlarge) {
+                margin-right: 15px;
+            }
+
+            @include responsive(medium) {
+                width: 47%;
+            }
+
+            @include responsive(small) {
+                width: 100%;
+                max-width: 170px;
+                margin-bottom: 10px;
+            }
         }
 
         &-text {
             max-width: 270px;
+            text-align: center;
+
+            @include responsive(medium) {
+                width: 53%;
+            }
+
+            @include responsive(small) {
+                width: 100%;
+            }
 
             .title {
                 margin-bottom: 10px;
-                font-size: 26px;
-                line-height: 1.2em;
+                @include text($default-text-color, 26px, 1.2em);
                 letter-spacing: 0.07em;
+
+                @include responsive(medium) {
+                    font-size: 22px;
+                }
             }
 
             .text {
@@ -43,24 +85,50 @@
                 margin-top: 10px;
             }
         }
+
+        .green {
+            color: #27ae60;
+        }
+
+        .yellow {
+            color: #f2c94c;
+        }
+    }
+
+    &-info.yellow {
+        @include responsive(large) {
+            margin-top: 40px;
+        }
     }
 
     &-info.yellow::before {
         content: "";
-        position: absolute;
-        left: -15px;
-        top: 50%;
-        transform: translate(0, -50%);
+        @include absolute(50%, 0);
         @include square(1px, 230px, #dcdcdc);
+        transform: translate(0, -50%);
+
+        @include responsive(xxlarge) {
+            display: none;
+        }
     }
 }
 
 .map {
     @include d-flex(center, center);
-    margin: 80px 0 60px 0;
+    @include square(84%, 650px, transparent);
+    margin: 80px auto 60px;
 
-    .google-map {
-        @include square(1200px, 650px, transparent);
+    @include responsive(xxlarge) {
+        margin: 40px auto;
+    }
+
+    @include responsive(xlarge) {
+        @include square(100%, 500px, transparent);
+    }
+
+    @include responsive(medium) {
+        height: 330px;
+        margin-top: 20px;
     }
 }
 
@@ -69,38 +137,90 @@
     max-width: 64%;
     margin: 0 auto 90px;
 
+    @include responsive(xxlarge) {
+        margin: 0 auto 60px;
+    }
+
+    @include responsive(xlarge) {
+        max-width: 95%;
+    }
+
+    @include responsive(large) {
+        max-width: none;
+    }
+
+    @include responsive(medium) {
+        margin: 0 auto 30px;
+    }
+
     .text {
-        @include text($sec-text-color, 18px, 1.5em);
+        @include responsive(medium) {
+            font-size: 18px;
+        }
     }
 }
 
 .payment {
     margin-bottom: 90px;
 
+    @include responsive(xxlarge) {
+        margin-bottom: 60px;
+    }
+
+    @include responsive(medium) {
+        margin-bottom: 30px;
+    }
+
     &__title {
         margin-bottom: 40px;
         @include text($default-text-color, 42px, 1.2em);
         text-align: center;
+
+        @include responsive(medium) {
+            margin-bottom: 20px;
+            font-size: 34px;
+        }
     }
 
     .payment-info {
         @include d-flex(center, center);
         margin: 0 auto;
+        max-width: 74%;
+
+        @include responsive(xxlarge) {
+            max-width: 65%;
+        }
+
+        @include responsive(large) {
+            flex-direction: column;
+            align-items: start;
+            max-width: none;
+        }
 
         &-item {
             position: relative;
             display: flex;
             max-width: 427px;
-            padding: 0 15px;
             margin: 0 20px;
+
+            @include responsive(large) {
+                padding: 0;
+                margin-bottom: 20px;
+            }
         }
 
         &-item:nth-child(n+2):before {
             content: "";
-            position: absolute;
-            top: 0;
-            left: -40px;
+            @include absolute(0, -30px);
             @include square(1px, 100%, #dcdcdc);
+
+            @include responsive(xlarge) {
+                left: -22px;
+            }
+
+            @include responsive(large) {
+                display: none;
+            }
         }
 
         &-img {
@@ -110,201 +230,27 @@
             max-width: 63px;
             margin-right: 20px;
             border-radius: $brd-radius;
+
+            @include responsive(xlarge) {
+                max-width: 53px;
+                height: 50px;
+                margin-right: 10px;
+            }
         }
 
         &-text {
             .title {
                 margin: 15px 0;
-                line-height: 1.1em;
+                @include text($default-text-color, 20px, 1.1em);
+
+                @include responsive(xlarge) {
+                    margin: 5px 0;
+                }
             }
 
-            .text p {
-                color: $sec-text-color;
+            .text {
+                font-size: 16px;
             }
         }
-    }
-}
-
-@media screen and (max-width: 1600px) {
-    .delivery-info.yellow::before {
-        display: none;
-    }
-
-    .delivery-info-img {
-        margin-right: 15px;
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .container {
-        margin: 40px auto 90px;
-    }
-
-    .delivery {
-        padding: 0 15px;
-    }
-
-    .map {
-        margin: 40px 0;
-    }
-
-    .delivery-text {
-        margin: 0 auto 60px;
-    }
-
-    .payment {
-        margin-bottom: 60px;
-
-        .payment-info-item {
-            margin: 0;
-        }
-
-        .payment-info-item:nth-child(n+2):before {
-            left: -15px;
-        }
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .container {
-        max-width: 960px;
-    }
-
-    .map .google-map {
-        width: 920px;
-        height: 500px;
-    }
-
-    .delivery-text {
-        max-width: 95%;
-    }
-
-    .payment {
-        .payment-info {
-            max-width: 74%;
-
-            &-item:nth-child(n+2):before {
-                left: -7px;
-            }
-
-            &-img {
-                max-width: 53px;
-                height: 50px;
-                margin-right: 10px;
-            }
-
-            &-text .title {
-                margin: 5px 0;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .container {
-        max-width: 720px;
-    }
-
-    .delivery {
-        flex-direction: column;
-
-        &-info.yellow {
-            margin-top: 40px;
-        }
-    }
-
-    .map .google-map {
-        width: 660px;
-    }
-
-    .delivery-text {
-        max-width: 100%;
-    }
-
-    .payment {
-        .payment-info {
-            flex-direction: column;
-            align-items: start;
-            max-width: 100%;
-
-            &-item {
-                padding: 0;
-                margin-bottom: 20px;
-            }
-
-            &-item::before {
-                display: none;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        max-width: 540px;
-        margin: 30px auto 50px;
-    }
-
-    .delivery {
-        padding: 10px 0 0 0;
-
-        .delivery-info-img {
-            width: 47%;
-        }
-
-        .delivery-info-text {
-            width: 53%;
-
-            .title {
-                font-size: 22px;
-            }
-        }
-    }
-
-    .delivery-text {
-        margin: 0 auto 30px;
-    }
-
-    .map {
-        margin-top: 20px;
-
-        .google-map {
-            width: 500px;
-            height: 330px;
-        }
-    }
-
-    .payment {
-        margin-bottom: 30px;
-
-        &__title {
-            margin-bottom: 20px;
-            font-size: 34px;
-        }
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .container {
-        max-width: none;
-        width: 100%;
-    }
-
-    .delivery .delivery-info {
-        flex-direction: column;
-
-        &-img,
-        &-text {
-            width: 100%;
-        }
-
-        &-img {
-            max-width: 170px;
-            margin-bottom: 10px;
-        }
-    }
-
-    .map .google-map {
-        width: 100%;
     }
 }

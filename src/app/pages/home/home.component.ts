@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   toggleClassActive(element: HTMLElement): void {
     element.classList.toggle('active');
     this.readMoreStatus ? this.readMoreStatus = false : this.readMoreStatus = true;
-    // добавити типу якщо клік був не на менюшці закривати його
   }
 
 }

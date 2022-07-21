@@ -4,17 +4,20 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/common';
 
-.container {
-    max-width: 1750px;
-    padding: 0 15px;
-    margin: 0 auto;
-}
+// .container {
+//     max-width: 1750px;
+//     padding: 0 15px;
+//     margin: 0 auto;
+// }
 
 .home-banner {
-    position: relative;
     z-index: 2;
-    max-width: 100%;
+    position: relative;
     height: 650px;
+
+    @include responsive(xxlarge) {
+        height: 450px;
+    }
 
     .bg-full,
     .bg-mobile {
@@ -24,52 +27,93 @@
 
     .bg-full {
         @include background('../../../assets/images/banner-img-1-1920x650.jpg');
+
+        @include responsive(medium) {
+            display: none;
+        }
     }
 
     .bg-mobile {
         display: none;
         @include background('../../../assets/images/banner-img-1-mob-650x650.jpg');
+
+        @include responsive(medium) {
+            display: block;
+        }
     }
 
-    .banner-content {
+    .container {
         position: absolute;
         inset: 0;
-        width: 100%;
-        max-width: 1750px;
+        max-width: 76%;
         height: max-content;
         padding: 0 15px;
         margin: auto;
 
-        .content-container {
-            width: 83%;
-            margin: 0 auto;
+        @include responsive(xxlarge) {
+            max-width: 83%;
+        }
+
+        @include responsive(xlarge) {
+            max-width: 960px;
+        }
+
+        @include responsive(large) {
+            max-width: 720px;
+        }
+
+        @include responsive(medium) {
+            max-width: 540px;
+        }
+
+        @include responsive(medium) {
+            inset: auto 0 0;
+            padding-bottom: 30px;
         }
 
         .left-info {
             max-width: 625px;
 
-            &-title {
+            &__title {
                 margin-bottom: 11px;
-                font-family: 'RotondaC-bold';
                 @include text(#fff, 42px, 1.2em);
 
+                @include responsive(medium) {
+                    font-size: 24px;
+                }
+
                 b {
+                    font-size: 42px;
                     color: $main-color;
+
+                    @include responsive(medium) {
+                        font-size: 24px;
+                    }
                 }
             }
 
-            &-text {
+            &__text {
                 opacity: 0.75;
                 margin-bottom: 27px;
                 @include text(#fff, 20px, 1.5em);
+
+                @include responsive(medium) {
+                    margin-bottom: 17px;
+                    font-size: 12px;
+                }
             }
 
-            .banner-details-btn {
+            .left-info__btn {
                 padding: 16px 44px;
                 background: $main-color;
+
+                @include responsive(medium) {
+                    padding: 10px 20px;
+                    font-size: 12px;
+                }
             }
 
-            .banner-details-btn:hover {
+            .left-info__btn:hover {
                 color: #fff;
                 background-color: transparent;
                 border-color: $main-color;
@@ -246,10 +290,6 @@
 }
 
 @media screen and (max-width: 1400px) {
-    .home-banner {
-        height: 450px;
-    }
-
     .after-banner {
         margin-bottom: 60px;
     }
@@ -265,18 +305,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .container {
-        max-width: 960px;
-    }
-
-    .home-banner .banner-content, .seo-block .container {
-        max-width: 960px;
-
-        .content-container {
-            width: 100%;
-        }
-    }
-
     .after-banner {
         padding: 20px 0;
 
@@ -292,52 +320,12 @@
 
 @media screen and (max-width: 992px) {
 
-    .container,
-    .home-banner .banner-content {
-        max-width: 720px;
-    }
-
     .seo-block {
         display: none;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        max-width: 540px;
-    }
-
-    .home-banner {
-        .bg-full {
-            display: none;
-        }
-
-        .bg-mobile {
-            display: block;
-        }
-
-        .banner-content {
-            inset: auto 0 0;
-            max-width: 540px;
-            padding-bottom: 30px;
-
-            .left-info {
-                &-title {
-                    font-size: 24px;
-                }
-
-                &-text {
-                    margin-bottom: 17px;
-                    font-size: 12px;
-                }
-
-                .banner-details-btn {
-                    padding: 10px 20px;
-                    font-size: 12px;
-                }
-            }
-        }
-    }
 
     .after-banner {
         display: none;
