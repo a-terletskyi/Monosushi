@@ -4,12 +4,6 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/common';
 
-// .container {
-//     max-width: 1750px;
-//     padding: 0 15px;
-//     margin: 0 auto;
-// }
-
 .home-banner {
     z-index: 2;
     position: relative;
@@ -131,24 +125,43 @@
     background-position: 0 0, 190px -52px;
     background-repeat: repeat;
 
+    @include responsive(xxlarge) {
+        margin-bottom: 60px;
+    }
+
+    @include responsive(xlarge) {
+        padding: 20px 0;
+    }
+
+    @include responsive(medium) {
+        display: none;
+    }
+
+    .container {
+        max-width: 1750px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
     .col-md-4:nth-child(n+2) {
         position: relative;
     }
 
     .col-md-4::before {
         content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translate(0, -50%);
+        @include absolute(50%, 0);
         @include square(1px, 133px, #ffffff66);
+        transform: translate(0, -50%);
     }
 
     &-item {
         @include d-flex(center, center);
         max-width: 350px;
         margin: 0 auto;
-        font-size: 18px;
+
+        @include responsive(xlarge) {
+            flex-direction: column;
+        }
 
         .button {
             background-color: #fff;
@@ -158,180 +171,122 @@
             background-color: transparent;
             border-color: #fff;
         }
-
     }
 
     &-img {
         max-width: 135px;
         margin-right: 30px;
 
+        @include responsive(xlarge) {
+            margin: 0 0 20px 0;
+        }
+
         img {
             min-width: 75px;
-            width: 100%;
         }
     }
 
     &-info {
         max-width: 230px;
+        font-size: 18px;
         text-align: center;
+
+        b {
+            font-size: 18px;
+        }
     }
 }
 
 .seo-block {
     margin-bottom: 120px;
 
+    @include responsive(xlarge) {
+        margin-bottom: 90px;
+    }
+
+    @include responsive(large) {
+        display: none;
+    }
+
     .container {
         max-width: 75%;
+        padding: 0 15px;
+        margin: 0 auto;
+
+        @include responsive(xlarge){
+            max-width: 940px;
+        }
     }
 
-    &-title {
+    .title {
         text-align: center;
-        @include text(#252525, 34px, 1.4em);
-        font-family: 'RotondaC-bold';
     }
 
-    &-inner {
+    &-info {
         margin-top: 60px;
 
+        @include responsive(xlarge) {
+            margin-top: 40px;
+        }
+
         .article {
-
-            &__title,
-            &__text {
-                font-size: 18px;
-            }
-
             &__title {
-                margin-bottom: 20px;
+                font-size: 18px;
+                font-family: 'RotondaC-bold';
             }
 
-            &__text {
-                color: $sec-text-color;
+            &__title, &-list, .menu-list, .text {
                 margin-bottom: 20px;
             }
 
             &-list {
-                margin-bottom: 20px;
-
-                &-item {
+                &__item {
                     position: relative;
                     padding-left: 14px;
-                    @include text($sec-text-color, 18px, 1.47em);
                     list-style: decimal-leading-zero;
 
                     strong {
-                        color: #252525;
+                        font-size: 18px;
                     }
                 }
 
-                &-item::marker {
-                    color: #252525;
-                    font-size: 12px;
-                    font-family: 'RotondaC-bold';
-                }
-
-                li+li {
+                &__item+&__item {
                     margin-top: 23px;
                 }
 
-                .circle-marker {
-                    padding-left: 0;
-                    list-style-type: disc;
+                &__item::marker {
+                    @include text($default-text-color, 12px, 1.2em);
+                    font-family: 'RotondaC-bold';
                 }
+            }
 
-                .circle-marker::marker {
-                    color: $main-color;
-                    font-size: 20px;
-                }
+            .menu-list__item {
+                @include text ($sec-text-color, 18px, 1.2em);
             }
         }
     }
 
     .read-more {
-        position: relative;
         padding-right: 24px;
         color: $main-color;
         background-color: transparent;
-        font-family: 'RotondaC-bold';
         border: none;
-    }
-
-    .read-more::before {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: auto;
-        @include square(0, 2px, $main-color);
-        transition: all 0.35s ease-out;
-    }
-
-    .read-more:hover::before {
-        left: 0;
-        right: auto;
-        width: 100%;
     }
 
     .read-more::after {
         content: "";
         position: absolute;
-        right: 4px;
         top: 5px;
+        right: 4px;
         @include square(9px, 9px, transparent);
+        transform: rotate(-45deg);
         border-left: 3px solid $main-color;
         border-bottom: 3px solid $main-color;
-        transform: rotate(-45deg);
         transition: 0.35s;
     }
 
     .read-more.active::after {
         top: 11px;
         transform: rotate(-225deg);
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .after-banner {
-        margin-bottom: 60px;
-    }
-
-    .seo-block {
-        margin-bottom: 90px;
-
-        &-inner {
-            margin-top: 40px;
-        }
-    }
-
-}
-
-@media screen and (max-width: 1200px) {
-    .after-banner {
-        padding: 20px 0;
-
-        &-item {
-            flex-direction: column;
-        }
-
-        &-img {
-            margin: 0 0 20px 0;
-        }
-    }
-}
-
-@media screen and (max-width: 992px) {
-
-    .seo-block {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    .after-banner {
-        display: none;
-    }
-
-    .after-banner {
-        margin-bottom: 30px;
     }
 }

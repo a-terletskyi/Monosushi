@@ -4,9 +4,17 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/common';
 
+* {
+    p{
+        color: $sec-text-color;
+        font-size: 14px;
+    }
+}
+
 footer {
-    border-top: 4px solid $main-color;
     background-color: #fff;
+    border-top: 4px solid $main-color;
+
     .footer-wrapper {
         max-width: 1920px;
         margin: 0 auto;
@@ -15,28 +23,80 @@ footer {
 
 .footer-top {
     @include d-flex(space-between, center);
-    width: 100%;
     padding: 20px 35px;
+
+    @include responsive(xxlarge) {
+        padding: 15px 25px;
+
+        .footer-info>*+* {
+            margin-left: 20px;
+        }
+    }
+
+    @include responsive(xlarge) {
+        padding: 15px;
+    }
+
+    @include responsive(large) {
+        justify-content: center;
+    }
+
+    @include responsive(medium) {
+        flex-wrap: wrap;
+
+        .footer-info>*+* {
+            margin: 5px 0 0 0;
+        }
+    }
 
     .logo {
         max-width: 136px;
 
-        img {
-            width: 100%;
+        @include responsive(xxlarge) {
+            max-width: 123px;
+        }
+
+        @include responsive(xlarge) {
+            max-width: 110px;
+        }
+
+        @include responsive(large) {
+            margin: 0 auto;
+        }
+
+        @include responsive(medium) {
+            flex-basis: 50%;
         }
     }
 
-    .menu-list {
+    .footer-menu {
         display: flex;
 
-        .menu-item+.menu-item {
+        @include responsive(large) {
+            margin: 0 auto;
+        }
+
+        @include responsive(medium) {
+            order: 1;
+            flex-basis: 100%;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .footer-menu__item+.footer-menu__item {
             margin-left: 55px;
+
+            @include responsive(xlarge) {
+                margin-left: 25px;
+            }
         }
 
         a {
             font-size: 16px;
-            line-height: 1em;
-            transition: 0.35s;
+
+            @include responsive(xxlarge) {
+                font-size: 14px;
+            }
         }
 
         a:hover {
@@ -46,45 +106,42 @@ footer {
 
     .footer-info {
         @include d-flex(space-between, start);
-        max-width: 43%;
+        max-width: 50%;
         width: 100%;
-        line-height: 1.25em;
 
-        p {
-            font-size: 14px;
+        @include responsive(large) {
+            margin: 15px auto 0;
         }
 
-        b {
+        @include responsive(medium) {
+            order: 2;
+            flex-direction: column;
+            align-items: center;
+            max-width: none;
+            margin-top: 10px;
+        }
+
+        .delivery-address li {
             color: $sec-text-color;
-            font-family: 'RotondaC';
-            font-size: 14px;
-            transition: 0.35s;
         }
 
-        .delivery-address {
-            text-align: center;
-
-            li {
-                color: $sec-text-color;
-                font-size: 14px;
-            }
-        }
-
-        .order-phone {
-            @extend .delivery-address;
-
-            b:hover {
-                color: $main-color;
-            }
-        }
-
-        .work-time {
-            @extend .delivery-address;
+        .order-phone a:hover {
+            color: $main-color;
         }
     }
 
     .social {
         display: none;
+
+        @include responsive(medium) {
+            @include d-flex(center, start);
+            flex-basis: 100%;
+            margin-top: 15px;
+
+            &__title {
+                display: none;
+            }
+        }
     }
 }
 
@@ -92,211 +149,34 @@ footer {
     @include d-flex(space-between, center);
     padding: 0 35px 20px;
 
-    .copyright p {
-        font-size: 14px;
-        color: $sec-text-color;
-        white-space: nowrap;
+    @include responsive(xxlarge){
+        padding: 0 25px 15px;
+
+        .copyright, .social__title{
+            font-size: 12px;
+        }
+    }
+
+    @include responsive(xlarge){
+        padding: 0 15px 15px;
+    }
+
+    @include responsive(medium){
+        flex-wrap: wrap;
+
+        .copyright{
+            order: 1;
+        }
+
+        .social {
+            display: none;
+        }
     }
 
     .pay-cards {
         @include d-flex(space-between, center);
 
-        &-item {
-            @include d-flex(center, center);
-            @include square(69px, 39px, transparent);
-            border: 1px solid #dcdcdc;
-            border-radius: 5px;
-
-            img {
-                max-width: 45px;
-            }
-        }
-    }
-}
-
-.social {
-    @include d-flex(space-between, center);
-
-    span {
-        margin-right: 20px;
-        color: #252525;
-        font-size: 14px;
-    }
-
-    .social-list {
-        display: flex;
-
-        li+li {
-            margin-left: 5px;
-        }
-
-        .icon-btn {
-            @include d-flex(center, center);
-            @include square(49px, 49px, $main-color);
-            @include border();
-            transition: 0.35s;
-
-            img {
-                @include square(18px, 18px, transparent);
-            }
-        }
-
-        .icon-btn:hover {
-            background-color: #fff;
-            border: 2px solid $main-color;
-        }
-    }
-}
-
-@media screen and (max-width: 1500px) {
-    .footer-top {
-        .footer-info {
-            width: unset;
-        }
-
-        .footer-info>*+* {
-            margin-left: 20px;
-        }
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .footer-top {
-        padding: 15px 25px;
-
-        .logo {
-            max-width: 123px;
-        }
-
-        .menu-list .menu-item a {
-            font-size: 14px;
-        }
-
-        .footer-info>*+* {
-            margin-left: 20px;
-        }
-    }
-
-    .footer-bottom {
-        padding: 0 25px 15px;
-
-        .copyright p {
-            font-size: 12px;
-        }
-
-        .pay-cards .pay-cards-item {
-            @include square(56px, 33px, transparent);
-
-            img {
-                max-width: 30px;
-            }
-        }
-    }
-
-    .social {
-        span {
-            font-size: 12px;
-        }
-
-        .social-list .icon-btn {
-            @include square(40px, 40px, $main-color);
-
-            img {
-                @include square(12px, 12px, transparent);
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .footer-top {
-        padding: 15px;
-
-        .logo {
-            max-width: 110px;
-        }
-
-        .menu-list .menu-item+.menu-item {
-            margin-left: 25px;
-        }
-    }
-
-    .footer-bottom {
-        padding: 0 15px 15px;
-    }
-
-    .social {
-        span {
-            margin-right: 10px;
-        }
-
-        .social-list .icon-btn {
-            @include square(35px, 35px, $main-color);
-        }
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .footer-top {
-        @include d-flex(center, center);
-
-        .logo,
-        .menu-list {
-            margin: 0 auto;
-        }
-
-        .footer-info {
-            margin: 15px auto 0;
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .footer-top {
-        justify-content: center;
-        flex-wrap: wrap;
-
-        .logo {
-            flex-basis: 50%;
-        }
-
-        .menu-list {
-            order: 1;
-            flex-basis: 100%;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .footer-info {
-            order: 2;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .footer-info>*+* {
-            margin: 5px 0 0 0;
-        }
-
-        .social {
-            @include d-flex(center, start);
-            flex-basis: 100%;
-            margin-top: 15px;
-
-            span {
-                display: none;
-            }
-        }
-    }
-
-    .footer-bottom {
-        flex-wrap: wrap;
-
-        .copyright {
-            order: 1;
-        }
-
-        .pay-cards {
+        @include responsive(medium){
             order: 0;
             justify-content: center;
             column-gap: 5px;
@@ -304,8 +184,75 @@ footer {
             margin-bottom: 15px;
         }
 
-        .social {
-            display: none;
+        &-item {
+            @include d-flex(center, center);
+            @include square(69px, 39px, transparent);
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+
+            @include responsive(xxlarge){
+                @include square(56px, 33px, transparent);
+            }
+
+            img {
+                max-width: 45px;
+
+                @include responsive(xxlarge){
+                    max-width: 30px;
+                }
+            }
+        }
+
+        .pay-cards-item+.pay-cards-item{
+            margin-left: 5px;
+        }
+    }
+}
+
+.social {
+    @include d-flex(space-between, center);
+
+    &__title {
+        margin-right: 20px;
+
+        @include responsive(xlarge){
+            margin-right: 10px;
+        }
+    }
+
+    .social-list {
+        display: flex;
+
+        .social-list-item+.social-list-item {
+            margin-left: 5px;
+        }
+
+        .icon-btn {
+            @include d-flex(center, center);
+            @include square(49px, 49px, $main-color);
+            @include border;
+            transition: 0.35s;
+
+            @include responsive(xxlarge){
+                @include square(40px, 40px, $main-color);
+            }
+
+            @include responsive(xlarge){
+                @include square(35px, 35px, $main-color);
+            }
+
+            img {
+                @include square(18px, 18px, transparent);
+
+                @include responsive(xxlarge){
+                    @include square(12px, 12px, transparent);
+                }
+            }
+        }
+
+        .icon-btn:hover {
+            background-color: #fff;
+            border: 2px solid $main-color;
         }
     }
 }

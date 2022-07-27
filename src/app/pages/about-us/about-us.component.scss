@@ -180,12 +180,6 @@
                 color: $sec-text-color;
             }
         }
-        
-        ::before {
-            content: "";
-            @include absolute(0, -15px);
-            @include square(1px, 100%, #dcdcdc);
-        }
     }
 
     .mySwiper:active {

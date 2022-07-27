@@ -6,15 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isAuthorizated = false;
+  isAuthorizated = true;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   toggleClassActive(element: HTMLElement): void {
-    element.classList.toggle('active')
-  // добавити типу якщо клік був не на менюшці закривати його
+    element.classList.toggle('active');
   }
 
   openPopup(): void {
