@@ -193,6 +193,7 @@
     position: relative;
     display: inline-block;
     transition: all 0.35s ease-out;
+    cursor: pointer;
 }
 
 .link-hover::before {

@@ -1,0 +1,104 @@
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="kindOfPopUp ==='call'">
+                    <h5 class="modal-title title">МИ ЗАТЕЛЕФОНУЄМО</h5>
+                    <p class="info-text">Залиште номер телефону і наші менеджери зв'яжуться з вами</p>
+                    <form class="form-popUp">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="call-userName" placeholder="Ваше ім'я" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" id="call-phoneNumber"
+                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Ваш номер телефону" required>
+                        </div>
+                        <button type="submit" class="button popUp-btn">Надіслати</button>
+                    </form>
+                </ng-container>
+                <ng-container *ngIf="kindOfPopUp ==='signIn'">
+                    <h5 class="modal-title title fz-26">Вхід в кабінет</h5>
+                    <form class="form-popUp">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="signIn-email" aria-describedby="emailHelp"
+                                placeholder="*Ваш email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="signIn-password" placeholder="*Пароль"
+                                required>
+                        </div>
+                        <button type="submit" class="button popUp-btn">Увійти в кабінет</button>
+                    </form>
+                </ng-container>
+                <ng-container *ngIf="kindOfPopUp === 'signUp'">
+                    <h5 class="modal-title title fz-26">Зареєструватись</h5>
+                    <form class="form-popUp">
+                        <div class="d-sm-flex justify-content-between">
+                            <div class="mb-3 me-sm-3 w-50">
+                                <input type="text" class="form-control" id="signUp-firstName" placeholder="Ваше ім'я"
+                                    required>
+                            </div>
+                            <div class="mb-3 w-50">
+                                <input type="text" class="form-control" id="signUp-secondName"
+                                    placeholder="Ваше прізвище" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" id="signUp-phoneNumber"
+                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="signUp-email" aria-describedby="emailHelp"
+                                placeholder="Ваш email" required>
+                        </div>
+                        <div class="d-sm-flex justify-content-between">
+                            <div class="mb-3  me-sm-3 w-50">
+                                <input type="password" class="form-control" id="signUp-password" placeholder="Пароль"
+                                    required>
+                            </div>
+                            <div class="mb-3 w-50">
+                                <input type="password" class="form-control" id="signUp-repeatPassword"
+                                    placeholder="Повторіть пароль" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="signUp-checkbox" required>
+                            <label class="form-check-label" for="signUp-checkbox">Я погоджуюсь з правилами
+                                користування</label>
+                        </div>
+                        <button type="submit" class="button popUp-btn">Зареєструватись</button>
+                    </form>
+                </ng-container>
+                <ng-container *ngIf="kindOfPopUp === 'resetPass'">
+                    <h5 class="modal-title title fz-26">Відновити пароль</h5>
+                    <p class="info-text">Після заповнення форми, ми надішлемо вам детальну інструкцію по
+                        відновленню паролю</p>
+                    <form class="form-popUp">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="resetPass-email" aria-describedby="emailHelp"
+                                placeholder="*Ваш email" required>
+                        </div>
+                        <button type="submit" class="button popUp-btn">Відновити пароль</button>
+                    </form>
+                </ng-container>
+            </div>
+            <div class="modal-footer d-flex">
+                <ng-container *ngIf="kindOfPopUp ==='signIn'">
+                    <a class="popUp-link link-hover" (click)="openModal('resetPass')">Забули пароль?</a>
+                    <a class="popUp-link link-hover" (click)="openModal('signUp')">Зареєструватись</a>
+                </ng-container>
+                <ng-container *ngIf="kindOfPopUp ==='resetPass'">
+                    <p class="text m-auto">Повернутися до <a class="popUp-link link-hover"
+                            (click)="openModal('signIn')">Входу</a></p>
+                </ng-container>
+                <ng-container *ngIf="kindOfPopUp ==='signUp'">
+                    <p class="text m-auto">Вже зареєстровані? <a class="popUp-link link-hover"
+                            (click)="openModal('signIn')">Увійти</a></p>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

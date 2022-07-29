@@ -35,6 +35,7 @@ import { AdminActionComponent } from './admin/admin-action/admin-action.componen
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
     AdminCategoryComponent,
     AdminProductComponent,
     AdminOrderComponent,
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,

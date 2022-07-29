@@ -115,7 +115,7 @@
 
 .map {
     @include d-flex(center, center);
-    @include square(84%, 650px, transparent);
+    @include square(70%, 650px, transparent);
     margin: 80px auto 60px;
 
     @include responsive(xxlarge) {
