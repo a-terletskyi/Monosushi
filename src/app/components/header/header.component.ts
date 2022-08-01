@@ -10,37 +10,31 @@ declare let window: any;
 
 export class HeaderComponent implements OnInit {
   @ViewChild(PopUpComponent) popUp!: PopUpComponent;
-
-  formModal: any;
   kindOfPopUp!: string;
+  myModal!: any ;
+  isAuthorizated = false;
+  
   windowWidth!: number;
-
-  isAuthorizated = true;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.formModal = new window.bootstrap.Modal(document.getElementById('myModal'));
+    this.myModal = new window.bootstrap.Modal(document.getElementById('myModal'));
     this.windowWidth = window.innerWidth;
   }
 
-  onResize(event: any): void { this.windowWidth = event.target.innerWidth }
-
-  get width(): number {
-    return this.windowWidth = window.innerWidth;
-  }
-
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
-
+  
+  onResize(event: any): void { this.windowWidth = event.target.innerWidth }
 
   // modal
   openModal(kindOf: string): void {
     this.popUp.kindOfPopUp = kindOf;
-    this.formModal.show();
+    this.myModal.show();
   }
 
   closeModal(): void {
     // confirm or save something
-    this.formModal.hide();
+    this.myModal.hide();
   }
 }

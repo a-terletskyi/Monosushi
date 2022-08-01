@@ -191,6 +191,7 @@
 .header-nav-wrapper.active {
     @include responsive(xlarge) {
         transform: translateX(0);
+        border-left: solid 1px #dcdcdc;
     }
 }
 
@@ -252,30 +253,32 @@
     }
 
     .dropdown-menu {
-        z-index: 1;
-        @include absolute(-25px, -30px);
-        display: block;
-        padding: 28px 25px 0px 25px;
-        opacity: 0;
-        visibility: hidden;
-        background: #fff;
-        border: 2px solid $main-color;
-        border-radius: $brd-radius;
-        transition: 0.35s;
-
         @include responsive(xlarge) {
             display: none;
         }
     }
+}
 
-    .dropdown-menu.show {
-        inset: 0px auto auto -30px !important;
-        transform: translate3d(0px, -25px, 0px) !important;
-        padding: 88px 25px 20px 25px;
-        opacity: 1;
-        visibility: visible;
-        transition: 0.35s;
-    }
+.dropdown-menu {
+    z-index: 1;
+    @include absolute(-25px, -30px);
+    display: block;
+    padding: 28px 25px 0px 25px;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    border: 2px solid $main-color;
+    border-radius: $brd-radius;
+    transition: 0.35s;
+}
+
+.dropdown-menu.show {
+    inset: 0px auto auto -30px !important;
+    transform: translate3d(0px, -25px, 0px) !important;
+    padding: 88px 25px 20px 25px;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.35s;
 }
 
 .call {
@@ -401,7 +404,6 @@
 }
 
 .header-user {
-    padding: 9px;
     margin-right: auto;
     @include border();
     transition: .35s;
@@ -411,35 +413,14 @@
     }
 
     img {
-        z-index: 4;
-        position: relative;
-    }
-
-    .user-profile {
         z-index: 3;
-        @include absolute(-25px, -30px);
-        padding: 8px 25px 0px 25px;
-        opacity: 0;
-        visibility: hidden;
-        background: #fff;
-        border: 2px solid $main-color;
-        border-radius: 5px;
-        transition: .35s;
-
-        @include responsive(xlarge) {
-            top: -15px;
-            padding: 18px 15px 0px 15px;
-        }
+        position: relative;
+        display: block;
+        padding: 9px;
     }
-}
 
-.header-user.active .user-profile {
-    padding: 88px 25px 20px 25px;
-    opacity: 1;
-    visibility: visible;
-
-    @include responsive(xlarge) {
-        padding: 68px 15px 10px 15px;
+    .dropdown-menu {
+        z-index: 2;;
     }
 }
 

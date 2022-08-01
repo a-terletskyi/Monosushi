@@ -166,7 +166,7 @@
     border: 2px solid transparent;
     border-radius: 7px;
 
-    @include responsive(large) {
+    @include responsive(xlarge) {
         display: none;
     }
 }
@@ -205,7 +205,7 @@
     @include square(0, 2px, $main-color);
     transition: all 0.35s ease-out;
 
-    @include responsive(large) {
+    @include responsive(xlarge) {
         display: none;
     }
 }
