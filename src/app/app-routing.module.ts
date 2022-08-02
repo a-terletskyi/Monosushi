@@ -38,11 +38,11 @@ const routes: Routes = [
       { path: 'password', component: CabinetPasswordComponent },
     ]},
   {path: 'admin', component: AdminComponent, children: [
+      { path: '', pathMatch: 'full', redirectTo: 'action' },
       { path: 'action', component: AdminActionComponent },
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent },
-      { path: 'order', component: AdminOrderComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'action' }
+      { path: 'order', component: AdminOrderComponent }
     ]},
 ];
 

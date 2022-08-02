@@ -1,0 +1,60 @@
+@import '../shared/styles/fonts';
+@import '../shared/styles/base';
+@import '../shared/styles/variables';
+@import '../shared/styles/mixins';
+@import '../shared/styles/common';
+
+.container-fluid {
+    display: flex;
+    max-width: 1920px;
+    padding: 0 15px;
+    margin: 60px auto;
+
+    @include responsive(medium) {
+        display: block;
+        margin: 40px auto;
+    }
+}
+
+.list-group {
+    width: 230px;
+    margin-right: 25px;
+
+    @media screen and(max-width:1600px) {
+        width: 180px;
+    }
+
+    @include responsive(medium) {
+        width: 100%;
+        margin: 0 0 40px 0;
+    }
+
+    &-item {
+        border: none;
+        text-align: center;
+
+        a {
+            display: inline-block;
+            width: 100%;
+            padding: 16px 22px;
+            color: $sec-text-color;
+            font-size: 18px;
+            border-top: solid 1px #dcdcdc;
+
+            @media screen and(max-width:1600px) {
+                font-size: 16px;
+            }
+        }
+
+        .route-active {
+            border-top: solid 4px $main-color;
+            color: $default-text-color;
+            font-family: 'RotondaC-bold';
+        }
+
+        .list-btn {
+            margin-top: 20px;
+            background-color: $main-color;
+        }
+    }
+}
