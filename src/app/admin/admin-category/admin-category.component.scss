@@ -1,0 +1,89 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
+
+.container-fluid {
+    padding: 0 15px;
+
+    @include responsive(medium) {
+        text-align: center;
+    }
+}
+
+.btn-admin {
+    width: 280px;
+    padding: 16px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border: solid 2px $main-color;
+    transition: 0.35s;
+}
+
+.btn-admin:hover {
+    background-color: $main-color;
+}
+
+.table {
+    text-align: start;
+
+    tbody {
+        border-top-color: $main-color;
+    }
+
+    th,
+    td {
+        padding: 20px;
+        color: $sec-text-color;
+        font-size: 18px;
+        vertical-align: middle;
+
+        @media screen and (max-width:1600px) {
+            font-size: 16px;
+        }
+    }
+
+    th {
+        width: 20%;
+    }
+
+    .btn-table {
+        display: block;
+        color: $main-color;
+        background-color: transparent;
+        border: none;
+    }
+
+}
+
+form {
+    width: 65%;
+
+    @include responsive(large) {
+        width: 100%;
+    }
+
+    .d-flex {
+        gap: 20px;
+    }
+
+    input {
+        padding: 12px 16px;
+        border-radius: $brd-radius;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+
+    .btn-admin {
+        margin-top: 20px;
+    }
+
+    .btn-admin:disabled {
+        color: #6a6a6a;
+        background-color: #e1f1ff;
+        border-color: #e1f1ff;
+    }
+}

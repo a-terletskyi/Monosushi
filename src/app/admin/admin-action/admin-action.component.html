@@ -1,28 +1,49 @@
-<div class="container">
-    <button type="button" class="button">Додати акцію</button>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Дата</th>
-                <th scope="col">Назва</th>
-                <th scope="col">Заголовок</th>
-                <th scope="col">Опис</th>
-                <th scope="col">Картинка</th>
-                <th scope="col">Дії</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>12.2021</td>
-                <td>рол тижня</td>
-                <td>50% знижки на "Рол тижня"</td>
-                <td>Щотижня діє знижка на 50% на один з ролів у нашому меню</td>
-                <td><img src="" alt="action"></td>
-                <td>
-                    <button type="button">Редагувати</button>
-                    <button type="button">Видалити</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container-fluid">
+    <button type="button" class="button btn-admin" (click)="addAction()">Додати акцію</button>
+    <ng-container *ngIf="!statusAddBtn">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Назва</th>
+                    <th>Заголовок</th>
+                    <th>Опис</th>
+                    <th>Картинка</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12.2021</td>
+                    <td>рол тижня</td>
+                    <td>50% знижки на "Рол тижня"</td>
+                    <td >Щотижня діє знижка на 50% на один з ролів у нашому меню</td>
+                    <td><img src="" alt="action"></td>
+                    <td>
+                        <button type="button" class="btn-table link-hover">Редагувати</button>
+                        <button type="button" class="btn-table link-hover">Видалити</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    <ng-container *ngIf="statusAddBtn">
+        <form [formGroup]="formAddAction">
+            <div class="d-flex">
+                <div class="mb-3 w-50">
+                    <input type="text" class="form-control" id="actionName" formControlName="name" placeholder="*Назва">
+                </div>
+                <div class="mb-3 w-50">
+                    <input type="text" class="form-control" id="actionTitle" formControlName="title"
+                        placeholder="*Заголовок">
+                </div>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control w-100" id="actionDescription" cols="30" rows="6"
+                    formControlName="description" placeholder="*Опис"></textarea>
+            </div>
+            <!-- тут має бути загрузка файлу та progress bar -->
+            <button type="button" class="button btn-admin" [disabled]="formAddAction.invalid">Зберегти</button>
+        </form>
+    </ng-container>
 </div>
