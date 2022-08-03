@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <button type="button" class="button btn-admin" (click)="addAction()">Додати акцію</button>
-    <ng-container *ngIf="!statusAddBtn">
+    <button type="button" class="button btn-admin" (click)="toggleTemplate()">Додати акцію</button>
+    <ng-container *ngIf="!formTemplateStatus">
         <table class="table">
             <thead>
                 <tr>
@@ -13,21 +13,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>12.2021</td>
-                    <td>рол тижня</td>
-                    <td>50% знижки на "Рол тижня"</td>
-                    <td >Щотижня діє знижка на 50% на один з ролів у нашому меню</td>
-                    <td><img src="" alt="action"></td>
+                <tr *ngFor="let action of adminActions">
+                    <td>{{action.date | date: 'dd.MM.YYYY'}}</td>
+                    <td>{{action.name}}</td>
+                    <td>{{action.title}}</td>
+                    <td>{{action.description.length > 60 ? (action.description | slice:0:60) + '...' : action.description }}
+                    </td>
+                    <td><img class="w-50" [src]="action.imagePath" alt="action"></td>
                     <td>
-                        <button type="button" class="btn-table link-hover">Редагувати</button>
-                        <button type="button" class="btn-table link-hover">Видалити</button>
+                        <button type="button" class="btn-table link-hover" (click)="editActions(action)">Редагувати</button>
+                        <button type="button" class="btn-table link-hover" (click)="deleteActions(action)">Видалити</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </ng-container>
-    <ng-container *ngIf="statusAddBtn">
+    <ng-container *ngIf="formTemplateStatus">
         <form [formGroup]="formAddAction">
             <div class="d-flex">
                 <div class="mb-3 w-50">
@@ -43,7 +44,7 @@
                     formControlName="description" placeholder="*Опис"></textarea>
             </div>
             <!-- тут має бути загрузка файлу та progress bar -->
-            <button type="button" class="button btn-admin" [disabled]="formAddAction.invalid">Зберегти</button>
+            <button type="button" class="button btn-admin" [disabled]="formAddAction.invalid" (click)="editStatus ? updateActions() : addActions()">Зберегти</button>
         </form>
     </ng-container>
 </div>
