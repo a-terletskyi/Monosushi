@@ -20,7 +20,7 @@
                         <td>{{action.title}}</td>
                         <td>{{action.description.length > 60 ? (action.description | slice:0:60) + '...' : action.description }}
                         </td>
-                        <td><img class="w-50" [src]="action.imagePath" alt="action"></td>
+                        <td><img class="w-100" [src]="action.imagePath" alt="action"></td>
                         <td>
                             <button type="button" class="btn-table link-hover" (click)="editActions(action)">Редагувати</button>
                             <button type="button" class="btn-table link-hover" (click)="deleteActions(action)">Видалити</button>

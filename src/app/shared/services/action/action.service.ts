@@ -17,6 +17,10 @@ export class ActionService {
     return this.http.get<IActionResponse[]>(this.api.actions);
   }
 
+  getOne(id: number): Observable<IActionResponse> {
+    return this.http.get<IActionResponse>(`${this.api.actions}/${id}`);
+  }
+
   create(action: IActionRequest): Observable<IActionResponse> {
     return this.http.post<IActionResponse>(this.api.actions, action);
   }

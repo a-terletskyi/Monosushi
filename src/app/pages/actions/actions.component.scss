@@ -2,20 +2,82 @@
 @import '../../shared/styles/base';
 @import '../../shared/styles/variables';
 @import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
 
 .container {
     padding: 0 15px;
     margin: 60px auto 120px;
-}
+    max-width: 1500px;
 
-@media screen and (max-width: 1400px) {
-    .container {
+    @media screen and (max-width: 1600px) {
+        max-width: 1320px;
+    }
+
+    @include responsive(xxlarge) {
         margin: 40px auto 90px;
+        max-width: 1140px;
+    }
+
+    @include responsive(xlarge) {
+        max-width: 960px;
+    }
+
+    @include responsive(large) {
+        max-width: 720px;
+    }
+
+    @include responsive(medium) {
+        margin: 30px auto 50px;
+        max-width: 540px;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        margin: 30px auto 50px;
+.cards-group {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: auto auto;
+
+    @include responsive(medium) {
+        grid-template-columns: auto;
+    }
+}
+
+.card {
+    border: none;
+    text-align: center;
+
+    &-img {
+        overflow: hidden;
+        border-radius: $brd-radius;
+        cursor: pointer;
+
+        img {
+            transition: 0.35s;
+        }
+
+        img:hover {
+            transform: scale(104%);
+            transition: 0.35s;
+        }
+    }
+
+    &-line {
+        margin: 15px 0;
+        height: 3px;
+        background-color: $main-color;
+        border-radius: $brd-radius;
+    }
+
+    &-btn {
+        width: 100%;
+        max-width: 260px;
+        padding: 14px 16px;
+        background-color: $main-color;
+    }
+
+    &-btn:hover {
+        background-color: transparent;
+        border-color: $main-color;
+        transition: 0.35s;
     }
 }

@@ -1,17 +1,11 @@
 {
   "actions": [
     {
-      "name": "zxczx",
-      "title": "czxc",
-      "description": "zxczx",
-      "date": "2022-08-03T15:45:50.364Z",
-      "id": "HhxhqzC"
-    },
-    {
       "name": "asda",
       "title": "sadas",
       "description": "dasd",
       "date": "2022-08-04T06:29:38.761Z",
+      "imagePath":"https://monosushi.com.ua/wp-content/uploads/2022/07/rol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg",
       "id": "GR3GN5R"
     },
     {
@@ -19,18 +13,29 @@
       "title": "zzzz",
       "description": "zzzz",
       "date": "2022-08-04T07:47:23.481Z",
+      "imagePath":"https://monosushi.com.ua/wp-content/uploads/2022/07/rol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg",
       "id": "HC4VE_i"
+    },
+    {
+      "name": "Рол тижня",
+      "title": "фівфівфівфів",
+      "description": "фівфівфівфівфівфівфівфів",
+      "date": "2022-08-04T08:58:22.489Z",
+      "imagePath":"https://monosushi.com.ua/wp-content/uploads/2022/07/rol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg",
+      "id": "DVitv-c"
     }
   ],
   "categories": [
     {
       "name": "aasd",
       "road": "asdasd",
+      "imagePath":"https://monosushi.com.ua/wp-content/uploads/2022/07/rol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg",
       "id": 1
     },
     {
       "name": "z",
       "road": "z",
+      "imagePath":"https://monosushi.com.ua/wp-content/uploads/2022/07/rol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg",
       "id": 2
     }
   ]

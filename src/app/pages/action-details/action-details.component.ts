@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IActionResponse } from 'src/app/shared/interfaces/action/action';
+import { ActionService } from 'src/app/shared/services/action/action.service';
 
 @Component({
   selector: 'app-action-details',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private actionsServise: ActionService) { }
 
   ngOnInit(): void {
+  }
+
+  getAction(action: IActionResponse): void {
+    
   }
 
 }
