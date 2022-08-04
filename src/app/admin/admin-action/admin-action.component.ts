@@ -16,7 +16,7 @@ export class AdminActionComponent implements OnInit {
   editStatus = false;
   editID!: number;
 
-  constructor(private actionsService: ActionService,private fb: FormBuilder) {
+  constructor(private actionsService: ActionService, private fb: FormBuilder) {
     this.createForm();
   }
 

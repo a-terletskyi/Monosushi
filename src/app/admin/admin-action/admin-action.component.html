@@ -1,40 +1,42 @@
 <div class="container-fluid">
     <button type="button" class="button btn-admin" (click)="toggleTemplate()">Додати акцію</button>
     <ng-container *ngIf="!formTemplateStatus">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Дата</th>
-                    <th>Назва</th>
-                    <th>Заголовок</th>
-                    <th>Опис</th>
-                    <th>Картинка</th>
-                    <th>Дії</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let action of adminActions">
-                    <td>{{action.date | date: 'dd.MM.YYYY'}}</td>
-                    <td>{{action.name}}</td>
-                    <td>{{action.title}}</td>
-                    <td>{{action.description.length > 60 ? (action.description | slice:0:60) + '...' : action.description }}
-                    </td>
-                    <td><img class="w-50" [src]="action.imagePath" alt="action"></td>
-                    <td>
-                        <button type="button" class="btn-table link-hover" (click)="editActions(action)">Редагувати</button>
-                        <button type="button" class="btn-table link-hover" (click)="deleteActions(action)">Видалити</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="overflow-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Назва</th>
+                        <th>Заголовок</th>
+                        <th>Опис</th>
+                        <th>Картинка</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let action of adminActions">
+                        <td>{{action.date | date: 'dd.MM.YYYY'}}</td>
+                        <td>{{action.name}}</td>
+                        <td>{{action.title}}</td>
+                        <td>{{action.description.length > 60 ? (action.description | slice:0:60) + '...' : action.description }}
+                        </td>
+                        <td><img class="w-50" [src]="action.imagePath" alt="action"></td>
+                        <td>
+                            <button type="button" class="btn-table link-hover" (click)="editActions(action)">Редагувати</button>
+                            <button type="button" class="btn-table link-hover" (click)="deleteActions(action)">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </ng-container>
     <ng-container *ngIf="formTemplateStatus">
         <form [formGroup]="formAddAction">
-            <div class="d-flex">
-                <div class="mb-3 w-50">
+            <div class="flex">
+                <div class="mb-3">
                     <input type="text" class="form-control" id="actionName" formControlName="name" placeholder="*Назва">
                 </div>
-                <div class="mb-3 w-50">
+                <div class="mb-3">
                     <input type="text" class="form-control" id="actionTitle" formControlName="title"
                         placeholder="*Заголовок">
                 </div>

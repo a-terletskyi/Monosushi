@@ -1,44 +1,46 @@
 <div class="container-fluid">
-    <button type="button" class="button btn-admin" (click)="addCategory()">Додати категорію</button>
-    <ng-container *ngIf="!statusAddBtn">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Назва</th>
-                    <th>Шлях</th>
-                    <th>Картинка</th>
-                    <th>Дії</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>№ 1</td>
-                    <td>роли</td>
-                    <td>rolls</td>
-                    <td><img src="" alt="rolls"></td>
-                    <td>
-                        <button type="button" class="btn-table link-hover">Редагувати</button>
-                        <button type="button" class="btn-table link-hover">Видалити</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <button type="button" class="button btn-admin" (click)="toggleTemplate()">Додати категорію</button>
+    <ng-container *ngIf="!formTemplateStatus">
+        <div class="overflow-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Назва</th>
+                        <th>Шлях</th>
+                        <th>Картинка</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of adminCategories">
+                        <td>№ {{category.id}}</td>
+                        <td>{{category.name}}</td>
+                        <td>{{category.road}}</td>
+                        <td><img [src]="category.imagePath" alt="category"></td>
+                        <td>
+                            <button type="button" class="btn-table link-hover" (click)="editCategories(category)">Редагувати</button>
+                            <button type="button" class="btn-table link-hover" (click)="deleteCategories(category)">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </ng-container>
-    <ng-container *ngIf="statusAddBtn">
+    <ng-container *ngIf="formTemplateStatus">
         <form [formGroup]="formAddCategory">
-            <div class="d-flex">
-                <div class="mb-3 w-50">
+            <div class="flex">
+                <div class="mb-3">
                     <input type="text" class="form-control" id="categoryName" formControlName="name"
                         placeholder="*Назва">
                 </div>
-                <div class="mb-3 w-50">
+                <div class="mb-3">
                     <input type="text" class="form-control" id="categoryRoad" formControlName="road"
                         placeholder="*Шлях">
                 </div>
             </div>
             <!-- тут має бути загрузка файлу та progress bar -->
-            <button type="button" class="button btn-admin" [disabled]="formAddCategory.invalid">Зберегти</button>
+            <button type="button" class="button btn-admin" [disabled]="formAddCategory.invalid" (click)="editStatus ? updateCategories() : addCategories()">Зберегти</button>
         </form>
     </ng-container>
 </div>

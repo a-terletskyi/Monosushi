@@ -6,6 +6,7 @@
 
 .container-fluid {
     padding: 0 15px;
+    margin: 0 auto;
 
     @include responsive(medium) {
         text-align: center;
@@ -19,6 +20,10 @@
     background-color: #fff;
     border: solid 2px $main-color;
     transition: 0.35s;
+
+    @include responsive(small) {
+        width: 100%;
+    }
 }
 
 .btn-admin:hover {
@@ -27,6 +32,7 @@
 
 .table {
     text-align: start;
+    overflow: auto;
 
     tbody {
         border-top-color: $main-color;
@@ -42,6 +48,10 @@
         @media screen and (max-width:1600px) {
             font-size: 16px;
         }
+
+        @include responsive(large) {
+            padding: 10px;
+        }
     }
 
     .btn-table {
@@ -56,12 +66,25 @@
 form {
     width: 65%;
 
-    @include responsive(large){
+    @include responsive(large) {
         width: 100%;
     }
 
-    .d-flex {
+    .flex {
+        display: flex;
         gap: 20px;
+
+        @include responsive(small){
+            display: block;
+        }
+
+        div {
+            width: 50%;
+
+            @include responsive(small){
+                width: 100%;
+            }
+        }
     }
 
     input,

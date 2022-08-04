@@ -19,6 +19,10 @@
     background-color: #fff;
     border: solid 2px $main-color;
     transition: 0.35s;
+
+    @include responsive(small) {
+        width: 100%;
+    }
 }
 
 .btn-admin:hover {
@@ -42,6 +46,10 @@
         @media screen and (max-width:1600px) {
             font-size: 16px;
         }
+
+        @include responsive(large) {
+            padding: 10px;
+        }
     }
 
     th {
@@ -64,8 +72,21 @@ form {
         width: 100%;
     }
 
-    .d-flex {
+    .flex {
+        display: flex;
         gap: 20px;
+
+        @include responsive(small){
+            display: block;
+        }
+
+        div {
+            width: 50%;
+
+            @include responsive(small){
+                width: 100%;
+            }
+        }
     }
 
     input {
