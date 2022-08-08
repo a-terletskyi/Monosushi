@@ -52,12 +52,17 @@
         cursor: pointer;
 
         img {
+            width: 100%;
             transition: 0.35s;
         }
 
         img:hover {
             transform: scale(104%);
             transition: 0.35s;
+
+            @include responsive(large) {
+                transform: none;
+            }
         }
     }
 

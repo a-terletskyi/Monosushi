@@ -18,7 +18,7 @@
                         <td>{{action.date | date: 'dd.MM.YYYY'}}</td>
                         <td>{{action.name}}</td>
                         <td>{{action.title}}</td>
-                        <td>{{action.description.length > 60 ? (action.description | slice:0:60) + '...' : action.description }}
+                        <td>{{action.description.length > 50 ? (action.description | slice:0:50) + '...' : action.description }}
                         </td>
                         <td><img class="w-100" [src]="action.imagePath" alt="action"></td>
                         <td>

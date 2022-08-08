@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
+import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 
 declare let window: any;
@@ -10,31 +12,28 @@ declare let window: any;
 
 export class HeaderComponent implements OnInit {
   @ViewChild(PopUpComponent) popUp!: PopUpComponent;
+  categories!: ICategoryResponse[];
   kindOfPopUp!: string;
-  myModal!: any ;
+  myModal!: any;
   isAuthorizated = false;
-  
   windowWidth!: number;
 
-  constructor() { }
+  constructor(private categoryService: CategoriesService) { }
 
   ngOnInit(): void {
+    this.getCategoriesAll();
     this.myModal = new window.bootstrap.Modal(document.getElementById('myModal'));
     this.windowWidth = window.innerWidth;
   }
 
+  getCategoriesAll(): void { this.categoryService.getAll().subscribe(data => { this.categories = data }) }
+
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
-  
+
   onResize(event: any): void { this.windowWidth = event.target.innerWidth }
 
-  // modal
   openModal(kindOf: string): void {
     this.popUp.kindOfPopUp = kindOf;
     this.myModal.show();
-  }
-
-  closeModal(): void {
-    // confirm or save something
-    this.myModal.hide();
   }
 }

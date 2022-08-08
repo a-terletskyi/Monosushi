@@ -7,48 +7,11 @@
         <div class="header-nav-wrapper" #headerNav>
             <nav>
                 <ul class="main-nav">
-                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/actions' ]"
+                    <li *ngFor="let category of categories" class="main-nav__item border-hover"><a [routerLink]="[ category.road ]"
                             routerLinkActive="route-active" class="main-nav-link">
                             <div class="link-block">
-                                <img class="link-block__img"
-                                    src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg"
-                                    alt="discounts">
-                                <h6 class="link-block__name">Акції</h6>
-                            </div>
-                        </a></li>
-                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/product-category/roli' ]"
-                            routerLinkActive="route-active" class="main-nav-link">
-                            <div class="link-block">
-                                <img class="link-block__img"
-                                    src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg"
-                                    alt="roles">
-                                <h6 class="link-block__name">Роли</h6>
-                            </div>
-                        </a></li>
-                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/product-category/setu' ]"
-                            routerLinkActive="route-active" class="main-nav-link">
-                            <div class="link-block">
-                                <img class="link-block__img"
-                                    src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg"
-                                    alt="sets">
-                                <h6 class="link-block__name">Сети</h6>
-                            </div>
-                        </a></li>
-                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/product-category/drinks' ]"
-                            routerLinkActive="route-active" class="main-nav-link">
-                            <div class="link-block">
-                                <img class="link-block__img"
-                                    src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg"
-                                    alt="drinks">
-                                <h6 class="link-block__name">Напої</h6>
-                            </div>
-                        </a></li>
-                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/product-category/sousi' ]"
-                            routerLinkActive="route-active" class="main-nav-link">
-                            <div class="link-block">
-                                <img class="link-block__img"
-                                    src="https://monosushi.com.ua/wp-content/uploads/2021/09/icon.svg" alt="sauces">
-                                <h6 class="link-block__name">Соуси</h6>
+                                <img class="link-block__img" [src]="category.imagePath" alt="category">
+                                <h6 class="link-block__name">{{category.name}}</h6>
                             </div>
                         </a></li>
                 </ul>

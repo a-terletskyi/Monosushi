@@ -1,0 +1,18 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
+
+.container {
+    padding: 0 15px;
+    margin: 60px auto 120px;
+
+    @include responsive(xxlarge){
+        margin: 40px auto 90px;
+    }
+
+    @include responsive(medeium){
+        margin: 30px auto 50px;
+    }
+}

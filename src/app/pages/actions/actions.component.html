@@ -5,7 +5,7 @@
     <div class="cards-group">
         <div *ngFor="let action of actions" class="card">
             <div class="card-img">
-                <a class="card-img__link" [routerLink]="['/actions', action.id]"><img [src]="action.imagePath" class="card-img-top" alt="discount"></a>
+                <a class="card-img__link" [routerLink]="['/actions', action.id]"><img [src]="action.imagePath === undefined ? 'assets/images/no-image-found.png' : action.imagePath " class="card-img-top" alt="discount"></a>
             </div>
             <div class="card-body">
                 <hr class="card-line">

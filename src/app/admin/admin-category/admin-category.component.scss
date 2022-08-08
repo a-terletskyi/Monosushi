@@ -57,7 +57,11 @@
     }
 
     img {
-        max-width: 180px;
+        max-height: 70px;
+
+        @include responsive (large){
+            max-height: 50px;  
+        }
     }
 
     .btn-table {

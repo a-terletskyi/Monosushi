@@ -213,7 +213,7 @@
         padding: 0 15px;
         margin: 0 auto;
 
-        @include responsive(xlarge){
+        @include responsive(xlarge) {
             max-width: 940px;
         }
     }
@@ -235,7 +235,10 @@
                 font-family: 'RotondaC-bold';
             }
 
-            &__title, &-list, .menu-list, .text {
+            &__title,
+            &-list,
+            .menu-list,
+            .text {
                 margin-bottom: 20px;
             }
 
@@ -264,6 +267,11 @@
                 @include text ($sec-text-color, 18px, 1.2em);
             }
         }
+    }
+
+    .more-text .article {
+        overflow: hidden;
+        transition: all 0.35s;
     }
 
     .read-more {
