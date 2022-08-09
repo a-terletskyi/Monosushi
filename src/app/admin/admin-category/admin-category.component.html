@@ -28,7 +28,7 @@
         </div>
     </ng-container>
     <ng-container *ngIf="formTemplateStatus">
-        <form [formGroup]="formAddCategory">
+        <form [formGroup]="formAddCategory" (ngSubmit)="editStatus ? updateCategories() : addCategories()">
             <div class="flex">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="categoryName" formControlName="name"
@@ -39,8 +39,10 @@
                         placeholder="*Шлях">
                 </div>
             </div>
-            <!-- тут має бути загрузка файлу та progress bar -->
-            <button type="button" class="button btn-admin" [disabled]="formAddCategory.invalid" (click)="editStatus ? updateCategories() : addCategories()">Зберегти</button>
+            <div class="mb-3">
+                <input type="file" class="form-control" id="categoryFile" formControlName="imagePath" accept="image/*">
+            </div>
+            <button type="submit" class="button btn-admin" [disabled]="formAddCategory.invalid">Зберегти</button>
         </form>
     </ng-container>
 </div>

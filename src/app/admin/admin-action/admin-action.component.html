@@ -31,7 +31,7 @@
         </div>
     </ng-container>
     <ng-container *ngIf="formTemplateStatus">
-        <form [formGroup]="formAddAction">
+        <form [formGroup]="formAddAction" (ngSubmit)="editStatus ? updateActions() : addActions()">
             <div class="flex">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="actionName" formControlName="name" placeholder="*Назва">
@@ -45,8 +45,19 @@
                 <textarea class="form-control w-100" id="actionDescription" cols="30" rows="6"
                     formControlName="description" placeholder="*Опис"></textarea>
             </div>
-            <!-- тут має бути загрузка файлу та progress bar -->
-            <button type="button" class="button btn-admin" [disabled]="formAddAction.invalid" (click)="editStatus ? updateActions() : addActions()">Зберегти</button>
+            <ng-container *ngIf="!isUploaded">
+                <div class="mb-3">
+                    <input type="file" class="form-control" id="actionFile" accept="image/*" (change)="upload($event)">
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" [style.width.%]="uploadPercent" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+            </ng-container>
+            <ng-container *ngIf="isUploaded">
+                <img [src]="valueByControl('imagePath')" alt="action">
+                <button type="button" class="button" (click)="deleteImage()">delete</button>
+            </ng-container>
+            <button type="submit" class="button btn-admin" [disabled]="formAddAction.invalid">Зберегти</button>
         </form>
     </ng-container>
 </div>

@@ -27,7 +27,7 @@ export class AdminCategoryComponent implements OnInit {
     this.formAddCategory = this.fb.group({
       name: ['', Validators.required],
       road: ['', Validators.required],
-      //  imagePath
+      imagePath: ['', Validators.required]
     });
   }
 
@@ -45,7 +45,8 @@ export class AdminCategoryComponent implements OnInit {
   editCategories(category: ICategoryResponse): void {
     this.formAddCategory.setValue({
       name: category.name,
-      road: category.road
+      road: category.road,
+      imagePath: category.imagePath
     });
     this.editID = category.id;
     this.editStatus = true;
