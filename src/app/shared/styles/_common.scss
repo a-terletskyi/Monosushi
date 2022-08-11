@@ -40,6 +40,16 @@
     transform: translateY(3px);
 }
 
+.button:disabled {
+    color: #6a6a6a;
+    background-color: #e1f1ff;
+    border-color: #d9ebfc;
+}
+
+.button:disabled:hover {
+    background-color: #e1f1ff;
+}
+
 .title {
     @include text($default-text-color, 34px, 1.4em);
 

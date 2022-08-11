@@ -10,13 +10,12 @@ import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResu
 })
 export class AdminActionComponent implements OnInit {
   adminActions!: IActionResponse[];
-
   formAddAction!: FormGroup;
-  formTemplateStatus = false;
-  uploadPercent!: number;
-  isUploaded = false;
+  addTemplateStatus = false;
   editStatus = false;
   editID!: number;
+  uploadPercent!: number;
+  isUploaded = false;
 
   constructor(private actionsService: ActionService, private fb: FormBuilder, private fireStorage: Storage) {
     this.createForm();
@@ -31,11 +30,21 @@ export class AdminActionComponent implements OnInit {
       name: ['', Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
-      imagePath: ['', Validators.required]
+      imagePath: [null, Validators.required]
     });
   }
 
-  toggleTemplate(): void { this.formTemplateStatus ? this.formTemplateStatus = false : this.formTemplateStatus = true }
+  resetForm(): void {
+    this.editStatus = false;
+    this.isUploaded = false;
+    this.uploadPercent = 0;
+    this.formAddAction.reset();
+  }
+
+  toggleAddTemplate(): void {
+    this.resetForm();
+    this.addTemplateStatus ? this.addTemplateStatus = false : this.addTemplateStatus = true;
+  }
 
   getAllActions(): void { this.actionsService.getAll().subscribe(data => { this.adminActions = data }) }
 
@@ -43,8 +52,7 @@ export class AdminActionComponent implements OnInit {
     const newAction = this.formAddAction.value;
     newAction.date = new Date();
     this.actionsService.create(newAction).subscribe(() => { this.getAllActions() });
-    this.formAddAction.reset();
-    this.toggleTemplate();
+    this.toggleAddTemplate();
   }
 
   editActions(action: IActionResponse): void {
@@ -56,29 +64,31 @@ export class AdminActionComponent implements OnInit {
     });
     this.editID = action.id;
     this.editStatus = true;
-    this.toggleTemplate();
+    this.isUploaded = true;
+    this.addTemplateStatus = true;
   }
 
   updateActions(): void {
     const newAction = this.formAddAction.value;
     this.actionsService.update(this.editID, newAction).subscribe(() => { this.getAllActions() });
-    this.editStatus = false;
-    this.formAddAction.reset();
-    this.toggleTemplate();
+    this.toggleAddTemplate();
   }
 
   deleteActions(action: IActionResponse): void {
-    this.actionsService.delete(action.id).subscribe(() => { this.getAllActions() });
+    this.actionsService.delete(action.id).subscribe(() => {
+      this.deleteImage(action.imagePath);
+      this.getAllActions();
+    });
   }
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.uploadFile('images', file.name, file)
+    this.uploadFile('images/actions', file.name, file)
       .then(data => {
         this.formAddAction.patchValue({ imagePath: data })
         this.isUploaded = true;
       })
-      .catch(error => { console.log(error) })
+      .catch(error => { console.log(error) });
   }
 
   async uploadFile(folder: string, name: string, file: File | null): Promise<string> {
@@ -96,17 +106,17 @@ export class AdminActionComponent implements OnInit {
     return Promise.resolve(url);
   }
 
-  deleteImage(): void {
-    const task = ref(this.fireStorage, this.valueByControl('imagePath'));
-    deleteObject(task)
-      .then(() => {
-        console.log('File deleted');
-        this.isUploaded = false;
-        this.uploadPercent = 0;
-        this.formAddAction.patchValue({ imagePath: null })
-      })
+  deleteImage(imageUrl: string): void {
+    const task = ref(this.fireStorage, imageUrl);
+    deleteObject(task).then(() => {
+      console.log('File deleted');
+      this.isUploaded = false;
+      this.uploadPercent = 0;
+      this.formAddAction.patchValue({ imagePath: null })
+    }).catch(error => {
+      console.log(error)
+      this.isUploaded = false;
+      this.formAddAction.patchValue({ imagePath: null })
+    })
   }
-
-  valueByControl(control: string): string { return this.formAddAction.get(control)?.value }
-
 }

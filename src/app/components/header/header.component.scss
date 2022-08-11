@@ -28,7 +28,7 @@
     @include d-flex(center, center);
 
     .header-logo {
-        @include d-flex(start, center);
+        @include d-flex(flex-start, center);
         height: 100%;
         padding: 0 22px;
         background: $main-color;
@@ -87,7 +87,7 @@
     }
 
     .main-nav {
-        @include d-flex(start, center);
+        @include d-flex(flex-start, center);
         margin-left: 50px;
 
         @media screen and (max-width: 1600px) {
@@ -125,7 +125,7 @@
 
             .link-block {
                 @include responsive(xlarge) {
-                    @include d-flex(start, center);
+                    @include d-flex(flex-start, center);
                 }
 
                 &__img {
@@ -420,7 +420,7 @@
     }
 
     .dropdown-menu {
-        z-index: 2;;
+        z-index: 2;
     }
 }
 

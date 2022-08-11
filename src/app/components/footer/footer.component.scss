@@ -105,7 +105,7 @@ footer {
     }
 
     .footer-info {
-        @include d-flex(space-between, start);
+        @include d-flex(space-between, flex-start);
         max-width: 50%;
         width: 100%;
 
@@ -134,7 +134,7 @@ footer {
         display: none;
 
         @include responsive(medium) {
-            @include d-flex(center, start);
+            @include d-flex(center, flex-start);
             flex-basis: 100%;
             margin-top: 15px;
 
