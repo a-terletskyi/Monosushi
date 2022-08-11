@@ -16,21 +16,17 @@ export class HeaderComponent implements OnInit {
   kindOfPopUp!: string;
   myModal!: any;
   isAuthorizated = false;
-  windowWidth!: number;
 
   constructor(private categoryService: CategoriesService) { }
 
   ngOnInit(): void {
     this.getCategoriesAll();
     this.myModal = new window.bootstrap.Modal(document.getElementById('myModal'));
-    this.windowWidth = window.innerWidth;
   }
 
   getCategoriesAll(): void { this.categoryService.getAll().subscribe(data => { this.categories = data }) }
 
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
-
-  onResize(event: any): void { this.windowWidth = event.target.innerWidth }
 
   openModal(kindOf: string): void {
     this.popUp.kindOfPopUp = kindOf;

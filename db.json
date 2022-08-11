@@ -71,6 +71,12 @@
       "road": "product-category/sousi",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Ficon.svg?alt=media&token=6d1d6ce0-48fe-4536-8ffa-08d6b87e88e6",
       "id": 5
+    },
+    {
+      "name": "sasdasd",
+      "road": "s",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-gift.svg?alt=media&token=4f01e6cf-f3ce-4f0e-9f73-da7fdb88bccf",
+      "id": 6
     }
   ]
 }

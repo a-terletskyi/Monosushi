@@ -21,7 +21,10 @@ app-root {
     min-height: 100%;
 }
 
-app-admin-action, app-admin-category, app-admin-product, app-admin-order {
+app-admin-action,
+app-admin-category,
+app-admin-product,
+app-admin-order {
     width: 100%;
 }
 
@@ -30,9 +33,23 @@ body {
     height: 100%;
 }
 
+.offcanvas {
+    top: 60px;
+    width: 600px;
+    border: none;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.offcanvas-backdrop.show {
+    top: 60px;
+}
+
 .swiper {
 
-    .swiper-slide:nth-child(n+2)::before{
+    .swiper-slide:nth-child(n+2)::before {
         content: "";
         position: absolute;
         top: 0;
