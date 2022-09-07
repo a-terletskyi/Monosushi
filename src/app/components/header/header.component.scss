@@ -225,6 +225,7 @@
     display: block;
     @include square(50px, 48px, transparent);
     transition: transform 400ms;
+    cursor: pointer;
 
     .line {
         fill: none;

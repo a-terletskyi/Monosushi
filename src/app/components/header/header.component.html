@@ -7,6 +7,13 @@
         <div class="header-nav-wrapper" #headerNav>
             <nav>
                 <ul class="main-nav">
+                    <li class="main-nav__item border-hover"><a
+                        [routerLink]="[ '/actions' ]" routerLinkActive="route-active" class="main-nav-link">
+                        <div class="link-block">
+                            <img class="link-block__img" src="assets/images/nav-img-gift.svg" alt="category">
+                            <h6 class="link-block__name">Акції</h6>
+                        </div>
+                    </a></li>
                     <li *ngFor="let category of categories" class="main-nav__item border-hover"><a
                             [routerLink]="[ category.road ]" routerLinkActive="route-active" class="main-nav-link">
                             <div class="link-block">

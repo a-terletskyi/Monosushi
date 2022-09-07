@@ -5,7 +5,7 @@
       "title": "50% знижки на \"Рол тижня\"",
       "description": "<ul>\n<li>Щотижня діє знижка 50% на один з ролів у нашому меню.</li>\n<li>“Рол тижня” ви можете знайти на головній сторінці нашого сайту.</li>\n<li>Знижка діє при мінімальній сумі замовлення 200 грн.</li>\n<li>Ця акція не поєднується з іншими акціями.</li>\n</ul>",
       "date": "2022-08-04T06:29:38.761Z",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Frol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg?alt=media&token=8b32811c-8c21-4fc8-a86b-e64e3ae7e4cc",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Frol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg?alt=media&token=2d353bce-86bd-4405-8eb6-02dd2347087c",
       "id": 1
     },
     {
@@ -43,40 +43,40 @@
   ],
   "categories": [
     {
-      "name": "Акції",
-      "road": "actions",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-gift.svg?alt=media&token=caf66395-98e2-43c1-b68f-115155b2bffa",
-      "id": 1
-    },
-    {
       "name": "Роли",
       "road": "product-category/roli",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
-      "id": 2
+      "id": 1
     },
     {
       "name": "Сети",
       "road": "product-category/setu",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-sets.svg?alt=media&token=db558dd8-347f-4d9e-9404-4be7753d2c60",
-      "id": 3
+      "id": 2
     },
     {
       "name": "Напої",
       "road": "product-category/drinks",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-drinks.svg?alt=media&token=0eb58857-6b89-4bee-b8da-2faed3ce796e",
-      "id": 4
+      "id": 3
     },
     {
       "name": "Соуси",
       "road": "product-category/sousi",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Ficon.svg?alt=media&token=6d1d6ce0-48fe-4536-8ffa-08d6b87e88e6",
-      "id": 5
-    },
+      "id": 4
+    }
+  ],
+  "products": [
     {
-      "name": "sasdasd",
-      "road": "s",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-gift.svg?alt=media&token=4f01e6cf-f3ce-4f0e-9f73-da7fdb88bccf",
-      "id": 6
+      "category": "Роли",
+      "name": "asd",
+      "path": "asdas",
+      "description": "dasd",
+      "weight": 231,
+      "price": 3123,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fnav-img-gift.svg?alt=media&token=94c46de4-1b57-4eb0-82c8-2031df22fe21",
+      "id": 1
     }
   ]
 }

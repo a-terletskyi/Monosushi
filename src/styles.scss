@@ -37,6 +37,7 @@ body {
     top: 60px;
     width: 600px;
     border: none;
+    transition: 0.5s;
 
     @media screen and (max-width: 768px) {
         width: 100%;

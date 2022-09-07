@@ -1,1 +1,87 @@
-
+<div class="container-fluid">
+    <button type="button" class="button btn-admin" (click)="toggleAddTemplate()"
+        [disabled]="formAddProduct.dirty || isUploaded">Додати продукт</button>
+    <ng-container *ngIf="!addTemplateStatus">
+        <div class="overflow-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Категорія</th>
+                        <th>Назва</th>
+                        <th>Інгредієнти</th>
+                        <th>Вага</th>
+                        <th>Ціна</th>
+                        <th>Картинка</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of adminProducts">
+                        <td>{{product.id}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.description.length > 50 ? (product.description | slice:0:50) + '...' :
+                            product.description }}
+                        </td>
+                        <td>{{product.weight}} г</td>
+                        <td>{{product.price}} грн</td>
+                        <td><img class="w-100" [src]="product.imagePath" alt="product"></td>
+                        <td>
+                            <button type="button" class="btn-table link-hover"
+                                (click)="editProducts(product)">Редагувати</button>
+                            <button type="button" class="btn-table link-hover"
+                                (click)="deleteProducts(product)">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="addTemplateStatus">
+        <form [formGroup]="formAddProduct" (ngSubmit)="editStatus ? updateProducts() : addProducts()">
+            <div class="mb-3">
+                <select class="form-select" id="productCategory" formControlName="category">
+                    <option [disabled]="formAddProduct.touched">*Виберіть категорію</option>
+                    <option *ngFor="let category of adminCategories">{{category.name}}</option>
+                  </select>
+            </div>
+            <div class="flex">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="productName" formControlName="name" placeholder="*Назва">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="productPath" formControlName="path" placeholder="*Шлях">
+                </div>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control w-100" id="productDescription"
+                    formControlName="description" placeholder="*Інгредієнти">
+            </div>
+            <div class="flex">
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="productWeight" formControlName="weight" placeholder="*Вага">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="productPrice" formControlName="price" placeholder="*Ціна">
+                </div>
+            </div>
+            <ng-container *ngIf="!isUploaded">
+                <div class="mb-3">
+                    <input type="file" class="form-control" id="productFile" accept="image/*" (change)="upload($event)">
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" [style.width.%]="uploadPercent"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="isUploaded">
+                <div class="image-preview">
+                    <button type="button" class="button delete-btn" (click)="deleteImage(formAddProduct.value.imagePath)"><span>Видалити</span></button>
+                    <img [src]="formAddProduct.value.imagePath" alt="product preview">
+                </div>
+            </ng-container>
+            <button type="submit" class="button btn-admin" [disabled]="formAddProduct.invalid">Зберегти</button>
+        </form>
+    </ng-container>
+</div>

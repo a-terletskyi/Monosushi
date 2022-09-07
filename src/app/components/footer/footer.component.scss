@@ -4,13 +4,6 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/common';
 
-* {
-    p{
-        color: $sec-text-color;
-        font-size: 14px;
-    }
-}
-
 footer {
     background-color: #fff;
     border-top: 4px solid $main-color;
@@ -121,8 +114,9 @@ footer {
             margin-top: 10px;
         }
 
-        .delivery-address li {
+        .delivery-address li, .order-phone a, .work-time p {
             color: $sec-text-color;
+            font-size: 14px;
         }
 
         .order-phone a:hover {
@@ -149,22 +143,23 @@ footer {
     @include d-flex(space-between, center);
     padding: 0 35px 20px;
 
-    @include responsive(xxlarge){
+    @include responsive(xxlarge) {
         padding: 0 25px 15px;
 
-        .copyright, .social__title{
+        .copyright,
+        .social__title {
             font-size: 12px;
         }
     }
 
-    @include responsive(xlarge){
+    @include responsive(xlarge) {
         padding: 0 15px 15px;
     }
 
-    @include responsive(medium){
+    @include responsive(medium) {
         flex-wrap: wrap;
 
-        .copyright{
+        .copyright {
             order: 1;
         }
 
@@ -173,10 +168,14 @@ footer {
         }
     }
 
+    .copyright__title {
+        color: $sec-text-color
+    }
+
     .pay-cards {
         @include d-flex(space-between, center);
 
-        @include responsive(medium){
+        @include responsive(medium) {
             order: 0;
             justify-content: center;
             column-gap: 5px;
@@ -190,23 +189,24 @@ footer {
             border: 1px solid #dcdcdc;
             border-radius: 5px;
 
-            @include responsive(xxlarge){
+            @include responsive(xxlarge) {
                 @include square(56px, 33px, transparent);
             }
 
             img {
                 max-width: 45px;
 
-                @include responsive(xxlarge){
+                @include responsive(xxlarge) {
                     max-width: 30px;
                 }
             }
         }
 
-        .pay-cards-item+.pay-cards-item{
+        .pay-cards-item+.pay-cards-item {
             margin-left: 5px;
         }
     }
+
 }
 
 .social {
@@ -214,8 +214,9 @@ footer {
 
     &__title {
         margin-right: 20px;
+        color: $sec-text-color;
 
-        @include responsive(xlarge){
+        @include responsive(xlarge) {
             margin-right: 10px;
         }
     }
@@ -233,18 +234,18 @@ footer {
             @include border;
             transition: 0.35s;
 
-            @include responsive(xxlarge){
+            @include responsive(xxlarge) {
                 @include square(40px, 40px, $main-color);
             }
 
-            @include responsive(xlarge){
+            @include responsive(xlarge) {
                 @include square(35px, 35px, $main-color);
             }
 
             img {
                 @include square(18px, 18px, transparent);
 
-                @include responsive(xxlarge){
+                @include responsive(xxlarge) {
                     @include square(12px, 12px, transparent);
                 }
             }
