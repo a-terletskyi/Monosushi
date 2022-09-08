@@ -70,12 +70,13 @@
   "products": [
     {
       "category": "Роли",
-      "name": "asd",
-      "path": "asdas",
-      "description": "dasd",
-      "weight": 231,
-      "price": 3123,
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fnav-img-gift.svg?alt=media&token=94c46de4-1b57-4eb0-82c8-2031df22fe21",
+      "name": "Tasd",
+      "path": "road",
+      "description": "qweqwrqwrqrq",
+      "weight": 1234,
+      "price": 123123,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fnav-img-gift.svg?alt=media&token=e3d7bcab-663d-4829-a895-e39f03826ae7",
+      "count": 1,
       "id": 1
     }
   ]
