@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   toggleClassActive(element: HTMLElement): void {
     element.classList.toggle('active');
-    this.readMoreStatus ? this.readMoreStatus = false : this.readMoreStatus = true;
+    this.readMoreStatus = !this.readMoreStatus;
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <button type="button" class="button btn-admin" (click)="toggleAddTemplate()" [disabled]="formAddCategory.dirty || isUploaded">Додати категорію</button>
-    <ng-container *ngIf="!addTemplateStatus">
+    <button type="button" class="button btn-admin" (click)="toggleTemplateStatus()" [disabled]="categoryForm.dirty || isUploaded || editStatus">Додати категорію</button>
+    <ng-container *ngIf="!templateStatus">
         <div class="overflow-auto">
             <table class="table">
                 <thead>
@@ -16,7 +16,7 @@
                     <tr *ngFor="let category of adminCategories">
                         <td>№ {{category.id}}</td>
                         <td>{{category.name}}</td>
-                        <td>{{category.road}}</td>
+                        <td>{{category.path}}</td>
                         <td><img class="w-100" [src]="category.imagePath" alt="category"></td>
                         <td>
                             <button type="button" class="btn-table link-hover" (click)="editCategories(category)">Редагувати</button>
@@ -27,15 +27,15 @@
             </table>
         </div>
     </ng-container>
-    <ng-container *ngIf="addTemplateStatus">
-        <form [formGroup]="formAddCategory" (ngSubmit)="editStatus ? updateCategories() : addCategories()">
+    <ng-container *ngIf="templateStatus">
+        <form [formGroup]="categoryForm" (ngSubmit)="editStatus ? updateCategories() : addCategories()">
             <div class="flex">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="categoryName" formControlName="name"
                         placeholder="*Назва">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="categoryRoad" formControlName="road"
+                    <input type="text" class="form-control" id="categoryRoad" formControlName="path"
                         placeholder="*Шлях">
                 </div>
             </div>
@@ -43,17 +43,14 @@
                 <div class="mb-3">
                     <input type="file" class="form-control" id="categoryFile" accept="image/*" (change)="upload($event)">
                 </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar"  [style.width.%]="uploadPercent" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
             </ng-container>
             <ng-container *ngIf="isUploaded">
                 <div class="image-preview">
-                    <button type="button" class="button delete-btn" (click)="deleteImage(formAddCategory.value.imagePath)"><span>Видалити</span></button>
-                    <img [src]="formAddCategory.value.imagePath" alt="category preview">
+                    <button type="button" class="button delete-btn" (click)="deleteImage(categoryForm.value.imagePath)"><span>Видалити</span></button>
+                    <img [src]="categoryForm.value.imagePath" alt="category preview">
                 </div>
             </ng-container>
-            <button type="submit" class="button btn-admin" [disabled]="formAddCategory.invalid">Зберегти</button>
+            <button type="submit" class="button btn-admin" [disabled]="categoryForm.invalid">Зберегти</button>
         </form>
     </ng-container>
 </div>

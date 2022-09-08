@@ -69,13 +69,13 @@
   ],
   "products": [
     {
-      "category": "Роли",
-      "name": "Tasd",
+      "category": "Соуси",
+      "name": "T",
       "path": "road",
       "description": "qweqwrqwrqrq",
       "weight": 1234,
       "price": 123123,
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fnav-img-gift.svg?alt=media&token=e3d7bcab-663d-4829-a895-e39f03826ae7",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fnav-img-gift.svg?alt=media&token=f48e44ee-74c4-4c98-ad66-7489b1ef35d8",
       "count": 1,
       "id": 1
     }

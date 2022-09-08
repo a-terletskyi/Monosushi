@@ -2,34 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
 import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
-import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
+import { ImageService } from 'src/app/shared/services/image/image.service';
 @Component({
   selector: 'app-admin-category',
   templateUrl: './admin-category.component.html',
   styleUrls: ['./admin-category.component.scss']
 })
+
 export class AdminCategoryComponent implements OnInit {
   adminCategories!: ICategoryResponse[];
-
-  formAddCategory!: FormGroup;
-  addTemplateStatus = false;
+  categoryForm!: FormGroup;
+  templateStatus = false;
+  isUploaded = false;
   editStatus = false;
   editID!: number;
-  uploadPercent!: number;
-  isUploaded = false;
 
-  constructor(private categoryService: CategoriesService, private fb: FormBuilder, private fireStorage: Storage) {
-    this.createForm();
-  }
+  constructor(
+    private fb: FormBuilder,
+    private categoryService: CategoriesService,
+    private imageService: ImageService
+  ) { }
 
   ngOnInit(): void {
-    this.getAllCategories();
+    this.initCategoryForm();
+    this.loadCategories();
   }
 
-  createForm() {
-    this.formAddCategory = this.fb.group({
-      name: ['', Validators.required],
-      road: ['', Validators.required],
+  initCategoryForm() {
+    this.categoryForm = this.fb.group({
+      name: [null, Validators.required],
+      path: [null, Validators.required],
       imagePath: [null, Validators.required]
     });
   }
@@ -37,84 +39,66 @@ export class AdminCategoryComponent implements OnInit {
   resetForm(): void {
     this.editStatus = false;
     this.isUploaded = false;
-    this.uploadPercent = 0;
-    this.formAddCategory.reset();
+    this.categoryForm.reset();
   }
 
-  toggleAddTemplate(): void {
+  toggleTemplateStatus(): void {
+    this.templateStatus = !this.templateStatus;
     this.resetForm();
-    this.addTemplateStatus ? this.addTemplateStatus = false : this.addTemplateStatus = true
   }
 
-  getAllCategories(): void { this.categoryService.getAll().subscribe(data => { this.adminCategories = data }) }
+  loadCategories(): void { this.categoryService.getAll().subscribe(data => { this.adminCategories = data }) }
 
   addCategories(): void {
-    const newCategory = this.formAddCategory.value;
-    this.categoryService.create(newCategory).subscribe(() => { this.getAllCategories() });
-    this.toggleAddTemplate();
+    const newCategory = this.categoryForm.value;
+    this.categoryService.create(newCategory).subscribe(() => { this.loadCategories() });
+    this.toggleTemplateStatus();
   }
 
   editCategories(category: ICategoryResponse): void {
-    this.formAddCategory.setValue({
+    this.categoryForm.setValue({
       name: category.name,
-      road: category.road,
+      path: category.path,
       imagePath: category.imagePath
     });
     this.editID = category.id;
     this.editStatus = true;
     this.isUploaded = true;
-    this.addTemplateStatus = true;
+    this.templateStatus = true;
   }
 
   updateCategories(): void {
-    const newCategory = this.formAddCategory.value;
-    this.categoryService.update(this.editID, newCategory).subscribe(() => { this.getAllCategories() });
-    this.toggleAddTemplate();
+    const newCategory = this.categoryForm.value;
+    this.categoryService.update(this.editID, newCategory).subscribe(() => { this.loadCategories() });
+    this.toggleTemplateStatus();
   }
 
   deleteCategories(category: ICategoryResponse): void {
     this.categoryService.delete(category.id).subscribe(() => {
       this.deleteImage(category.imagePath);
-      this.getAllCategories()
+      this.loadCategories();
     });
   }
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.uploadFile('images/categories', file.name, file)
+    this.imageService.uploadFile('images/categories', file.name, file)
       .then(data => {
-        this.formAddCategory.patchValue({ imagePath: data })
+        this.categoryForm.patchValue({ imagePath: data })
         this.isUploaded = true;
       })
       .catch(error => { console.log(error) });
   }
 
-  async uploadFile(folder: string, name: string, file: File | null): Promise<string> {
-    const path = `${folder}/${name}`;
-    let url = '';
-    if (file) {
-      try {
-        const storageRef = ref(this.fireStorage, path);
-        const task = uploadBytesResumable(storageRef, file);
-        percentage(task).subscribe(data => { this.uploadPercent = data.progress });
-        await task;
-        url = await getDownloadURL(storageRef);
-      } catch (error: any) { console.error(error) }
-    } else { console.log('Wrong format') }
-    return Promise.resolve(url);
-  }
-
-  deleteImage(imageUrl: string): void {
-    const task = ref(this.fireStorage, imageUrl);
-    deleteObject(task).then(() => {
-      console.log('File deleted');
+  deleteImage(imagePath: string): void {
+    this.imageService.deleteFile(imagePath).then(() => {
       this.isUploaded = false;
-      this.uploadPercent = 0;
-      this.formAddCategory.patchValue({ imagePath: null })
+      this.categoryForm.patchValue({ imagePath: null })
     }).catch(error => {
-      console.log(error)
+      console.log(error);
       this.isUploaded = false;
-      this.formAddCategory.patchValue({ imagePath: null })
+      this.categoryForm.patchValue({ imagePath: null })
     })
   }
+  
 }

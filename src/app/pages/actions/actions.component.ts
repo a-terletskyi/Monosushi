@@ -12,9 +12,7 @@ export class ActionsComponent implements OnInit {
 
   constructor(private actionsServise: ActionService) { }
 
-  ngOnInit(): void {
-    this.getAllActions();
-  }
+  ngOnInit(): void { this.loadActions() }
 
-  getAllActions(): void { this.actionsServise.getAll().subscribe(data => { this.actions = data }) }
+  loadActions(): void { this.actionsServise.getAll().subscribe(data => { this.actions = data }) }
 }

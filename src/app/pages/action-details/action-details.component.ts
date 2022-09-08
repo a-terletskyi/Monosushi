@@ -14,11 +14,9 @@ export class ActionDetailsComponent implements OnInit {
 
   constructor(private actionsServise: ActionService, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.getAction();
-  }
+  ngOnInit(): void { this.loadAction() }
 
-  getAction(): void {
+  loadAction(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.actionsServise.getOne(id).subscribe(data => { this.actionDetails = data });
   }

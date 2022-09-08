@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <button type="button" class="button btn-admin" (click)="toggleAddTemplate()"
-        [disabled]="formAddAction.dirty || isUploaded">Додати акцію</button>
-    <ng-container *ngIf="!addTemplateStatus">
+    <button type="button" class="button btn-admin" (click)="toggleTemplateStatus()"
+        [disabled]="actionForm.dirty || isUploaded || editStatus">Додати акцію</button>
+    <ng-container *ngIf="!templateStatus">
         <div class="overflow-auto">
             <table class="table">
                 <thead>
@@ -34,8 +34,8 @@
             </table>
         </div>
     </ng-container>
-    <ng-container *ngIf="addTemplateStatus">
-        <form [formGroup]="formAddAction" (ngSubmit)="editStatus ? updateActions() : addActions()">
+    <ng-container *ngIf="templateStatus">
+        <form [formGroup]="actionForm" (ngSubmit)="editStatus ? updateActions() : addActions()">
             <div class="flex">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="actionName" formControlName="name" placeholder="*Назва">
@@ -53,18 +53,14 @@
                 <div class="mb-3">
                     <input type="file" class="form-control" id="actionFile" accept="image/*" (change)="upload($event)">
                 </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" [style.width.%]="uploadPercent"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
             </ng-container>
             <ng-container *ngIf="isUploaded">
                 <div class="image-preview">
-                    <button type="button" class="button delete-btn" (click)="deleteImage(formAddAction.value.imagePath)"><span>Видалити</span></button>
-                    <img [src]="formAddAction.value.imagePath" alt="action preview">
+                    <button type="button" class="button delete-btn" (click)="deleteImage(actionForm.value.imagePath)"><span>Видалити</span></button>
+                    <img [src]="actionForm.value.imagePath" alt="action preview">
                 </div>
             </ng-container>
-            <button type="submit" class="button btn-admin" [disabled]="formAddAction.invalid">Зберегти</button>
+            <button type="submit" class="button btn-admin" [disabled]="actionForm.invalid">Зберегти</button>
         </form>
     </ng-container>
 </div>

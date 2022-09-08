@@ -11,25 +11,25 @@ declare let window: any;
 })
 
 export class HeaderComponent implements OnInit {
-  @ViewChild(PopUpComponent) popUp!: PopUpComponent;
-  categories!: ICategoryResponse[];
-  kindOfPopUp!: string;
-  myModal!: any;
+  headerCategories!: ICategoryResponse[];
   isAuthorizated = false;
+  @ViewChild(PopUpComponent) popUpComponent!: PopUpComponent;
+  currentPopUp!: any;
 
-  constructor(private categoryService: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
-    this.getCategoriesAll();
-    this.myModal = new window.bootstrap.Modal(document.getElementById('myModal'));
+    this.loadCategories();
+    this.currentPopUp = new window.bootstrap.Modal(document.getElementById('myModal'));
   }
 
-  getCategoriesAll(): void { this.categoryService.getAll().subscribe(data => { this.categories = data }) }
+  loadCategories(): void { this.categoriesService.getAll().subscribe(data => { this.headerCategories = data }) }
 
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
 
-  openModal(kindOf: string): void {
-    this.popUp.kindOfPopUp = kindOf;
-    this.myModal.show();
+  openPopUpByName(name: string): void {
+    this.popUpComponent.popUpName = name;
+    this.currentPopUp.show();
   }
+
 }

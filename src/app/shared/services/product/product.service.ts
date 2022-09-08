@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   getAllbyCategory(name: string): Observable<IProductResponse[]> {
-    return this.http.get<IProductResponse[]>(`${this.api.products}?category.road=${name}`); // тут може бути не category.road а category.path
+    return this.http.get<IProductResponse[]>(`${this.api.products}?category.path=${name}`);
   }
 
   getOne(id: number): Observable<IProductResponse> {

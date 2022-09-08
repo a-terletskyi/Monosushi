@@ -5,7 +5,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <ng-container *ngIf="kindOfPopUp ==='call'">
+                <ng-container *ngIf="popUpName ==='call'">
                     <h5 class="modal-title title">МИ ЗАТЕЛЕФОНУЄМО</h5>
                     <p class="info-text">Залиште номер телефону і наші менеджери зв'яжуться з вами</p>
                     <form class="form-popUp">
@@ -19,7 +19,7 @@
                         <button type="submit" class="button popUp-btn">Надіслати</button>
                     </form>
                 </ng-container>
-                <ng-container *ngIf="kindOfPopUp ==='signIn'">
+                <ng-container *ngIf="popUpName ==='signIn'">
                     <h5 class="modal-title title fz-26">Вхід в кабінет</h5>
                     <form class="form-popUp">
                         <div class="mb-3">
@@ -33,7 +33,7 @@
                         <button type="submit" class="button popUp-btn">Увійти в кабінет</button>
                     </form>
                 </ng-container>
-                <ng-container *ngIf="kindOfPopUp === 'signUp'">
+                <ng-container *ngIf="popUpName === 'signUp'">
                     <h5 class="modal-title title fz-26">Зареєструватись</h5>
                     <form class="form-popUp">
                         <div class="d-sm-flex justify-content-between">
@@ -72,7 +72,7 @@
                         <button type="submit" class="button popUp-btn">Зареєструватись</button>
                     </form>
                 </ng-container>
-                <ng-container *ngIf="kindOfPopUp === 'resetPass'">
+                <ng-container *ngIf="popUpName === 'resetPass'">
                     <h5 class="modal-title title fz-26">Відновити пароль</h5>
                     <p class="info-text">Після заповнення форми, ми надішлемо вам детальну інструкцію по
                         відновленню паролю</p>
@@ -86,17 +86,17 @@
                 </ng-container>
             </div>
             <div class="modal-footer d-flex">
-                <ng-container *ngIf="kindOfPopUp ==='signIn'">
-                    <a class="popUp-link link-hover" (click)="openModal('resetPass')">Забули пароль?</a>
-                    <a class="popUp-link link-hover" (click)="openModal('signUp')">Зареєструватись</a>
+                <ng-container *ngIf="popUpName ==='signIn'">
+                    <a class="popUp-link link-hover" (click)="openModalByName('resetPass')">Забули пароль?</a>
+                    <a class="popUp-link link-hover" (click)="openModalByName('signUp')">Зареєструватись</a>
                 </ng-container>
-                <ng-container *ngIf="kindOfPopUp ==='resetPass'">
+                <ng-container *ngIf="popUpName ==='resetPass'">
                     <p class="text m-auto">Повернутися до <a class="popUp-link link-hover"
-                            (click)="openModal('signIn')">Входу</a></p>
+                            (click)="openModalByName('signIn')">Входу</a></p>
                 </ng-container>
-                <ng-container *ngIf="kindOfPopUp ==='signUp'">
+                <ng-container *ngIf="popUpName ==='signUp'">
                     <p class="text m-auto">Вже зареєстровані? <a class="popUp-link link-hover"
-                            (click)="openModal('signIn')">Увійти</a></p>
+                            (click)="openModalByName('signIn')">Увійти</a></p>
                 </ng-container>
             </div>
         </div>

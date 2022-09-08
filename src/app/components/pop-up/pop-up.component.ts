@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pop-up.component.scss']
 })
 export class PopUpComponent implements OnInit {
-  kindOfPopUp: string = '';
+  popUpName = '';
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  openModal(kindOf: string): void { this.kindOfPopUp = kindOf }
+  openModalByName(name: string): void { this.popUpName = name }
+  
 }
 

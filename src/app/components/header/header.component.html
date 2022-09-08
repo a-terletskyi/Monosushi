@@ -14,8 +14,8 @@
                             <h6 class="link-block__name">Акції</h6>
                         </div>
                     </a></li>
-                    <li *ngFor="let category of categories" class="main-nav__item border-hover"><a
-                            [routerLink]="[ category.road ]" routerLinkActive="route-active" class="main-nav-link">
+                    <li *ngFor="let category of headerCategories" class="main-nav__item border-hover"><a
+                            [routerLink]="[ category.path ]" routerLinkActive="route-active" class="main-nav-link">
                             <div class="link-block">
                                 <img class="link-block__img" [src]="category.imagePath" alt="category">
                                 <h6 class="link-block__name">{{category.name}}</h6>
@@ -37,8 +37,8 @@
                         <div class="offcanvas-body">
                             <ul class="burger-nav">
                                 <ul class="nav-menu">
-                                    <li *ngFor="let category of categories" class="main-nav__item border-hover"><a
-                                        [routerLink]="[ category.road ]" routerLinkActive="route-active" class="main-nav-link">
+                                    <li *ngFor="let category of headerCategories" class="main-nav__item border-hover"><a
+                                        [routerLink]="[ category.path ]" routerLinkActive="route-active" class="main-nav-link">
                                         <div class="link-block">
                                             <img class="link-block__img" [src]="category.imagePath" alt="category">
                                             <h6 class="link-block__name">{{category.name}}</h6>
@@ -61,7 +61,7 @@
                                 </li>
                                 <li class="nav-menu__item">
                                     <div class="call">
-                                        <button class="button call-btn" (click)="openModal('call')">
+                                        <button class="button call-btn" (click)="openPopUpByName('call')">
                                             <img class="call__img" src="assets/icons/phone.svg" alt="phone">
                                             <span class="call__text">МИ ЗАТЕЛЕФОНУЄМО</span>
                                         </button>
@@ -96,7 +96,7 @@
             </ul>
         </div>
         <div class="header-callback call">
-            <button class="button call-btn" (click)="openModal('call')">
+            <button class="button call-btn" (click)="openPopUpByName('call')">
                 <img class="call__img" src="assets/icons/phone.svg" alt="phone">
                 <span class="call__text">МИ ЗАТЕЛЕФОНУЄМО</span>
             </button>
@@ -124,7 +124,7 @@
             </ng-container>
             <ng-container *ngIf="!isAuthorizated">
                 <img src="assets/icons/user.svg" alt="user" [routerLink]="[ 'admin/action' ]">
-                <!--(click)="openModal('signIn')"-->
+                <!--(click)="openPopUpByName('signIn')"-->
             </ng-container>
         </div>
         <div class="header-basket">

@@ -9,23 +9,23 @@ import { ICategoryRequest, ICategoryResponse } from '../../interfaces/categories
 })
 export class CategoriesService {
   private url = environment.BACKEND_URL;
-  private api = { actions: `${this.url}/categories` };
+  private api = { categories: `${this.url}/categories` };
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<ICategoryResponse[]> {
-    return this.http.get<ICategoryResponse[]>(this.api.actions);
+    return this.http.get<ICategoryResponse[]>(this.api.categories);
   }
 
-  create(action: ICategoryRequest): Observable<ICategoryResponse> {
-    return this.http.post<ICategoryResponse>(this.api.actions, action);
+  create(category: ICategoryRequest): Observable<ICategoryResponse> {
+    return this.http.post<ICategoryResponse>(this.api.categories, category);
   }
 
-  update(id: number, action: ICategoryRequest): Observable<ICategoryResponse> {
-    return this.http.patch<ICategoryResponse>(`${this.api.actions}/${id}`, action);
+  update(id: number, category: ICategoryRequest): Observable<ICategoryResponse> {
+    return this.http.patch<ICategoryResponse>(`${this.api.categories}/${id}`, category);
   }
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.api.actions}/${id}`);
+    return this.http.delete<void>(`${this.api.categories}/${id}`);
   }
 }

@@ -1,6 +1,6 @@
 export interface ICategoryRequest {
     name: string;
-    road: string;
+    path: string;
     imagePath: string;
 }
 
