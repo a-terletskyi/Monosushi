@@ -1,0 +1,230 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto 90px;
+    max-width: 1750px;
+
+    @include responsive(xxlarge) {
+        margin-bottom: 60px;
+    }
+
+    @include responsive(xlarge) {
+        max-width: 960px;
+    }
+
+    @include responsive(large) {
+        max-width: 720px;
+    }
+
+    @include responsive(medium) {
+        margin-bottom: 30px;
+    }
+}
+
+.cards-group {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: auto auto auto auto;
+
+    @media screen and (max-width:1600px) {
+        gap: 20px;
+    }
+
+    @include responsive(xxlarge) {
+        gap: 10px;
+    }
+
+    @include responsive(xlarge) {
+        grid-template-columns: auto auto auto;
+    }
+
+    @include responsive(large) {
+        grid-template-columns: auto auto;
+    }
+
+    @include responsive(small) {
+        grid-template-columns: auto;
+    }
+}
+
+.card {
+    z-index: 2;
+    padding: 20px;
+    text-align: center;
+    border: none;
+
+    @include responsive(xxlarge){
+        padding: 15px;
+    }
+}
+
+.card-image {
+    @include d-flex(center, center);
+    height: 240px;
+
+    img {
+        width: 100%;
+        transition: 0.35s;
+    }
+
+    img:hover {
+        transform: translate(0, 5px);
+        transition: 0.35s;
+
+        @include responsive(large) {
+            transform: none;
+        }
+    }
+}
+
+.card-body{
+    @include d-flex(space-between, space-between);
+    flex-direction: column;
+}
+
+.card__title {
+    margin: 10px 0;
+    @include text($default-text-color, 20px, 1.5em);
+}
+
+.card-info-block {
+    @include d-flex(space-between, flex-start);
+    text-align: start;
+
+    .card-composition {
+        color: $sec-text-color;
+        line-height: 1.4em;
+    }
+
+    .card-weight {
+        padding-left: 15px;
+        margin-bottom: 25px;
+        font-family: 'RotondaC-bold';
+        white-space: nowrap;
+    }
+
+    .card-price {
+        margin-right: 5px;
+        max-width: 84px;
+        font-size: 20px;
+        white-space: nowrap;
+
+        @media screen and (min-width: 992px) and (max-width: 1600px) {
+            max-width: 80px;
+            font-size: 18px;
+        }
+
+        @include responsive(medium) {
+            max-width: 76px;
+            font-size: 16px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-family: 'RotondaC-bold';
+
+            @media screen and (min-width: 992px) and (max-width: 1600px) {
+                font-size: 18px;
+            }
+
+            @include responsive(medium) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .thumb-number {
+        @include d-flex(space-between, center);
+        margin: 0 auto;
+        height: 52px;
+        border: 1px solid #dcdcdc;
+        border-radius: $brd-radius;
+
+        .product-qty {
+            @include square(30px, 44px, transparent);
+            text-align: center;
+            font-size: 24px;
+            font-family: 'RotondaC-bold';
+            border: none;
+
+            @media screen and (min-width: 992px) and (max-width: 1600px) {
+                font-size: 20px;
+            }
+
+            @include responsive(medium) {
+                height: 34px;
+                font-size: 18px;
+            }
+        }
+
+        .product-qty:focus-visible {
+            outline: none;
+        }
+
+        .decrement,
+        .increment {
+            margin: 5px;
+            @include square(32px, 36px, transparent);
+            border-color: transparent;
+            border-radius: $brd-radius;
+
+            @media screen and (min-width: 992px) and (max-width: 1600px) {
+                margin: 2px;
+                width: 28px;
+            }
+
+            @media screen and (min-width: 576px) and (max-width: 768px) {
+                @include square(22px, 30px, transparent);
+            }
+        }
+
+        .decrement {
+            padding-bottom: 1px;
+            @include text($default-text-color, 30px, 24px);
+
+            @include responsive(medium) {
+                line-height: 24px;
+            }
+        }
+
+        .increment {
+            padding-bottom: 2px;
+            @include text($default-text-color, 24px, 30px);
+
+            @include responsive(medium) {
+                line-height: 24px;
+            }
+        }
+
+        .decrement:hover,
+        .increment:hover {
+            background-color: $main-color;
+        }
+    }
+}
+
+.card__btn {
+    padding: 14px 16px;
+    background-color: $main-color;
+    font-size: 14px;
+
+    @media screen and (max-width: 768px),
+    (min-width: 992px) and (max-width: 1600px) {
+        padding: 14px 10px;
+        margin-left: 5px;
+        font-size: 12px;
+    }
+}
+
+.card__btn:hover {
+    @media screen and (min-width: 1200px) {
+        background-color: transparent;
+        border-color: $main-color;
+        transition: 0.35s;
+    }
+}

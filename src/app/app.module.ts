@@ -36,6 +36,7 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { CardsComponent } from './components/cards/cards.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
     AdminProductComponent,
     AdminOrderComponent,
     PopUpComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,

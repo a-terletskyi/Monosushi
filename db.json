@@ -44,40 +44,84 @@
   "categories": [
     {
       "name": "Роли",
-      "road": "product-category/roli",
+      "path": "product-category/roli",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
       "id": 1
     },
     {
       "name": "Сети",
-      "road": "product-category/setu",
+      "path": "product-category/setu",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-sets.svg?alt=media&token=db558dd8-347f-4d9e-9404-4be7753d2c60",
       "id": 2
     },
     {
       "name": "Напої",
-      "road": "product-category/drinks",
+      "path": "product-category/drinks",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-drinks.svg?alt=media&token=0eb58857-6b89-4bee-b8da-2faed3ce796e",
       "id": 3
     },
     {
       "name": "Соуси",
-      "road": "product-category/sousi",
+      "path": "product-category/sousi",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Ficon.svg?alt=media&token=6d1d6ce0-48fe-4536-8ffa-08d6b87e88e6",
       "id": 4
     }
   ],
   "products": [
     {
-      "category": "Соуси",
-      "name": "T",
-      "path": "road",
-      "description": "qweqwrqwrqrq",
-      "weight": 1234,
-      "price": 123123,
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fnav-img-gift.svg?alt=media&token=f48e44ee-74c4-4c98-ad66-7489b1ef35d8",
+      "category": "Роли",
+      "name": "Філадельфія з лососем",
+      "path": "filadelfiya-z-lososem",
+      "description": "Риc, крем сир, огірок, лосось",
+      "weight": 280,
+      "price": 232,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2F1.-filadelfiya-z-lososem.jpg?alt=media&token=de35f2ff-4a4b-40b9-b676-2d3c473323ea",
       "count": 1,
       "id": 1
+    },
+    {
+      "category": "Роли",
+      "name": "Філадельфія в кунжуті",
+      "path": "filadelfiya-v-kunzhuti",
+      "description": "Рис, крем сир, огірок, лосось, кунжут",
+      "weight": 240,
+      "price": 208,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2F2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg?alt=media&token=02ff7fab-df9b-4aa5-8fcb-62fb0713ae80",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": "Роли",
+      "name": "Філадельфія грін з креветкою",
+      "path": "filadelfiya-grin-z-krevetkoyu",
+      "description": "Рис, крем сир, огірок, креветка, авокадо, унагі соус",
+      "weight": 270,
+      "price": 259,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2F7.-filadelfiya-grin-z-krevetkoyu.jpg.pagespeed.ce.1HZXmXbE4G.jpg?alt=media&token=e141ccab-36e9-45bc-a211-f9423d1b4a77",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "category": "Роли",
+      "name": "Філадельфія з тунцем",
+      "path": "filadelfiya-z-tunczem",
+      "description": "Риc, крем сир, авокадо, тунець, cоус солодкий чилі",
+      "weight": 270,
+      "price": 269,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fphoto_2022-07-09_13-28-56.jpg.pagespeed.ce.xde1HkPhrW.jpg?alt=media&token=39a46ce9-dced-49ae-8c4b-c7c6a97490b9",
+      "count": 1,
+      "id": 4
+    },
+    {
+      "category": "Роли",
+      "name": "Каліфорнія з вугрем",
+      "path": "kopiyakaliforniya-z-krevetkoyu",
+      "description": "Рис, авокадо, огірок, вугор, чорний кунжут, унагі соус",
+      "weight": 240,
+      "price": 248,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2F4.-kaliforniya-z-vugrem.jpg.pagespeed.ce.GLSGvsXV38.jpg?alt=media&token=7fd2659a-f90a-403f-9ca5-566bba562a72",
+      "count": 1,
+      "id": 5
     }
   ]
 }

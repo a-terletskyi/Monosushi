@@ -15,7 +15,7 @@
                         </div>
                     </a></li>
                     <li *ngFor="let category of headerCategories" class="main-nav__item border-hover"><a
-                            [routerLink]="[ category.path ]" routerLinkActive="route-active" class="main-nav-link">
+                            [routerLink]="[category.path]" routerLinkActive="route-active" class="main-nav-link">
                             <div class="link-block">
                                 <img class="link-block__img" [src]="category.imagePath" alt="category">
                                 <h6 class="link-block__name">{{category.name}}</h6>
@@ -33,7 +33,7 @@
                             d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20">
                         </path>
                     </svg>
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" data-bs-dismiss="offcanvas">
                         <div class="offcanvas-body">
                             <ul class="burger-nav">
                                 <ul class="nav-menu">
@@ -123,8 +123,7 @@
                 </ul>
             </ng-container>
             <ng-container *ngIf="!isAuthorizated">
-                <img src="assets/icons/user.svg" alt="user" [routerLink]="[ 'admin/action' ]">
-                <!--(click)="openPopUpByName('signIn')"-->
+                <img src="assets/icons/user.svg" alt="user" [routerLink]="[ 'admin/action' ]"> <!--(click)="openPopUpByName('signIn')"-->
             </ng-container>
         </div>
         <div class="header-basket">

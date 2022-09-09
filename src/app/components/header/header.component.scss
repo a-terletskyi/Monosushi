@@ -82,25 +82,9 @@
             margin-left: 15px;
         }
 
-        @media screen and (max-width: 1340px) {
-            margin-left: 0;
-        }
-
         @include responsive(xlarge) {
             display: none;
         }
-
-        // @include responsive(xlarge) {
-        //     flex-direction: column;
-        //     align-items: flex-start;
-        //     background: #fff;
-        //     border-top: 1px solid #dcdcdc;
-
-        //     &__item:nth-child(-n+4) {
-        //         display: none;
-        //         @include square(100%, 50px, transparent);
-        //     }
-        // }
 
         &__item {
             @include d-flex(center, center);
@@ -111,15 +95,7 @@
                 @include square(75px, 70px, transparent);
             }
 
-            // @include responsive(xlarge) {
-            //     padding-left: 25px;
-            // }
-
             .link-block {
-                // @include responsive(xlarge) {
-                //     @include d-flex(flex-start, center);
-                // }
-
                 &__img {
                     display: block;
                     margin: 0 auto;
@@ -132,10 +108,6 @@
                 &__name {
                     display: block;
                     margin-top: 5px;
-
-                    // @include responsive(xlarge) {
-                    //     margin-left: 15px;
-                    // }
                 }
             }
         }
@@ -154,30 +126,20 @@
 
         .nav-menu {
             .main-nav__item {
-                justify-content: flex-start;
-                width: 100%;
-                height: 60px;
+                @include d-flex(flex-start, center);
+                @include square(100%, 60px, transparent);
+                padding-left: 15px;
             }
 
             &__item {
                 max-width: none;
             }
 
-            li {
-                display: none;
-            }
-
-            li:nth-child(n+5) {
+            .link-block {
                 display: flex;
-                align-items: center;
-                padding-left: 15px;
 
-                .link-block {
-                    display: flex;
-
-                    &__name {
-                        margin: 7px 0 0 14px;
-                    }
+                &__name {
+                    margin: 7px 0 0 14px;
                 }
             }
         }

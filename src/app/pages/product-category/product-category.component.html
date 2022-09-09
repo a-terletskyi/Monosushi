@@ -1,21 +1,22 @@
 <div class="container">
-    <div class="center-info">
-        <h2 class="center-info__title">Продукти</h2>
-    </div>
+  <div class="center-info">
+    <h2 class="center-info__title">Продукти</h2>
+  </div>
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    
+  <!-- таби тільки на ролах, тобто буде ngcontainer ngif category === 'roli' -->
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>
 </div>
+<app-cards></app-cards>
