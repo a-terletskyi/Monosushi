@@ -10,7 +10,6 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { SwiperModule } from 'swiper/angular';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -37,6 +36,7 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { CategoriesTabsComponent } from './components/categories-tabs/categories-tabs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +62,7 @@ import { CardsComponent } from './components/cards/cards.component';
     AdminOrderComponent,
     PopUpComponent,
     CardsComponent,
+    CategoriesTabsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/base';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
+
+.categories-menu {
+    margin: 20px 0;
+
+    @include responsive(xlarge) {
+        display: none;
+    }
+}
+
+.categories__list {
+    @include d-flex(center, flex-start);
+    flex-wrap: wrap;
+    gap: 15px 0;
+
+    .categories__list_item {
+        display: block;
+        min-width: 165px;
+        text-align: center;
+        border: 1px solid #dcdcdc;
+        cursor: pointer;
+
+        .category_link {
+            display: block;
+            padding: 17px 10px;
+            color: $sec-text-color;
+            font-family: 'RotondaC-bold';
+        }
+
+        .category_link:hover {
+            color: $default-text-color;
+        }
+    }
+
+    .categories__list_item.active {
+        border: none;
+        border-top: solid 5px $main-color;
+
+        .category_link {
+            padding: 14px 10px 17px;
+            color: $default-text-color;
+        }
+    }
+}

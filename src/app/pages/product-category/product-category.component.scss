@@ -6,13 +6,22 @@
 
 .container {
     padding: 0 15px;
-    margin: 60px auto 120px;
+    margin: 60px auto 90px;
+    max-width: 1750px;
 
-    @include responsive(xxlarge){
-        margin: 40px auto 90px;
+    @include responsive(xxlarge) {
+        margin: 40px auto 60px;
     }
 
-    @include responsive(medeium){
-        margin: 30px auto 50px;
+    @include responsive(xlarge) {
+        max-width: 960px;
+    }
+
+    @include responsive(large) {
+        max-width: 720px;
+    }
+
+    @include responsive(medium) {
+        margin: 30px auto;
     }
 }

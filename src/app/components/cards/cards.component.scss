@@ -4,28 +4,6 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/common';
 
-.container {
-    padding: 0 15px;
-    margin: 0 auto 90px;
-    max-width: 1750px;
-
-    @include responsive(xxlarge) {
-        margin-bottom: 60px;
-    }
-
-    @include responsive(xlarge) {
-        max-width: 960px;
-    }
-
-    @include responsive(large) {
-        max-width: 720px;
-    }
-
-    @include responsive(medium) {
-        margin-bottom: 30px;
-    }
-}
-
 .cards-group {
     display: grid;
     gap: 25px;
