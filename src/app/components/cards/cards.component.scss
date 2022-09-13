@@ -6,23 +6,14 @@
 
 .cards-group {
     display: grid;
-    gap: 25px;
-    grid-template-columns: auto auto auto auto;
-
-    @media screen and (max-width:1600px) {
-        gap: 20px;
-    }
-
-    @include responsive(xxlarge) {
-        gap: 10px;
-    }
+    grid-template-columns: 25% 25% 25% 25%;
 
     @include responsive(xlarge) {
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 33.3% 33.3% 33.3%;
     }
 
     @include responsive(large) {
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
     }
 
     @include responsive(small) {
@@ -32,7 +23,7 @@
 
 .card {
     z-index: 2;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     border: none;
 

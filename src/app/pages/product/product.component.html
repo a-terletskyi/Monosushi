@@ -1,0 +1,29 @@
+<div class="container">
+    <ul class="menu">
+        <li class="menu__item"><a [routerLink]="['/']">Головна</a></li>
+        <li class="menu__item"><a [routerLink]="['/actions']">Акції</a></li>
+        <li class="menu__item"></li>
+    </ul>
+    <div class="product">
+        <div class="product_container">
+            <div class="product_image col-md-6 col-xl-4">
+                <img src="https://monosushi.com.ua/wp-content/uploads/2020/11/5.-zapecheni-mono-maki-z-krevetkoyu.jpg.pagespeed.ce.2HWf9BHcTy.jpg" alt="productDetails">
+            </div>
+            <div class="product_content col-md-6 col-xl-4">
+                <h2 class="product__title">Запечені моно макі з креветкою</h2>
+                <p class="product__text description"><span class="product__text_color">Склад: </span> Рис, креветка, моно соус, унагі соус, кунжут</p>
+                <p class="product__text weight"><span class="product__text_color">Вага: </span>150 г</p>
+                <div class="product-info-block align-items-center">
+                    <p class="product-price"><span class="price">189</span> грн</p>
+                    <div class="thumb-number">
+                        <button (click)="productCount(productDetails, false)" type="button" class="decrement">-</button>
+                        <input [value]="1" readonly="" class="product-qty" tabindex="-1" max="999">
+                        <button (click)="productCount(productDetails, true)" type="button" class="increment">+</button>
+                    </div>
+                    <button (click)="addToBasket(productDetails)" type="button" class="button buy__btn">Замовити</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

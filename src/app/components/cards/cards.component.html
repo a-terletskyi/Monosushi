@@ -1,7 +1,7 @@
 <div class="cards-group">
         <div *ngFor="let product of products" class="card border-hover">
             <div class="card-image">
-                <a class="card-image__link" [routerLink]="['/product', product.id]">
+                <a class="card-image__link" [routerLink]="['/product/'+product.category.path, product.id]">
                     <img [src]="product.imagePath === undefined ? 'assets/images/no-image-found.png' : product.imagePath"
                         class="w-100 card-image__img" alt="product">
                 </a>
@@ -13,13 +13,13 @@
                     <span class="card-weight">{{product.weight}} г</span>
                 </div>
                 <div class="card-info-block align-items-center">
-                    <p class="card-price"><span class="price">{{product.price}}</span> грн</p>
+                    <p class="card-price"><span class="price">{{product.price * product.count}}</span> грн</p>
                     <div class="thumb-number">
-                        <button type="button" class="decrement">-</button>
-                        <input value="1" readonly="" class="product-qty" tabindex="-1" max="999">
-                        <button type="button" class="increment">+</button>
+                        <button (click)="productCount(product, false)" type="button" class="decrement">-</button>
+                        <input [value]="product.count" readonly="" class="product-qty" tabindex="-1" max="999">
+                        <button (click)="productCount(product, true)" type="button" class="increment">+</button>
                     </div>
-                    <button type="button" class="button card__btn">Замовити</button>
+                    <button (click)="addToBasket(product)" type="button" class="button card__btn">Замовити</button>
                 </div>
             </div>
         </div>

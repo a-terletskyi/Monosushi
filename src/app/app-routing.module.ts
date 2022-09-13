@@ -21,11 +21,12 @@ import { AdminActionComponent } from './admin/admin-action/admin-action.componen
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
+import { ProductResolver } from './shared/resolvers/product/product.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'product-category/:category', component: ProductCategoryComponent },
-  { path: 'product/:id', component: ProductComponent },
+  { path: 'product/:category', component: ProductCategoryComponent },
+  { path: 'product/:category/:id', component: ProductComponent, resolve: { product: ProductResolver} },
   { path: 'actions', component: ActionsComponent },
   { path: 'actions/:id', component: ActionDetailsComponent },
   { path: 'dostavka-ta-oplata', component: DeliveryPaymentComponent },

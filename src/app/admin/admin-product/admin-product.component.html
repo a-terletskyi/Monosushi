@@ -19,7 +19,7 @@
                 <tbody>
                     <tr *ngFor="let product of adminProducts">
                         <td>{{product.id}}</td>
-                        <td>{{product.category}}</td>
+                        <td>{{product.category.name}}</td>
                         <td>{{product.name}}</td>
                         <td>{{product.description.length > 50 ? (product.description | slice:0:50) + '...' :
                             product.description }}
@@ -43,7 +43,7 @@
             <div class="mb-3">
                 <select class="form-select" id="productCategory" formControlName="category">
                     <option [disabled]="productForm.touched">*Виберіть категорію</option>
-                    <option *ngFor="let category of adminCategories">{{category.name}}</option>
+                    <option *ngFor="let category of adminCategories" [ngValue]="category">{{category.name}}</option>
                   </select>
             </div>
             <div class="flex">

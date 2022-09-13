@@ -44,32 +44,37 @@
   "categories": [
     {
       "name": "Роли",
-      "path": "product-category/roli",
+      "path": "roli",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
       "id": 1
     },
     {
       "name": "Сети",
-      "path": "product-category/setu",
+      "path": "setu",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-sets.svg?alt=media&token=db558dd8-347f-4d9e-9404-4be7753d2c60",
       "id": 2
     },
     {
       "name": "Напої",
-      "path": "product-category/drinks",
+      "path": "drinks",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-drinks.svg?alt=media&token=0eb58857-6b89-4bee-b8da-2faed3ce796e",
       "id": 3
     },
     {
       "name": "Соуси",
-      "path": "product-category/sousi",
+      "path": "sousi",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Ficon.svg?alt=media&token=6d1d6ce0-48fe-4536-8ffa-08d6b87e88e6",
       "id": 4
     }
   ],
   "products": [
     {
-      "category": "Роли",
+      "category": {
+        "name": "Роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
+        "id": 1
+      },
       "name": "Філадельфія з лососем",
       "path": "filadelfiya-z-lososem",
       "description": "Риc, крем сир, огірок, лосось",
@@ -80,7 +85,12 @@
       "id": 1
     },
     {
-      "category": "Роли",
+      "category": {
+        "name": "Роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
+        "id": 1
+      },
       "name": "Філадельфія в кунжуті",
       "path": "filadelfiya-v-kunzhuti",
       "description": "Рис, крем сир, огірок, лосось, кунжут",
@@ -91,7 +101,12 @@
       "id": 2
     },
     {
-      "category": "Роли",
+      "category": {
+        "name": "Роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
+        "id": 1
+      },
       "name": "Філадельфія грін з креветкою",
       "path": "filadelfiya-grin-z-krevetkoyu",
       "description": "Рис, крем сир, огірок, креветка, авокадо, унагі соус",
@@ -102,7 +117,12 @@
       "id": 3
     },
     {
-      "category": "Роли",
+      "category": {
+        "name": "Роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
+        "id": 1
+      },
       "name": "Філадельфія з тунцем",
       "path": "filadelfiya-z-tunczem",
       "description": "Риc, крем сир, авокадо, тунець, cоус солодкий чилі",
@@ -113,7 +133,12 @@
       "id": 4
     },
     {
-      "category": "Роли",
+      "category": {
+        "name": "Роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=34f26e5a-24d2-464b-b5a2-cda9c42b4f86",
+        "id": 1
+      },
       "name": "Каліфорнія з вугрем",
       "path": "kopiyakaliforniya-z-krevetkoyu",
       "description": "Рис, авокадо, огірок, вугор, чорний кунжут, унагі соус",
@@ -122,6 +147,54 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2F4.-kaliforniya-z-vugrem.jpg.pagespeed.ce.GLSGvsXV38.jpg?alt=media&token=7fd2659a-f90a-403f-9ca5-566bba562a72",
       "count": 1,
       "id": 5
+    },
+    {
+      "category": {
+        "name": "Напої",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-drinks.svg?alt=media&token=0eb58857-6b89-4bee-b8da-2faed3ce796e",
+        "id": 3
+      },
+      "name": "Pepsi",
+      "path": "pepsi",
+      "description": "water",
+      "weight": 0.33,
+      "price": 31,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fpepsicola.jpg?alt=media&token=b29d1163-3d03-471b-b80c-98e1a08a4e27",
+      "count": 1,
+      "id": 6
+    },
+    {
+      "category": {
+        "name": "Соуси",
+        "path": "sousi",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Ficon.svg?alt=media&token=6d1d6ce0-48fe-4536-8ffa-08d6b87e88e6",
+        "id": 4
+      },
+      "name": "Імбир",
+      "path": "imbyr",
+      "description": "souse",
+      "weight": 30,
+      "price": 12,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2F3333.png.pagespeed.ce.vQR20Z8Iaq.png?alt=media&token=d2d8f7d5-2a6e-4be5-92ac-fef2a0f4cf9a",
+      "count": 1,
+      "id": 7
+    },
+    {
+      "category": {
+        "name": "Сети",
+        "path": "setu",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fcategories%2Fnav-img-sets.svg?alt=media&token=db558dd8-347f-4d9e-9404-4be7753d2c60",
+        "id": 2
+      },
+      "name": "Запечений сет",
+      "path": "zapechenyj-set-2",
+      "description": "Запечений сирний з креветкою Запечений моно з лососем",
+      "weight": 680,
+      "price": 510,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fproducts%2Fimgonline-com-ua-compressed-wnclohqe80-scaled.jpg.pagespeed.ce.DxC77gzUKm.jpg?alt=media&token=9d20ceed-d78e-4c5f-a25f-f84aeb76fc86",
+      "count": 1,
+      "id": 8
     }
   ]
 }

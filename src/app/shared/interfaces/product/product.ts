@@ -8,6 +8,7 @@ export interface IProductRequest {
     description: string;
     price: number;
     weight: number;
+    count: number;
 }
 
 export interface IProductResponse extends IProductRequest {
