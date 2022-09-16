@@ -1,13 +1,11 @@
 <div class="cards-group">
         <div *ngFor="let product of products" class="card border-hover">
             <div class="card-image">
-                <a class="card-image__link" [routerLink]="['/product/'+product.category.path, product.id]">
                     <img [src]="product.imagePath === undefined ? 'assets/images/no-image-found.png' : product.imagePath"
-                        class="w-100 card-image__img" alt="product">
-                </a>
+                        class="card-image__img" alt="product" [routerLink]="['/product/'+product.category.path, product.id]">
             </div>
             <div class="card-body">
-                <h3 class="card__title" [routerLink]="['/product', product.id]">{{product.name}}</h3>
+                <h3 class="card__title" [routerLink]="['/product/'+product.category.path, product.id]">{{product.name}}</h3>
                 <div class="card-info-block mb-2">
                     <p class="card-composition">{{product.description}}</p>
                     <span class="card-weight">{{product.weight}} г</span>

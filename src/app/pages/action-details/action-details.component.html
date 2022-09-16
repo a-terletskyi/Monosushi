@@ -1,8 +1,8 @@
 <div class="container">
-    <ul class="menu">
-        <li class="menu__item"><a [routerLink]="['/']">Головна</a></li>
-        <li class="menu__item"><a [routerLink]="['/actions']">Акції</a></li>
-        <li class="menu__item">{{actionDetails.name}}</li>
+    <ul class="breadCrumb">
+        <li class="breadCrumb__item"><a class="breadCrumb__link" [routerLink]="['/']">Головна</a></li>
+        <li class="breadCrumb__item"><a class="breadCrumb__link" [routerLink]="['/actions']">Акції</a></li>
+        <li class="breadCrumb__item"><a class="breadCrumb__link">{{actionDetails.name}}</a></li>
     </ul>
     <div class="mini-baner">
         <div class="center-block">

@@ -22,13 +22,14 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { ProductResolver } from './shared/resolvers/product/product.resolver';
+import { ActionResolver } from './shared/resolvers/action/action.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'product/:category', component: ProductCategoryComponent },
   { path: 'product/:category/:id', component: ProductComponent, resolve: { product: ProductResolver} },
   { path: 'actions', component: ActionsComponent },
-  { path: 'actions/:id', component: ActionDetailsComponent },
+  { path: 'actions/:id', component: ActionDetailsComponent, resolve: { action: ActionResolver} },
   { path: 'dostavka-ta-oplata', component: DeliveryPaymentComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'dogovir-oferta', component: OfertaComponent },

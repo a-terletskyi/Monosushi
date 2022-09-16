@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product';
-import { ProductService } from 'src/app/shared/services/product/product.service';
+import { OrderService } from 'src/app/shared/services/order/order.service';
 
 @Component({
   selector: 'app-product',
@@ -12,25 +12,20 @@ export class ProductComponent implements OnInit {
   productDetails!: IProductResponse;
 
   constructor(
-    private productServise: ProductService,
-    private activatedRoute: ActivatedRoute
+    private orderService: OrderService,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { this.loadProduct() }
 
   loadProduct(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.productServise.getOne(id).subscribe(data => { this.productDetails = data });
+    this.activatedRoute.data.subscribe(response => { this.productDetails = response['product'] })
   }
 
-  productCount(product: IProductResponse, status:boolean):void{
-
+  productCount(product: IProductResponse, status: boolean): void {
+    if (status) { ++product.count } else if (!status && product.count > 1) { --product.count }
   }
 
-  addToBasket(product: IProductResponse):void{
-
-  }
+  addToBasket(product: IProductResponse): void { this.orderService.add(product) }
 
 }

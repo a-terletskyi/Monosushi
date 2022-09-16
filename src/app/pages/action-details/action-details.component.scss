@@ -7,44 +7,46 @@
 .container {
     padding: 0 15px;
     margin: 25px auto 120px;
+    max-width: 1750px;
+
+    @include responsive(xlarge) {
+        max-width: 960px;
+    }
+
+    @include responsive(large) {
+        max-width: 720px;
+    }
 
     @include responsive(large) {
         margin-top: 40px;
     }
 }
 
-.menu {
-    padding-left: 0;
+.breadCrumb {
     margin-bottom: 40px;
+    padding: 0;
 
     @include responsive(large) {
         display: none;
     }
 
-    &__item {
+    &__item,
+    &__link,&__link:hover  {
         display: inline-block;
-        font-size: 12px;
-        color: $sec-text-color;
-
-        a {
-            font-size: 12px;
-            color: $sec-text-color;
-            cursor: pointer;
-        }
+        @include text($sec-text-color, 12px, 1.5em);
     }
 
     &__item::after {
         content: "";
         display: inline-block;
-        @include square(4px, 4px, $sec-text-color);
         margin: 0 10px 2px;
+        @include square(4px, 4px, $sec-text-color);
         border-radius: 50%;
     }
 
     &__item:last-child::after {
-        display: none
+        display: none;
     }
-
 }
 
 .mini-baner {

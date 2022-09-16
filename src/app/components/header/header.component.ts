@@ -14,8 +14,9 @@ declare let window: any;
 
 export class HeaderComponent implements OnInit {
   headerCategories!: ICategoryResponse[];
-  private basket: IProductResponse[] = [];
+  basketProducts: IProductResponse[] = [];
   totalPrice = 0;
+  totalCount = 0;
   isAuthorizated = false;
   @ViewChild(PopUpComponent) popUpComponent!: PopUpComponent;
   currentPopUp!: any;
@@ -36,14 +37,25 @@ export class HeaderComponent implements OnInit {
 
   loadBasket(): void {
     if (localStorage.length > 0 && localStorage.getItem('basket')) {
-      this.basket = JSON.parse(localStorage.getItem('basket') as string);
+      this.basketProducts = JSON.parse(localStorage.getItem('basket') as string);
     }
     this.getTotalPrice();
+    this.getTotalCount();
   }
 
-  getTotalPrice(): void { this.totalPrice = this.basket.reduce((total: number, prod: IProductResponse) => total + prod.price * prod.count, 0) }
+  getTotalPrice(): void { this.totalPrice = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.price * prod.count, 0) }
 
-  updateBasket(): void {this.orderService.changeBasket.subscribe(() => { this.loadBasket() })}
+  getTotalCount(): void { this.totalCount = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.count, 0) }
+
+  updateBasket(): void { this.orderService.changeBasket.subscribe(() => { this.loadBasket() }) }
+
+  deleteToBasket(product:IProductResponse):void{
+
+  }
+
+  productCount(product: IProductResponse, status: boolean): void {
+    if (status) { ++product.count } else if (!status && product.count > 1) { --product.count }
+  }
 
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
 

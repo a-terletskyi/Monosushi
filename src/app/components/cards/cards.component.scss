@@ -27,17 +27,19 @@
     text-align: center;
     border: none;
 
-    @include responsive(xxlarge){
+    @include responsive(xxlarge) {
         padding: 15px;
     }
 }
 
 .card-image {
     @include d-flex(center, center);
+    width: 100%;
     height: 240px;
 
     img {
-        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
         transition: 0.35s;
     }
 
@@ -51,7 +53,7 @@
     }
 }
 
-.card-body{
+.card-body {
     @include d-flex(space-between, space-between);
     flex-direction: column;
 }
@@ -59,6 +61,15 @@
 .card__title {
     margin: 10px 0;
     @include text($default-text-color, 20px, 1.5em);
+}
+
+.card__title:hover {
+    color: $main-color;
+    transition: all 0.35s;
+
+    @include responsive(xlarge) {
+        color: $default-text-color;
+    }
 }
 
 .card-info-block {
