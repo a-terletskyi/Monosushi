@@ -21,16 +21,16 @@
                 </ng-container>
                 <ng-container *ngIf="popUpName ==='signIn'">
                     <h5 class="modal-title title fz-26">Вхід в кабінет</h5>
-                    <form class="form-popUp">
+                    <form class="form-popUp" [formGroup]="loginForm" (ngSubmit)="login()">
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="signIn-email" aria-describedby="emailHelp"
+                            <input type="email" formControlName="email" class="form-control" id="signIn-email" aria-describedby="emailHelp"
                                 placeholder="*Ваш email" required>
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" id="signIn-password" placeholder="*Пароль"
+                            <input type="password" formControlName="password" class="form-control" id="signIn-password" placeholder="*Пароль"
                                 required>
                         </div>
-                        <button type="submit" class="button popUp-btn">Увійти в кабінет</button>
+                        <button type="submit" class="button popUp-btn" [disabled]="loginForm.invalid">Увійти в кабінет</button>
                     </form>
                 </ng-container>
                 <ng-container *ngIf="popUpName === 'signUp'">

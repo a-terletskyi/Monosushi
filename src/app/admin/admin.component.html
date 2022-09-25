@@ -4,7 +4,7 @@
         <li class="list-group-item"><a [routerLink]="[ 'category' ]" routerLinkActive="route-active">Категорії</a></li>
         <li class="list-group-item"><a [routerLink]="[ 'product' ]" routerLinkActive="route-active">Товари</a></li>
         <li class="list-group-item"><a [routerLink]="[ 'order' ]" routerLinkActive="route-active">Замовлення</a></li>
-        <li class="list-group-item"><button class="button list-btn" type="button">Вихід</button></li>
+        <li class="list-group-item"><button class="button list-btn" (click)="logOut()" type="button">Вихід</button></li>
     </ul>
     <router-outlet></router-outlet>
 </div>

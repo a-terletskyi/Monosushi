@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product';
+import { AccountService } from 'src/app/shared/services/account/account.service';
 import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { PopUpComponent } from '../pop-up/pop-up.component';
@@ -23,17 +25,24 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private categoriesService: CategoriesService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private accountService: AccountService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadBasket();
     this.updateBasket();
+    // this.checkAuthStatus();
     this.currentPopUp = new window.bootstrap.Modal(document.getElementById('myModal'));
   }
 
   loadCategories(): void { this.categoriesService.getAll().subscribe(data => { this.headerCategories = data }) }
+
+  // checkAuthStatus(): void {
+  //   this.accountService.isAuthorizated.subscribe(data => console.log(data))
+  // }
 
   loadBasket(): void {
     if (localStorage.length > 0 && localStorage.getItem('basket')) {
@@ -49,12 +58,28 @@ export class HeaderComponent implements OnInit {
 
   updateBasket(): void { this.orderService.changeBasket.subscribe(() => { this.loadBasket() }) }
 
-  deleteToBasket(product:IProductResponse):void{
-
+  addToBasket(product: IProductResponse): void {
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
+      this.orderService.basket = JSON.parse(localStorage.getItem('basket') as string);
+      if (this.orderService.basket.some(prod => prod.id === product.id)) {
+        const index = this.orderService.basket.findIndex(prod => prod.id === product.id);
+        this.orderService.basket[index].count = product.count;
+      } else { this.orderService.basket.push(product); }
+    } else { this.orderService.basket.push(product); }
+    localStorage.setItem('basket', JSON.stringify(this.orderService.basket));
+    this.orderService.changeBasket.next(true);
   }
 
+  deleteToBasket(product: IProductResponse): void { this.orderService.delete(product) }
+
   productCount(product: IProductResponse, status: boolean): void {
-    if (status) { ++product.count } else if (!status && product.count > 1) { --product.count }
+    if (status) {
+      ++product.count;
+      this.addToBasket(product);
+    } else if (!status && product.count > 1) {
+      --product.count;
+      this.addToBasket(product);
+    }
   }
 
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
@@ -62,6 +87,12 @@ export class HeaderComponent implements OnInit {
   openPopUpByName(name: string): void {
     this.popUpComponent.popUpName = name;
     this.currentPopUp.show();
+  }
+
+  logOut(): void {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/']);
+    this.accountService.isAuthorizated.next(true);
   }
 
 }

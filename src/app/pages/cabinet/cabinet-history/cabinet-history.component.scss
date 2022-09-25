@@ -1,0 +1,14 @@
+@import '../../../shared/styles/fonts';
+@import '../../../shared/styles/base';
+@import '../../../shared/styles/variables';
+@import '../../../shared/styles/mixins';
+@import '../../../shared/styles/common';
+
+.empty-history {
+    margin-top: 35px;
+
+    .text_link {
+        @include text($main-color, 18px, 1.5em);
+        cursor: pointer;
+    }
+}

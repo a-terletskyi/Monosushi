@@ -1,1 +1,41 @@
-<p>cabinet-personal works!</p>
+<div class="container-fluid">
+    <form [formGroup]="personalDataForm" (ngSubmit)="updateData()">
+        <div class="form__title">
+            <p class="number_title">1</p> 
+            <p class="text_title">Особисті дані</p>
+        </div>
+        <div class="flex">
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="*Ваше ім'я">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="*Ваше прізвище">
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="tel" class="form-control" formControlName="phoneNumber" placeholder="*Ваше номер телефону">
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" formControlName="email" placeholder="*Ваше емейл">
+        </div>
+        <div class="form__title">
+            <p class="number_title">2</p> 
+            <p class="text_title">Адреси</p>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" formControlName="typeAddress" placeholder="Вкажіть тип адреси (наприклад дім, робота)">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" formControlName="street" placeholder="Введіть вулицю доставки">
+        </div>
+        <div class="flex">
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="houseNumber" placeholder="№ будинку">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="flatNumber" placeholder="№ квартири">
+            </div>
+        </div>
+        <button type="submit" class="button form_btn" [disabled]="personalDataForm.invalid">Зберегти зміни</button>
+    </form>
+</div>

@@ -121,15 +121,15 @@
                     </li>
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link"
                             [routerLink]="[ '/kabinet/password' ]" routerLinkActive="route-active">Зміна паролю</a></li>
-                    <li class="nav-menu__item border-hover"><a class="nav-menu__link">Вихід</a></li>
+                    <li class="nav-menu__item border-hover"><a class="nav-menu__link" (click)="logOut()">Вихід</a></li>
                 </ul>
             </ng-container>
             <ng-container *ngIf="!isAuthorizated">
-                <img src="assets/icons/user.svg" alt="user" [routerLink]="[ 'admin/action' ]">
-                <!--(click)="openPopUpByName('signIn')"-->
+                <img src="assets/icons/user.svg" alt="user" (click)="openPopUpByName('signIn')">
             </ng-container>
         </div>
-        <div class="header-basket dropdown" id="dropdownMenuBasket" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="header-basket dropdown" id="dropdownMenuBasket" data-bs-toggle="dropdown"
+            data-bs-auto-close="outside" aria-expanded="false">
             <div class="icon-block">
                 <img src="assets/icons/basket.svg" alt="basket">
                 <span>{{totalCount}}</span>
@@ -140,7 +140,7 @@
             </div>
         </div>
         <ul class="dropdown-menu basket_dropdown-menu" aria-labelledby="dropdownMenuBasket">
-            <ng-container *ngIf="totalPrice === 0">
+            <ng-container x>
                 <div class="cart-empty">
                     <div class="cart-empty-img">
                         <img src="assets/images/cart-empty-img.svg" alt="empty basket">
@@ -157,7 +157,8 @@
                             <img [src]="product.imagePath" [alt]="product.name">
                         </div>
                         <div class="horiz-card-description">
-                            <a class="card__title" [routerLink]="['/product/'+product.category.path, product.id]">{{product.name}}</a>
+                            <a class="card__title"
+                                [routerLink]="['/product/'+product.category.path, product.id]">{{product.name}}</a>
                             <div class="controls">
                                 <div class="thumb-number">
                                     <button (click)="productCount(product, false)" type="button"

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ROLE } from 'src/app/shared/constants/role.constant';
+import { AccountService } from 'src/app/shared/services/account/account.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-pop-up',
@@ -7,12 +12,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopUpComponent implements OnInit {
   popUpName = '';
+  loginForm!: FormGroup;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private accountService: AccountService,
+    private headerComponent: HeaderComponent
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initLoginForm();
+  }
 
   openModalByName(name: string): void { this.popUpName = name }
-  
+
+  initLoginForm() {
+    this.loginForm = this.fb.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]]
+    });
+  }
+
+  login(): void {
+    this.accountService.login(this.loginForm.value).subscribe(data => {
+      if (data.length > 0) {
+        const user = data[0];
+        if (user && user.role === ROLE.USER) { this.router.navigate(['/kabinet']) }
+        else if (user && user.role === ROLE.ADMIN) { this.router.navigate(['/admin']) }
+        this.headerComponent.currentPopUp.hide();
+        localStorage.setItem('currentUser', JSON.stringify(user));
+      }
+    }, (error) => { console.log(error) })
+  }
+
 }
 
