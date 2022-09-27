@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
   logOut(): void {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/']);
-    this.accountService.isAuthorizated.next(true);
+    this.accountService.isAuthorizated.next(false);
   }
 
 }

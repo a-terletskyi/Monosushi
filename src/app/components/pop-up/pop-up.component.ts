@@ -40,8 +40,9 @@ export class PopUpComponent implements OnInit {
         const user = data[0];
         if (user && user.role === ROLE.USER) { this.router.navigate(['/kabinet']) }
         else if (user && user.role === ROLE.ADMIN) { this.router.navigate(['/admin']) }
-        this.headerComponent.currentPopUp.hide();
         localStorage.setItem('currentUser', JSON.stringify(user));
+        this.accountService.isAuthorizated.next(true);
+        this.headerComponent.currentPopUp.hide();
       }
     }, (error) => { console.log(error) })
   }

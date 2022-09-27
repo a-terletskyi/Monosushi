@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ROLE } from 'src/app/shared/constants/role.constant';
 import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product';
 import { AccountService } from 'src/app/shared/services/account/account.service';
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
   totalPrice = 0;
   totalCount = 0;
   isAuthorizated = false;
+  isLoginRole = '';
   @ViewChild(PopUpComponent) popUpComponent!: PopUpComponent;
   currentPopUp!: any;
 
@@ -34,15 +36,12 @@ export class HeaderComponent implements OnInit {
     this.loadCategories();
     this.loadBasket();
     this.updateBasket();
-    // this.checkAuthStatus();
+    this.checkAuthStatus();
+    this.checkUpdatesAuthStatus();
     this.currentPopUp = new window.bootstrap.Modal(document.getElementById('myModal'));
   }
 
   loadCategories(): void { this.categoriesService.getAll().subscribe(data => { this.headerCategories = data }) }
-
-  // checkAuthStatus(): void {
-  //   this.accountService.isAuthorizated.subscribe(data => console.log(data))
-  // }
 
   loadBasket(): void {
     if (localStorage.length > 0 && localStorage.getItem('basket')) {
@@ -82,17 +81,33 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  checkAuthStatus(): void {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
+    if (currentUser && currentUser.role === ROLE.USER) {
+      this.isAuthorizated = true;
+      this.isLoginRole = currentUser.role;
+    }
+    else if (currentUser && currentUser.role === ROLE.ADMIN) {
+      this.isAuthorizated = true;
+      this.isLoginRole = currentUser.role;
+    } else {
+      this.isAuthorizated = false;
+      this.isLoginRole = '';
+    }
+  }
+
+  checkUpdatesAuthStatus(): void { this.accountService.isAuthorizated.subscribe(() => this.checkAuthStatus()) }
+
+  logOut(): void {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/']);
+    this.accountService.isAuthorizated.next(false);
+  }
+
   toggleClassActive(element: HTMLElement): void { element.classList.toggle('active') }
 
   openPopUpByName(name: string): void {
     this.popUpComponent.popUpName = name;
     this.currentPopUp.show();
   }
-
-  logOut(): void {
-    localStorage.removeItem('currentUser');
-    this.router.navigate(['/']);
-    this.accountService.isAuthorizated.next(true);
-  }
-
 }

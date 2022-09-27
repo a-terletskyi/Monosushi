@@ -23,7 +23,8 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { ProductResolver } from './shared/resolvers/product/product.resolver';
 import { ActionResolver } from './shared/resolvers/action/action.resolver';
-import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { AdminGuard } from './shared/guards/auth/admin/admin.guard';
+import { UserGuard } from './shared/guards/auth/user/user.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,13 +36,13 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'dogovir-oferta', component: OfertaComponent },
   { path: 'checkout', component: CheckoutComponent },
-  {path: 'kabinet', component: CabinetComponent, canActivate: [AuthGuard], children: [
-      { path: '', pathMatch: 'full', redirectTo: 'personalData' },
-      { path: 'personalData', component: CabinetPersonalComponent },
+  {path: 'kabinet', component: CabinetComponent, canActivate: [UserGuard], children: [
+      { path: '', pathMatch: 'full', redirectTo: 'personal-data' },
+      { path: 'personal-data', component: CabinetPersonalComponent },
       { path: 'history', component: CabinetHistoryComponent },
       { path: 'password', component: CabinetPasswordComponent },
     ]},
-  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
+  {path: 'admin', component: AdminComponent, canActivate: [AdminGuard], children: [
       { path: '', pathMatch: 'full', redirectTo: 'action' },
       { path: 'action', component: AdminActionComponent },
       { path: 'category', component: AdminCategoryComponent },

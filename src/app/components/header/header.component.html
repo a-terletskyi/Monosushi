@@ -111,7 +111,7 @@
             <p class="work-time">Працюємо з <b>11:00</b> до <b>21:30</b></p>
         </div>
         <div class="header-user border-hover">
-            <ng-container *ngIf="isAuthorizated">
+            <ng-container *ngIf="isLoginRole === 'USER'">
                 <img class="dropdown-toggle" src="assets/icons/user.svg" alt="user" data-bs-toggle="dropdown">
                 <ul class="user-profile dropdown-menu">
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link" [routerLink]="[ '/kabinet' ]"
@@ -123,6 +123,9 @@
                             [routerLink]="[ '/kabinet/password' ]" routerLinkActive="route-active">Зміна паролю</a></li>
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link" (click)="logOut()">Вихід</a></li>
                 </ul>
+            </ng-container>
+            <ng-container *ngIf="isLoginRole === 'ADMIN'">
+                <img src="assets/icons/user.svg" alt="user" [routerLink]="['/admin']">
             </ng-container>
             <ng-container *ngIf="!isAuthorizated">
                 <img src="assets/icons/user.svg" alt="user" (click)="openPopUpByName('signIn')">

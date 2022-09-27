@@ -8,7 +8,7 @@ import { ILogin } from '../../interfaces/account/account';
   providedIn: 'root'
 })
 export class AccountService {
-  isAuthorizated = new Subject;
+  isAuthorizated = new Subject<boolean>();
   private url = environment.BACKEND_URL;
   private api = { auth: `${this.url}/auth` };
 
