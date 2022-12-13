@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+
 import { SwiperModule } from 'swiper/angular';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -37,6 +40,7 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { CategoriesTabsComponent } from './components/categories-tabs/categories-tabs.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +76,9 @@ import { CategoriesTabsComponent } from './components/categories-tabs/categories
     HttpClientModule,
     SwiperModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent]
