@@ -30,6 +30,7 @@ export class PopUpComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initLoginForm();
+    this.initRegisterForm();
   }
 
   openModalByName(name: string): void { this.popUpName = name }
@@ -45,12 +46,16 @@ export class PopUpComponent implements OnInit, OnDestroy {
     this.registerForm = this.fb.group({
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
-      phoneNumber: [null, [Validators.required]], // add pattern for phone number (regExp)
+      phoneNumber: [null, [Validators.required]], // add pattern for phone number (regExp) + email errors
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
-      againPassword: [null, [Validators.required]],
+      confirmPassword: [null, [Validators.required]],
       checkBox: [false, [Validators.required]]
-    })
+    }, { validator: this.passwordValidator })
+  }
+
+  passwordValidator(form: FormGroup): { mismatch: boolean } | null {
+      return form.value.password === form.value.confirmPassword ? null : {'mismatch': true};
   }
 
   loginUser(): void {
@@ -63,39 +68,38 @@ export class PopUpComponent implements OnInit, OnDestroy {
   async login(email: string, password: string): Promise<any> {
     const credential = await signInWithEmailAndPassword(this.auth, email, password);
     this.loginSubscription = docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
+      // Помилка, в змінну юзер формується масив а не один юзер
       const currentUser = { ...user, uid: credential.user.uid };
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
       if (user && user['role'] === ROLE.USER) { this.router.navigate(['/kabinet']) }
       else if (user && user['role'] === ROLE.ADMIN) { this.router.navigate(['/admin']) }
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
       this.accountService.isAuthorizated.next(true);
       this.headerComponent.currentPopUp.hide();
+      this.loginForm.reset();
     }, (error) => { console.log('error', error) })
   }
 
   registerUser(): void {
     const { email, password } = this.registerForm.value;
-    console.log(email, password);
-    
-    // should created user in firebase's collection
     this.register(email, password).then(() => {
       console.log('user created'); // add toster
-      this.popUpName = 'signIn';
-      this.loginForm.reset();
     }).catch(error => { console.log('register error', error) })
   }
 
   async register(email: string, password: string): Promise<any> {
     const credential = await createUserWithEmailAndPassword(this.auth, email, password);
-    const user = {
-      email: credential.user.email,
-      // firstName: credential.user.firstName,
-      // lastName: credential.user.lastName,
-      // phoneNumber: credential.user.phoneNumber,
-      address: '',
-      orders: [],
-      role: ROLE.USER
-    }
-    setDoc(doc(this.afs, 'users', credential.user.uid), user);
+    // const newUser = {
+    //   email: credential.user.email,
+    //   firstName: credential.user.firstName,
+    //   lastName: credential.user.lastName,
+    //   phoneNumber: credential.user.phoneNumber,
+    //   address: '',
+    //   orders: [],
+    //   role: ROLE.USER
+    // };
+    // setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
+    this.popUpName = 'signIn';
+    this.registerForm.reset();
   }
 
   ngOnDestroy(): void { this.loginSubscription.unsubscribe() }

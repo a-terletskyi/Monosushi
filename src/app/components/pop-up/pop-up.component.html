@@ -48,7 +48,7 @@
                         </div>
                         <div class="mb-3">
                             <input type="tel" class="form-control" formControlName="phoneNumber" id="signUp-phoneNumber"
-                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Ваш телефон" required>
+                                placeholder="Ваш телефон" required>
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" formControlName="email" id="signUp-email" aria-describedby="emailHelp"
@@ -60,16 +60,19 @@
                                     required>
                             </div>
                             <div class="mb-3 w-50">
-                                <input type="password" class="form-control" formControlName="checkPassword" id="signUp-repeatPassword"
+                                <input type="password" class="form-control" formControlName="confirmPassword" id="signUp-repeatPassword"
                                     placeholder="Повторіть пароль" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 form-check">
+                            <div class="errors-message">
+                                <span class="error-message" *ngIf="registerForm.errors?.['mismatch']">Password doesn't match</span>
+                            </div>
+                        <div class="mb-3 mt-2 form-check">
                             <input type="checkbox" class="form-check-input" formControlName="checkBox" id="signUp-checkbox" required>
                             <label class="form-check-label" for="signUp-checkbox">Я погоджуюсь з правилами
                                 користування</label>
                         </div>
-                        <button type="submit" class="button popUp-btn">Зареєструватись</button>
+                        <button type="submit" class="button popUp-btn" [disabled]="registerForm.invalid">Зареєструватись</button>
                     </form>
                 </ng-container>
                 <ng-container *ngIf="popUpName === 'resetPass'">

@@ -16,13 +16,13 @@ declare let window: any;
 })
 
 export class HeaderComponent implements OnInit {
+  @ViewChild(PopUpComponent) popUpComponent!: PopUpComponent;
   headerCategories!: ICategoryResponse[];
   basketProducts: IProductResponse[] = [];
   totalPrice = 0;
   totalCount = 0;
   isAuthorizated = false;
   isLoginRole = '';
-  @ViewChild(PopUpComponent) popUpComponent!: PopUpComponent;
   currentPopUp!: any;
 
   constructor(
