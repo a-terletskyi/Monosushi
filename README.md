@@ -10,9 +10,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 4. Також не забудьте підключити firebase для завантаження картинок.
 
-Примітка. Якщо Ви хочете підняти код з заняття пам'ятайте що в файл environment.ts необхідно ставити конфігурацію іменно вашого firebase проекту.
-## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
