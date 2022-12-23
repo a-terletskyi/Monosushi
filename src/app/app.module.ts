@@ -40,6 +40,9 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { CategoriesTabsComponent } from './components/categories-tabs/categories-tabs.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -67,6 +70,7 @@ import { CategoriesTabsComponent } from './components/categories-tabs/categories
     PopUpComponent,
     CardsComponent,
     CategoriesTabsComponent,
+    AuthDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +83,8 @@ import { CategoriesTabsComponent } from './components/categories-tabs/categories
     provideStorage(() => getStorage()),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

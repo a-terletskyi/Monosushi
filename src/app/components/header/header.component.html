@@ -124,11 +124,11 @@
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link" (click)="logOut()">Вихід</a></li>
                 </ul>
             </ng-container>
-            <ng-container *ngIf="isLoginRole === 'ADMIN'">
+            <!-- <ng-container *ngIf="isLoginRole === 'ADMIN'">
                 <img src="assets/icons/user.svg" alt="user" [routerLink]="['/admin']">
-            </ng-container>
+            </ng-container> -->
             <ng-container *ngIf="!isAuthorizated">
-                <img src="assets/icons/user.svg" alt="user" (click)="openPopUpByName('signIn')">
+                <img src="assets/icons/user.svg" alt="user" (click)="openAuthDialog()">
             </ng-container>
         </div>
         <div class="header-basket dropdown" id="dropdownMenuBasket" data-bs-toggle="dropdown"

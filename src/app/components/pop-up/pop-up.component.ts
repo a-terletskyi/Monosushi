@@ -46,7 +46,7 @@ export class PopUpComponent implements OnInit, OnDestroy {
     this.registerForm = this.fb.group({
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
-      phoneNumber: [null, [Validators.required]], // add pattern for phone number (regExp) + email errors
+      phoneNumber: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       confirmPassword: [null, [Validators.required]],
@@ -55,14 +55,18 @@ export class PopUpComponent implements OnInit, OnDestroy {
   }
 
   passwordValidator(form: FormGroup): { mismatch: boolean } | null {
-      return form.value.password === form.value.confirmPassword ? null : {'mismatch': true};
+    return form.value.password === form.value.confirmPassword ? null : { 'mismatch': true };
+  }
+
+  phoneNumberValidator(form: FormGroup): any {
+    return // add regExp for phone number
   }
 
   loginUser(): void {
     const { email, password } = this.loginForm.value;
     this.login(email, password).then(() => {
       console.log('login done'); // add toster
-    }).catch(error => { console.log('login error', error) })
+    }).catch(error => { console.log('login error', error) }) // add toster
   }
 
   async login(email: string, password: string): Promise<any> {
@@ -76,30 +80,30 @@ export class PopUpComponent implements OnInit, OnDestroy {
       this.accountService.isAuthorizated.next(true);
       this.headerComponent.currentPopUp.hide();
       this.loginForm.reset();
-    }, (error) => { console.log('error', error) })
+    }, (error) => { console.log('error', error) }) // add toster
   }
 
   registerUser(): void {
     const { email, password } = this.registerForm.value;
     this.register(email, password).then(() => {
       console.log('user created'); // add toster
-    }).catch(error => { console.log('register error', error) })
+      this.popUpName = 'signIn';
+      this.registerForm.reset();
+    }).catch(error => { console.log('register error', error) }) // add toster
   }
 
   async register(email: string, password: string): Promise<any> {
     const credential = await createUserWithEmailAndPassword(this.auth, email, password);
-    // const newUser = {
-    //   email: credential.user.email,
-    //   firstName: credential.user.firstName,
-    //   lastName: credential.user.lastName,
-    //   phoneNumber: credential.user.phoneNumber,
-    //   address: '',
-    //   orders: [],
-    //   role: ROLE.USER
-    // };
-    // setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
-    this.popUpName = 'signIn';
-    this.registerForm.reset();
+    const newUser = {
+      email: credential.user.email,
+      firstName: this.registerForm.value.firstName,
+      lastName: this.registerForm.value.lastName,
+      phoneNumber: this.registerForm.value.phoneNumber,
+      address: '',
+      orders: [],
+      role: ROLE.USER
+    };
+    setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
   }
 
   ngOnDestroy(): void { this.loginSubscription.unsubscribe() }

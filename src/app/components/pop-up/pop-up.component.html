@@ -28,7 +28,7 @@
                         </div>
                         <div class="mb-3">
                             <input type="password" formControlName="password" class="form-control" id="signIn-password" placeholder="*Пароль"
-                                required>
+                            autocomplete="off" required>
                         </div>
                         <button type="submit" class="button popUp-btn" [disabled]="loginForm.invalid">Увійти в кабінет</button>
                     </form>
@@ -57,11 +57,11 @@
                         <div class="d-sm-flex justify-content-between">
                             <div class="mb-3  me-sm-3 w-50">
                                 <input type="password" class="form-control" formControlName="password" id="signUp-password" placeholder="Пароль"
-                                    required>
+                                autocomplete="off" required>
                             </div>
                             <div class="mb-3 w-50">
                                 <input type="password" class="form-control" formControlName="confirmPassword" id="signUp-repeatPassword"
-                                    placeholder="Повторіть пароль" required>
+                                    placeholder="Повторіть пароль" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="errors-message">
