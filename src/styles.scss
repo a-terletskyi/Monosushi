@@ -45,8 +45,11 @@ body {
     }
 }
 
-.swiper {
+.offcanvas-backdrop.show {
+    opacity: 0.6;
+}
 
+.swiper {
     .swiper-slide:nth-child(n+2)::before {
         content: "";
         position: absolute;

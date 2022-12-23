@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <form class="admin-form" [formGroup]="adminLoginForm" (ngSubmit)="loginAdmin()">
+        <h1 class="h3 mb-3 text-center">Вхід в кабінет</h1>
+        <div class="form-floating">
+            <input type="email" formControlName="email" class="form-control" id="admin-email"
+                placeholder="name@example.com">
+            <label for="admin-email">*Ваш email</label>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input type="password" formControlName="password" class="form-control" id="admin-password"
+                autocomplete="off" placeholder="Password">
+            <label for="admin-password">*Ваш пароль</label>
+        </div>
+        <button class="button w-100 mb-3 admin-form__btn" type="submit" [disabled]="adminLoginForm.invalid">Увійти в
+            кабінет</button>
+            <p class="text text-center">Повернутися до <a class="admin-form__link link-hover" [routerLink]="['/']">Monosushi</a></p>
+    </form>
+</div>

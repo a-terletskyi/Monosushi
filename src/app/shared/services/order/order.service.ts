@@ -16,7 +16,7 @@ export class OrderService {
       this.basket = JSON.parse(localStorage.getItem('basket') as string);
       if (this.basket.some(prod => prod.id === product.id)) {
         const index = this.basket.findIndex(prod => prod.id === product.id);
-        this.basket[index].count += product.count;
+        this.basket[index].count = product.count;
       } else { this.basket.push(product); }
     } else { this.basket.push(product); }
     localStorage.setItem('basket', JSON.stringify(this.basket));

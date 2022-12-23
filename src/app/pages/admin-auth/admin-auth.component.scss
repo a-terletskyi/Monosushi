@@ -1,0 +1,31 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
+
+.wrapper {
+    z-index: 100;
+    position: absolute;
+    inset: 0;
+    @include d-flex(center, center);
+    background-color: $main-color;
+}
+
+.admin-form {
+    width: 100%;
+    max-width: 600px;
+    border-color: white;
+
+    &__btn {
+        background-color: #0d6efd;
+    }
+}
+
+.admin-form__link {
+    @include text(#000000, 18px, 1em);
+    font-family: 'RotondaC-bold';
+}
+
+.admin-form__link:hover {
+    color: #0d6efd;
+}

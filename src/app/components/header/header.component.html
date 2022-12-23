@@ -63,7 +63,7 @@
                                 </li>
                                 <li class="nav-menu__item">
                                     <div class="call">
-                                        <button class="button call-btn" (click)="openPopUpByName('call')">
+                                        <button class="button call-btn" (click)="openCallDialog()">
                                             <img class="call__img" src="assets/icons/phone.svg" alt="phone">
                                             <span class="call__text">МИ ЗАТЕЛЕФОНУЄМО</span>
                                         </button>
@@ -98,7 +98,8 @@
             </ul>
         </div>
         <div class="header-callback call">
-            <button class="button call-btn" (click)="openPopUpByName('call')">
+            <!-- чекнути стилі -->
+            <button class="button call-btn" (click)="openCallDialog()">
                 <img class="call__img" src="assets/icons/phone.svg" alt="phone">
                 <span class="call__text">МИ ЗАТЕЛЕФОНУЄМО</span>
             </button>
@@ -124,15 +125,14 @@
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link" (click)="logOut()">Вихід</a></li>
                 </ul>
             </ng-container>
-            <!-- <ng-container *ngIf="isLoginRole === 'ADMIN'">
+            <ng-container *ngIf="isLoginRole === 'ADMIN'">
                 <img src="assets/icons/user.svg" alt="user" [routerLink]="['/admin']">
-            </ng-container> -->
+            </ng-container>
             <ng-container *ngIf="!isAuthorizated">
                 <img src="assets/icons/user.svg" alt="user" (click)="openAuthDialog()">
             </ng-container>
         </div>
-        <div class="header-basket dropdown" id="dropdownMenuBasket" data-bs-toggle="dropdown"
-            data-bs-auto-close="outside" aria-expanded="false">
+        <div class="header-basket" (click)="openBasketDialog()">
             <div class="icon-block">
                 <img src="assets/icons/basket.svg" alt="basket">
                 <span>{{totalCount}}</span>
@@ -142,6 +142,7 @@
                 <span> грн</span>
             </div>
         </div>
+        <!-- перенести в компоненту basket -->
         <ul class="dropdown-menu basket_dropdown-menu" aria-labelledby="dropdownMenuBasket">
             <ng-container x>
                 <div class="cart-empty">
@@ -188,4 +189,3 @@
         </ul>
     </div>
 </header>
-<app-pop-up></app-pop-up>

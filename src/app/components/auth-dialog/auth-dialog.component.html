@@ -1,1 +1,91 @@
-<p>auth-dialog works!</p>
+<div class="dialog">
+    <div class="dialog-header">
+        <button type="button" class="btn-close" (click)="closeDialog()" ></button>
+    </div>
+    <div class="dialog-body">
+        <ng-container *ngIf="dialogState === 'signIn'">
+            <h5 class="dialog-title fz-26">Вхід в кабінет</h5>
+            <form class="dialog-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                <div class="mb-3">
+                    <input type="email" formControlName="email" class="form-control" id="signIn-email" placeholder="*Ваш email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" formControlName="password" class="form-control" id="signIn-password"
+                        placeholder="*Пароль" autocomplete="off" required>
+                </div>
+                <button type="submit" class="button dialog-btn" [disabled]="loginForm.invalid">Увійти в
+                    кабінет</button>
+            </form>
+        </ng-container>
+        <ng-container *ngIf="dialogState === 'signUp'">
+            <h5 class="dialog-title fz-26">Зареєструватись</h5>
+            <form class="dialog-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                <div class="d-sm-flex justify-content-between">
+                    <div class="mb-3 me-sm-3 response-width">
+                        <input type="text" class="form-control" formControlName="firstName" id="signUp-firstName"
+                            placeholder="Ваше ім'я" required>
+                    </div>
+                    <div class="mb-3 response-width">
+                        <input type="text" class="form-control" formControlName="lastName" id="signUp-secondName"
+                            placeholder="Ваше прізвище" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="tel" class="form-control" formControlName="phoneNumber" id="signUp-phoneNumber"
+                        placeholder="Ваш телефон" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" formControlName="email" id="signUp-email" placeholder="Ваш email" required>
+                </div>
+                <div class="d-sm-flex justify-content-between">
+                    <div class="mb-3  me-sm-3 response-width">
+                        <input type="password" class="form-control" formControlName="password" id="signUp-password"
+                            placeholder="Пароль" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3 response-width">
+                        <input type="password" class="form-control" formControlName="confirmPassword"
+                            id="signUp-repeatPassword" placeholder="Повторіть пароль" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="errors-message">
+                    <span class="error-message" *ngIf="registerForm.errors?.['mismatch']">Password doesn't
+                        match</span>
+                </div>
+                <div class="mb-3 mt-2 form-check">
+                    <input type="checkbox" class="form-check-input" formControlName="checkBox" id="signUp-checkbox"
+                        required>
+                    <label class="form-check-label" for="signUp-checkbox">Я погоджуюсь з правилами
+                        користування</label>
+                </div>
+                <button type="submit" class="button dialog-btn"
+                    [disabled]="registerForm.invalid">Зареєструватись</button>
+            </form>
+        </ng-container>
+        <ng-container *ngIf="dialogState === 'forgotPassword'">
+            <h5 class="dialog-title fz-26">Відновити пароль</h5>
+            <p class="info-text">Після заповнення форми, ми надішлемо вам детальну інструкцію по
+                відновленню паролю</p>
+            <form class="dialog-form">
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="resetPass-email"
+                        placeholder="*Ваш email" required>
+                </div>
+                <button type="submit" class="button dialog-btn">Відновити пароль</button>
+            </form>
+        </ng-container>
+    </div>
+    <div class="dialog-footer d-flex">
+        <ng-container *ngIf="dialogState === 'signIn'">
+            <a class="dialog-link link-hover" (click)="dialogState = 'forgotPassword'">Забули пароль?</a>
+            <a class="dialog-link link-hover" (click)="dialogState = 'signUp'">Зареєструватись</a>
+        </ng-container>
+        <ng-container *ngIf="dialogState === 'signUp'">
+            <p class="text m-auto">Вже зареєстровані? <a class="dialog-link link-hover"
+                    (click)="dialogState = 'signIn'">Увійти</a></p>
+        </ng-container>
+        <ng-container *ngIf="dialogState === 'forgotPassword'">
+            <p class="text m-auto">Повернутися до <a class="dialog-link link-hover" (click)="dialogState = 'signIn'">Входу</a>
+            </p>
+        </ng-container>
+    </div>
+</div>

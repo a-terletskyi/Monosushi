@@ -25,6 +25,7 @@ import { ProductResolver } from './shared/resolvers/product/product.resolver';
 import { ActionResolver } from './shared/resolvers/action/action.resolver';
 import { AdminGuard } from './shared/guards/auth/admin/admin.guard';
 import { UserGuard } from './shared/guards/auth/user/user.guard';
+import { AdminAuthComponent } from './pages/admin-auth/admin-auth.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
       { path: 'product', component: AdminProductComponent },
       { path: 'order', component: AdminOrderComponent }
     ]},
+  {path: 'admin-auth', component: AdminAuthComponent},
 ];
 
 @NgModule({

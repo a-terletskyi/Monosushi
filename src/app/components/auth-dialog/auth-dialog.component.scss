@@ -1,0 +1,103 @@
+@import '../../shared/styles/fonts';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/common';
+
+.dialog {
+    position: relative;
+    padding: 26px 36px 21px 36px;
+
+    @include responsive(small) {
+        padding: 11px 0 1px 0;
+    }
+
+    .dialog-header .btn-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .dialog-body {
+        .dialog-title {
+            margin-bottom: 5px;
+            font-family: 'RotondaC-bold';
+            text-align: center;
+        }
+
+        .info-text {
+            max-width: 390px;
+            margin: 0 auto;
+            @include text($sec-text-color, 16px, 1.4em);
+            text-align: center;
+        }
+
+        .form-check-input {
+            border-radius: 2px;
+        }
+
+        .form-check-input:focus {
+            box-shadow: none;
+        }
+
+        .form-check-input:checked {
+            background-color: $main-color;
+            border-color: $main-color;
+        }
+
+        .form-check-label {
+            color: $sec-text-color;
+            font-family: 'RotondaC-bold';
+            cursor: pointer;
+        }
+    }
+
+    .dialog-footer {
+        justify-content: space-between;
+
+        .dialog-link {
+            color: $default-text-color;
+            font-family: 'RotondaC-bold';
+            text-decoration: none;
+        }
+
+        .dialog-link:hover {
+            color: $main-color;
+        }
+    }
+}
+
+.fz-26 {
+    font-size: 26px;
+}
+
+.response-width {
+    width: 50%;
+
+    @include responsive(small) {
+        width: 100%;
+    }
+}
+
+.dialog-form {
+    margin: 30px 0 20px;
+
+    .form-control {
+        padding: 15px 20px 15px 23px;
+        border-radius: $brd-radius;
+    }
+
+    .dialog-btn {
+        width: 100%;
+        background-color: $main-color;
+        border-color: transparent;
+        font-family: 'RotondaC-bold';
+    }
+
+    .dialog-btn:disabled {
+        background-color: #e1f1ff;
+    }
+
+    .error-message {
+        color: rgb(193, 14, 14);
+    }
+}

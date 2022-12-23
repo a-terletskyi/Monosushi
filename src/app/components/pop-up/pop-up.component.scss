@@ -1,104 +1,104 @@
-@import '../../shared/styles/fonts';
-@import '../../shared/styles/variables';
-@import '../../shared/styles/mixins';
-@import '../../shared/styles/common';
+// @import '../../shared/styles/fonts';
+// @import '../../shared/styles/variables';
+// @import '../../shared/styles/mixins';
+// @import '../../shared/styles/common';
 
-.modal-dialog {
-    max-width: 600px;
-}
+// .modal-dialog {
+//     max-width: 600px;
+// }
 
-.modal-content {
-    border-radius: $brd-radius;
+// .modal-content {
+//     border-radius: $brd-radius;
 
-    .modal-header,
-    .modal-footer {
-        border: none;
-    }
+//     .modal-header,
+//     .modal-footer {
+//         border: none;
+//     }
 
-    .modal-body {
-        padding: 0 60px 24px;
+//     .modal-body {
+//         padding: 0 60px 24px;
 
-        @include responsive(small) {
-            padding: 0 15px 15px 15px;
-        }
+//         @include responsive(small) {
+//             padding: 0 15px 15px 15px;
+//         }
 
-        .fz-26 {
-            font-size: 26px;
-        }
+//         .fz-26 {
+//             font-size: 26px;
+//         }
 
-        .w-50 {
-            @include responsive(small) {
-                width: 100% !important;
-            }
-        }
+//         .w-50 {
+//             @include responsive(small) {
+//                 width: 100% !important;
+//             }
+//         }
 
-        .modal-title {
-            margin-bottom: 5px;
-            font-family: 'RotondaC-bold';
-            text-align: center;
-        }
+//         .modal-title {
+//             margin-bottom: 5px;
+//             font-family: 'RotondaC-bold';
+//             text-align: center;
+//         }
 
-        .info-text {
-            max-width: 390px;
-            margin: 0 auto;
-            @include text($sec-text-color, 16px, 1.4em);
-            text-align: center;
-        }
+//         .info-text {
+//             max-width: 390px;
+//             margin: 0 auto;
+//             @include text($sec-text-color, 16px, 1.4em);
+//             text-align: center;
+//         }
 
-        .form-check-input {
-            border-radius: 2px;
-        }
+//         .form-check-input {
+//             border-radius: 2px;
+//         }
 
-        .form-check-input:focus {
-            box-shadow: none;
-        }
+//         .form-check-input:focus {
+//             box-shadow: none;
+//         }
 
-        .form-check-input:checked {
-            background-color: $main-color;
-            border-color: $main-color;
-        }
+//         .form-check-input:checked {
+//             background-color: $main-color;
+//             border-color: $main-color;
+//         }
 
-        .form-check-label {
-            font-family: 'RotondaC-bold';
-            cursor: pointer;
-        }
-    }
+//         .form-check-label {
+//             font-family: 'RotondaC-bold';
+//             cursor: pointer;
+//         }
+//     }
 
-    .modal-footer {
-        padding: 0 60px 45px;
-        justify-content: space-between;
+//     .modal-footer {
+//         padding: 0 60px 45px;
+//         justify-content: space-between;
 
-        @include responsive(small) {
-            padding: 0 15px 25px;
-        }
+//         @include responsive(small) {
+//             padding: 0 15px 25px;
+//         }
 
-        .popUp-link {
-            color: $default-text-color;
-            font-family: 'RotondaC-bold';
-            text-decoration: none;
-        }
+//         .popUp-link {
+//             color: $default-text-color;
+//             font-family: 'RotondaC-bold';
+//             text-decoration: none;
+//         }
 
-        .popUp-link:hover {
-            color: $main-color;
-        }
-    }
-}
+//         .popUp-link:hover {
+//             color: $main-color;
+//         }
+//     }
+// }
 
-.form-popUp {
-    margin-top: 30px;
+// .form-popUp {
+//     margin-top: 30px;
 
-    .form-control {
-        padding: 15px 20px 15px 23px;
-        border-radius: $brd-radius;
-    }
+//     .form-control {
+//         padding: 15px 20px 15px 23px;
+//         border-radius: $brd-radius;
+//     }
 
-    .popUp-btn {
-        width: 100%;
-        background-color: $main-color;
-        font-family: 'RotondaC-bold';
-    }
+//     .popUp-btn {
+//         width: 100%;
+//         background-color: $main-color;
+//         font-family: 'RotondaC-bold';
+//     }
 
-    .error-message {
-        color: rgb(171, 9, 9);
-    }
-}
+//     .error-message {
+//         color: rgb(171, 9, 9);
+//     }
+// }

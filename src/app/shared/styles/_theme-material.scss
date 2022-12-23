@@ -1,9 +1,19 @@
-@use '@angular/material' as mat;
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 @import 'base';
 @import 'variables';
 @import 'mixins';
 @import 'common';
 @import 'fonts';
 
-@include mat.core();
+.back-color {
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
+.auth-dialog {
+    overflow: auto;
+    border-radius: $brd-radius;
+}
+
+.call-dialog {}
+
+.basket-dialog {}

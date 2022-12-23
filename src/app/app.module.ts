@@ -12,8 +12,11 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 
-import { SwiperModule } from 'swiper/angular';
 import { AppComponent } from './app.component';
+import { SwiperModule } from 'swiper/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardsComponent } from './components/cards/cards.component';
+import { CategoriesTabsComponent } from './components/categories-tabs/categories-tabs.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -37,16 +40,18 @@ import { AdminActionComponent } from './admin/admin-action/admin-action.componen
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
-import { PopUpComponent } from './components/pop-up/pop-up.component';
-import { CardsComponent } from './components/cards/cards.component';
-import { CategoriesTabsComponent } from './components/categories-tabs/categories-tabs.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
+import { AdminAuthComponent } from './pages/admin-auth/admin-auth.component';
+
 import { SharedModule } from './shared/shared.module';
+import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
+import { CallDialogComponent } from './components/call-dialog/call-dialog.component';
+import { BasketDialogComponent } from './components/basket-dialog/basket-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CardsComponent,
+    CategoriesTabsComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -67,10 +72,10 @@ import { SharedModule } from './shared/shared.module';
     AdminCategoryComponent,
     AdminProductComponent,
     AdminOrderComponent,
-    PopUpComponent,
-    CardsComponent,
-    CategoriesTabsComponent,
+    AdminAuthComponent,
     AuthDialogComponent,
+    CallDialogComponent,
+    BasketDialogComponent,
   ],
   imports: [
     BrowserModule,
