@@ -21,7 +21,7 @@ export class CallDialogComponent implements OnInit {
   initCallForm() {
     this.callForm = this.fb.group({
       name: [null, [Validators.required]],
-      phoneNumber: [null, [Validators.required]]
+      phoneNumber: [null, [Validators.required, Validators.pattern(/(?=.*\+[0-9]{3}\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{4,5}$)/)]]
     });
   }
 
@@ -30,7 +30,5 @@ export class CallDialogComponent implements OnInit {
     // will need to send data
     this.dialogRef.close();
   }
-
-  closeDialog(): void { this.dialogRef.close() }
 
 }

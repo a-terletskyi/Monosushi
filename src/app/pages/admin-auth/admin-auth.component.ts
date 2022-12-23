@@ -15,6 +15,7 @@ import { AccountService } from 'src/app/shared/services/account/account.service'
 export class AdminAuthComponent implements OnInit {
   adminLoginForm!: FormGroup;
   loginSubscription!: Subscription;
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -22,7 +23,7 @@ export class AdminAuthComponent implements OnInit {
     private accountService: AccountService,
     private auth: Auth,
     private afs: Firestore,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.initAdminLoginForm();
@@ -37,9 +38,7 @@ export class AdminAuthComponent implements OnInit {
 
   loginAdmin(): void {
     const { email, password } = this.adminLoginForm.value;
-    this.login(email, password).then(() => {
-      console.log('login done'); // add toster
-    }).catch(error => { console.log('login error', error) }) // add toster
+    this.login(email, password).then(() => { }).catch(error => { this.errorMessage = error })
   }
 
   async login(email: string, password: string): Promise<any> {
@@ -51,7 +50,7 @@ export class AdminAuthComponent implements OnInit {
       else if (user && user['role'] === ROLE.ADMIN) { this.router.navigate(['/admin']) }
       this.accountService.isAuthorizated.next(true);
       this.adminLoginForm.reset();
-    }, (error) => { console.log('error', error) }) // add toster
+    }, (error) => { this.errorMessage = error })
   }
 
   ngOnDestroy(): void { this.loginSubscription?.unsubscribe() }

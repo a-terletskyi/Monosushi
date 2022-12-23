@@ -6,13 +6,17 @@
                 placeholder="name@example.com">
             <label for="admin-email">*Ваш email</label>
         </div>
-        <div class="form-floating mb-3 ">
+        <div class="form-floating mb-3">
             <input type="password" formControlName="password" class="form-control" id="admin-password"
                 autocomplete="off" placeholder="Password">
             <label for="admin-password">*Ваш пароль</label>
         </div>
-        <button class="button w-100 mb-3 admin-form__btn" type="submit" [disabled]="adminLoginForm.invalid">Увійти в
-            кабінет</button>
-            <p class="text text-center">Повернутися до <a class="admin-form__link link-hover" [routerLink]="['/']">Monosushi</a></p>
+        <div class="errors-message">
+            <span class="error-message">{{errorMessage}}</span>
+        </div>
+        <button class="button w-100 mb-3 mt-2 admin-form__btn" type="submit" [disabled]="adminLoginForm.invalid">Увійти
+            в кабінет</button>
+        <p class="text text-center">Повернутися до <a class="admin-form__link link-hover"
+                [routerLink]="['/']">Monosushi</a></p>
     </form>
 </div>

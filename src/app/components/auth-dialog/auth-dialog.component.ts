@@ -18,7 +18,9 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
   dialogState = 'signIn';
   loginForm!: FormGroup;
   registerForm!: FormGroup;
+  forgotPassForm!: FormGroup;
   loginSubscription!: Subscription;
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -32,6 +34,7 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initLoginForm();
     this.initRegisterForm();
+    this.initForgotPassForm();
   }
 
   initLoginForm() {
@@ -45,7 +48,7 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
     this.registerForm = this.fb.group({
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
-      phoneNumber: [null, [Validators.required]],
+      phoneNumber: [null, [Validators.required, Validators.pattern(/(?=.*\+[0-9]{3}\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{4,5}$)/)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       confirmPassword: [null, [Validators.required]],
@@ -53,15 +56,25 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
     }, { validator: this.passwordValidator })
   }
 
+  initForgotPassForm(): void {
+    this.forgotPassForm = this.fb.group({ email: [null, [Validators.required, Validators.email]] })
+  }
+
   passwordValidator(form: FormGroup): { mismatch: boolean } | null {
     return form.value.password === form.value.confirmPassword ? null : { 'mismatch': true };
   }
 
+  changeDialogState(state: string): void {
+    this.dialogState = state;
+    this.loginForm.reset();
+    this.registerForm.reset();
+    this.forgotPassForm.reset();
+    this.errorMessage = '';
+  }
+
   loginUser(): void {
     const { email, password } = this.loginForm.value;
-    this.login(email, password).then(() => {
-      console.log('login done'); // add toster
-    }).catch(error => { console.log('login error', error) }) // add toster
+    this.login(email, password).then(() => { }).catch(error => { this.errorMessage = error.message })
   }
 
   async login(email: string, password: string): Promise<any> {
@@ -74,16 +87,15 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
       this.accountService.isAuthorizated.next(true);
       this.dialogRef.close();
       this.loginForm.reset();
-    }, (error) => { console.log('error', error) }) // add toster
+    }, (error) => { this.errorMessage = error.message })
   }
 
   registerUser(): void {
     const { email, password } = this.registerForm.value;
     this.register(email, password).then(() => {
-      console.log('user created'); // add toster
       this.dialogState = 'signIn';
       this.registerForm.reset();
-    }).catch(error => { console.log('register error', error) }) // add toster
+    }).catch(error => { this.errorMessage = error.message })
   }
 
   async register(email: string, password: string): Promise<any> {
@@ -100,7 +112,9 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
     setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
   }
 
-  closeDialog(): void { this.dialogRef.close() }
+  forgotPass(): void {
+    // will need to send data;
+  }
 
   ngOnDestroy(): void { this.loginSubscription?.unsubscribe() }
 

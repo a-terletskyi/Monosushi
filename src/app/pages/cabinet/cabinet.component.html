@@ -3,6 +3,7 @@
         <li class="list-group-item"><a [routerLink]="[ 'personal-data' ]" routerLinkActive="route-active">Особисті дані</a></li>
         <li class="list-group-item"><a [routerLink]="[ 'history' ]" routerLinkActive="route-active">Історія замовлень</a></li>
         <li class="list-group-item"><a [routerLink]="[ 'password' ]" routerLinkActive="route-active">Зміна паролю</a></li>
+        <li class="list-group-item"><button class="button list-btn" (click)="logOut()" type="button">Вихід</button></li>
     </ul>
     <router-outlet></router-outlet>
 </div>

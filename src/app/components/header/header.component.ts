@@ -22,13 +22,14 @@ export class HeaderComponent implements OnInit {
   totalPrice = 0;
   totalCount = 0;
   isAuthorizated = false;
+  dialogActive = false;
   isLoginRole = '';
 
   constructor(
     private categoriesService: CategoriesService,
     private orderService: OrderService,
     private accountService: AccountService,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -49,15 +50,13 @@ export class HeaderComponent implements OnInit {
     this.getTotalCount();
   }
 
-  getTotalPrice(): void { this.totalPrice = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.price * prod.count, 0) }
-
-  getTotalCount(): void { this.totalCount = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.count, 0) }
+  updateBasket(): void { this.orderService.changeBasket.subscribe(() => { this.loadBasket() }) }
 
   addToBasket(product: IProductResponse): void { this.orderService.add(product) }
 
-  deleteToBasket(product: IProductResponse): void { this.orderService.delete(product) }
+  getTotalPrice(): void { this.totalPrice = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.price * prod.count, 0) }
 
-  updateBasket(): void { this.orderService.changeBasket.subscribe(() => { this.loadBasket() }) }
+  getTotalCount(): void { this.totalCount = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.count, 0) }
 
   productCount(product: IProductResponse, status: boolean): void {
     if (status) {
@@ -107,10 +106,14 @@ export class HeaderComponent implements OnInit {
   }
 
   openBasketDialog(): void {
-    this.dialog.open(BasketDialogComponent, {
-      backdropClass: 'back-color',
-      panelClass: 'basket-dialog'
-    })
+    this.dialogActive = true;
+    const dialogRef = this.dialog.open(BasketDialogComponent, {
+      backdropClass: 'basket-backdrop',
+      panelClass: 'basket-dialog',
+      autoFocus: false,
+      data: { status: this.dialogActive }
+    });
+    dialogRef.afterClosed().subscribe(() => { this.dialogActive = false })
   }
 
 }

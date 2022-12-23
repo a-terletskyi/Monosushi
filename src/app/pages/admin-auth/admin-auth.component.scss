@@ -19,6 +19,10 @@
     &__btn {
         background-color: #0d6efd;
     }
+
+    .ng-dirty.ng-invalid {
+        border-left: 7px solid #a94442;
+    }
 }
 
 .admin-form__link {
@@ -28,4 +32,8 @@
 
 .admin-form__link:hover {
     color: #0d6efd;
+}
+
+.error-message {
+    color: #a94442;
 }

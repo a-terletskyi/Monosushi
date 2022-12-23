@@ -1,13 +1,14 @@
 <div class="dialog">
     <div class="dialog-header">
-        <button type="button" class="btn-close" (click)="closeDialog()"></button>
+        <button type="button" class="btn-close" mat-dialog-close></button>
     </div>
     <div class="dialog-body">
         <h5 class="dialog-title title">МИ ЗАТЕЛЕФОНУЄМО</h5>
         <p class="info-text">Залиште номер телефону і наші менеджери зв'яжуться з вами</p>
         <form class="dialog-form" [formGroup]="callForm" (ngSubmit)="sendData()">
             <div class="mb-3">
-                <input type="text" formControlName="name" class="form-control" id="call-userName" placeholder="Ваше ім'я" required>
+                <input type="text" formControlName="name" class="form-control" id="call-userName"
+                    placeholder="Ваше ім'я" required>
             </div>
             <div class="mb-3">
                 <input type="tel" formControlName="phoneNumber" class="form-control" id="call-phoneNumber"

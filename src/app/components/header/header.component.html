@@ -131,60 +131,17 @@
                 <img src="assets/icons/user.svg" alt="user" (click)="openAuthDialog()">
             </ng-container>
         </div>
-        <div class="header-basket" (click)="openBasketDialog()">
+        <div class="header-basket" [classList]="dialogActive ? 'header-basket active' : 'header-basket'"
+            (click)="openBasketDialog()">
             <div class="icon-block">
                 <img src="assets/icons/basket.svg" alt="basket">
-                <span>{{totalCount}}</span>
+                <span
+                    [style]="dialogActive ? {'background-color' : '#b5d8f7'} : {'background-color' : '#ffffff'}">{{totalCount}}</span>
             </div>
             <div class="basket-price">
                 <b class="card-total-price">{{totalPrice}}</b>
                 <span> грн</span>
             </div>
         </div>
-        <!-- перенести в компоненту basket -->
-        <ul class="dropdown-menu basket_dropdown-menu" aria-labelledby="dropdownMenuBasket">
-            <ng-container x>
-                <div class="cart-empty">
-                    <div class="cart-empty-img">
-                        <img src="assets/images/cart-empty-img.svg" alt="empty basket">
-                    </div>
-                    <h5 class="cart-empty__title">Кошик порожній</h5>
-                    <button type="button" class="button cart-empty__btn" [routerLink]="['/product/roli']">Перейти до
-                        каталогу</button>
-                </div>
-            </ng-container>
-            <ng-container *ngIf="totalPrice != 0">
-                <ul class="product-group">
-                    <li *ngFor="let product of basketProducts" class="horiz-card">
-                        <div class="horiz-card-img">
-                            <img [src]="product.imagePath" [alt]="product.name">
-                        </div>
-                        <div class="horiz-card-description">
-                            <a class="card__title"
-                                [routerLink]="['/product/'+product.category.path, product.id]">{{product.name}}</a>
-                            <div class="controls">
-                                <div class="thumb-number">
-                                    <button (click)="productCount(product, false)" type="button"
-                                        class="decrement">-</button>
-                                    <input [value]="product.count" readonly="" class="product-qty" tabindex="-1"
-                                        max="999">
-                                    <button (click)="productCount(product, true)" type="button"
-                                        class="increment">+</button>
-                                </div>
-                                <p class="price"><span>{{product.price * product.count}}</span> грн</p>
-                                <button type="button" (click)="deleteToBasket(product)" class="horiz-card__btn">
-                                    <div class="trash"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </ng-container>
-            <div class="cart_bottom bg-mono">
-                <p class="price">Сума: <span>{{totalPrice}}</span> грн</p>
-                <button class="button cart_bottom__btn" type="btn" [disabled]="totalPrice === 0">Оформити
-                    замовлення</button>
-            </div>
-        </ul>
     </div>
 </header>

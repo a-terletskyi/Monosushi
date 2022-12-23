@@ -51,4 +51,8 @@
     .dialog-btn:disabled {
         background-color: #e1f1ff;
     }
+
+    .ng-dirty.ng-invalid {
+        border: 1px solid #a94442;
+    }
 }
