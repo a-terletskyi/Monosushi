@@ -9,11 +9,9 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.auth-dialog {
+.auth-dialog, .call-dialog {
     overflow: auto;
     border-radius: $brd-radius;
 }
-
-.call-dialog {}
 
 .basket-dialog {}

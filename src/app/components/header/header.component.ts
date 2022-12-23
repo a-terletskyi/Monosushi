@@ -99,6 +99,8 @@ export class HeaderComponent implements OnInit {
 
   openCallDialog(): void {
     this.dialog.open(CallDialogComponent, {
+      width: '100%',
+      maxWidth: '600px',
       backdropClass: 'back-color',
       panelClass: 'call-dialog'
     })

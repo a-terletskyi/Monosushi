@@ -1,13 +1,14 @@
 <div class="dialog">
     <div class="dialog-header">
-        <button type="button" class="btn-close" (click)="closeDialog()" ></button>
+        <button type="button" class="btn-close" (click)="closeDialog()"></button>
     </div>
     <div class="dialog-body">
         <ng-container *ngIf="dialogState === 'signIn'">
             <h5 class="dialog-title fz-26">Вхід в кабінет</h5>
             <form class="dialog-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
                 <div class="mb-3">
-                    <input type="email" formControlName="email" class="form-control" id="signIn-email" placeholder="*Ваш email" required>
+                    <input type="email" formControlName="email" class="form-control" id="signIn-email"
+                        placeholder="*Ваш email" required>
                 </div>
                 <div class="mb-3">
                     <input type="password" formControlName="password" class="form-control" id="signIn-password"
@@ -35,7 +36,8 @@
                         placeholder="Ваш телефон" required>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" formControlName="email" id="signUp-email" placeholder="Ваш email" required>
+                    <input type="email" class="form-control" formControlName="email" id="signUp-email"
+                        placeholder="Ваш email" required>
                 </div>
                 <div class="d-sm-flex justify-content-between">
                     <div class="mb-3  me-sm-3 response-width">
@@ -67,8 +69,7 @@
                 відновленню паролю</p>
             <form class="dialog-form">
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="resetPass-email"
-                        placeholder="*Ваш email" required>
+                    <input type="email" class="form-control" id="resetPass-email" placeholder="*Ваш email" required>
                 </div>
                 <button type="submit" class="button dialog-btn">Відновити пароль</button>
             </form>
@@ -84,7 +85,8 @@
                     (click)="dialogState = 'signIn'">Увійти</a></p>
         </ng-container>
         <ng-container *ngIf="dialogState === 'forgotPassword'">
-            <p class="text m-auto">Повернутися до <a class="dialog-link link-hover" (click)="dialogState = 'signIn'">Входу</a>
+            <p class="text m-auto">Повернутися до <a class="dialog-link link-hover"
+                    (click)="dialogState = 'signIn'">Входу</a>
             </p>
         </ng-container>
     </div>
