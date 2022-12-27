@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ROLE } from 'src/app/shared/constants/role.constant';
-import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
+import { ICategoryResponse } from 'src/app/shared/interfaces/category/category';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product';
 import { AccountService } from 'src/app/shared/services/account/account.service';
-import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
+import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { BasketDialogComponent } from '../basket-dialog/basket-dialog.component';
@@ -21,12 +21,12 @@ export class HeaderComponent implements OnInit {
   basketProducts: IProductResponse[] = [];
   totalPrice = 0;
   totalCount = 0;
-  isAuthorizated = false;
+  isAuthorization = false;
   dialogActive = false;
   isLoginRole = '';
 
   constructor(
-    private categoriesService: CategoriesService,
+    private categoryService: CategoryService,
     private orderService: OrderService,
     private accountService: AccountService,
     public dialog: MatDialog
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
     this.checkUpdatesAuthStatus();
   }
 
-  loadCategories(): void { this.categoriesService.getAll().subscribe(data => { this.headerCategories = data }) }
+  loadCategories(): void { this.categoryService.getAll().subscribe(data => { this.headerCategories = data }) }
 
   loadBasket(): void {
     if (localStorage.length > 0 && localStorage.getItem('basket')) {
@@ -52,38 +52,26 @@ export class HeaderComponent implements OnInit {
 
   updateBasket(): void { this.orderService.changeBasket.subscribe(() => { this.loadBasket() }) }
 
-  addToBasket(product: IProductResponse): void { this.orderService.add(product) }
-
   getTotalPrice(): void { this.totalPrice = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.price * prod.count, 0) }
 
   getTotalCount(): void { this.totalCount = this.basketProducts.reduce((total: number, prod: IProductResponse) => total + prod.count, 0) }
 
-  productCount(product: IProductResponse, status: boolean): void {
-    if (status) {
-      ++product.count;
-      this.orderService.add(product);
-    } else if (!status && product.count > 1) {
-      --product.count;
-      this.orderService.add(product);
-    }
-  }
-
   checkAuthStatus(): void {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
     if (currentUser && currentUser.role === ROLE.USER) {
-      this.isAuthorizated = true;
+      this.isAuthorization = true;
       this.isLoginRole = currentUser.role;
     }
     else if (currentUser && currentUser.role === ROLE.ADMIN) {
-      this.isAuthorizated = true;
+      this.isAuthorization = true;
       this.isLoginRole = currentUser.role;
     } else {
-      this.isAuthorizated = false;
+      this.isAuthorization = false;
       this.isLoginRole = '';
     }
   }
 
-  checkUpdatesAuthStatus(): void { this.accountService.isAuthorizated.subscribe(() => this.checkAuthStatus()) }
+  checkUpdatesAuthStatus(): void { this.accountService.isAuthorization.subscribe(() => this.checkAuthStatus()) }
 
   logOut(): void { this.accountService.logOut() }
 
@@ -93,6 +81,7 @@ export class HeaderComponent implements OnInit {
       maxWidth: '600px',
       backdropClass: 'back-color',
       panelClass: 'auth-dialog',
+      autoFocus: "input"
     })
   }
 
@@ -101,7 +90,8 @@ export class HeaderComponent implements OnInit {
       width: '100%',
       maxWidth: '600px',
       backdropClass: 'back-color',
-      panelClass: 'call-dialog'
+      panelClass: 'call-dialog',
+      autoFocus: "input"
     })
   }
 

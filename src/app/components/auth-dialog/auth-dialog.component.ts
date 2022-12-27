@@ -51,8 +51,8 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
       phoneNumber: [null, [Validators.required, Validators.pattern(/(?=.*\+[0-9]{3}\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{4,5}$)/)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
-      confirmPassword: [null, [Validators.required]],
-      checkBox: [false, [Validators.required]]
+      confirmationPassword: [null, [Validators.required]],
+      agreement: [false, [Validators.required]]
     }, { validator: this.passwordValidator })
   }
 
@@ -61,7 +61,7 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
   }
 
   passwordValidator(form: FormGroup): { mismatch: boolean } | null {
-    return form.value.password === form.value.confirmPassword ? null : { 'mismatch': true };
+    return form.value.password === form.value.confirmationPassword ? null : { 'mismatch': true };
   }
 
   changeDialogState(state: string): void {
@@ -82,9 +82,9 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
     this.loginSubscription = docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
       const currentUser = { ...user, uid: credential.user.uid };
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      if (user && user['role'] === ROLE.USER) { this.router.navigate(['/kabinet']) }
+      if (user && user['role'] === ROLE.USER) { this.router.navigate(['/cabinet']) }
       else if (user && user['role'] === ROLE.ADMIN) { this.router.navigate(['/admin']) }
-      this.accountService.isAuthorizated.next(true);
+      this.accountService.isAuthorization.next(true);
       this.dialogRef.close();
       this.loginForm.reset();
     }, (error) => { this.errorMessage = error.message })
@@ -109,7 +109,7 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
       orders: [],
       role: ROLE.USER
     };
-    setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
+    await setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
   }
 
   forgotPass(): void {

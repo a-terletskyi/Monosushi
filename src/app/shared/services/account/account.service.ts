@@ -9,7 +9,7 @@ import { ILogin } from '../../interfaces/account/account';
   providedIn: 'root'
 })
 export class AccountService {
-  isAuthorizated = new Subject<boolean>();
+  isAuthorization = new Subject<boolean>();
   private url = environment.BACKEND_URL;
   private api = { auth: `${this.url}/auth` };
 
@@ -25,7 +25,7 @@ export class AccountService {
   logOut(): void {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/']);
-    this.isAuthorizated.next(false);
+    this.isAuthorization.next(false);
   }
 
 }

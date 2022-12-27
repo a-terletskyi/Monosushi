@@ -1,4 +1,4 @@
-import { ICategoryResponse } from "../categories/categories";
+import { ICategoryResponse } from "../category/category";
 
 export interface IProductRequest {
     category: ICategoryResponse;

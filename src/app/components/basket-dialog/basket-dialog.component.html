@@ -6,7 +6,7 @@
                     <img src="assets/images/cart-empty-img.svg" alt="empty basket">
                 </div>
                 <h5 class="cart-empty__title">Кошик порожній</h5>
-                <button type="button" class="button cart-empty__btn" mat-dialog-close [routerLink]="['/product/roli']">Перейти до
+                <button type="button" class="button cart-empty__btn" mat-dialog-close="true" [routerLink]="['/product/roli']">Перейти до
                     каталогу</button>
             </div>
         </ng-container>
@@ -37,7 +37,7 @@
         </ng-container>
         <div class="cart_bottom bg-mono">
             <p class="price">Сума: <span>{{totalPrice}}</span> грн</p>
-            <button class="button cart_bottom__btn" type="btn" [disabled]="totalPrice === 0">Оформити
+            <button class="button cart_bottom__btn" type="button" [disabled]="totalPrice === 0">Оформити
                 замовлення</button>
         </div>
     </div>

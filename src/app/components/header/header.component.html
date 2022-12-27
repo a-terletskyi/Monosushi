@@ -4,10 +4,10 @@
             <img class="logo-image" src="assets/images/logo.svg" alt="logo monosushi">
             <img class="logo-image-mobile" src="assets/images/logo-mobile.svg" alt="logo monosushi">
         </a>
-        <div class="header-nav-wrapper" #headerNav>
+        <div class="header-nav-wrapper">
             <nav>
                 <ul class="main-nav">
-                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/actions' ]"
+                    <li class="main-nav__item border-hover"><a [routerLink]="[ '/discount' ]"
                             routerLinkActive="route-active" class="main-nav-link">
                             <div class="link-block">
                                 <img class="link-block__img" src="assets/images/nav-img-gift.svg" alt="category">
@@ -24,7 +24,7 @@
                         </a></li>
                 </ul>
                 <div class="burger-nav">
-                    <svg class="hamburger" #hamburger data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    <svg class="hamburger" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                         aria-controls="offcanvasRight" viewBox="0 0 100 100" width="80">
                         <path class="line top"
                             d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
@@ -48,13 +48,13 @@
                                         </a></li>
                                 </ul>
                                 <li class="nav-menu__item border-hover"><a class="nav-menu__link"
-                                        [routerLink]="[ '/dostavka-ta-oplata' ]"
+                                        [routerLink]="[ '/delivery-payment' ]"
                                         routerLinkActive="route-active">Доставка та
                                         оплата</a></li>
                                 <li class="nav-menu__item border-hover"><a class="nav-menu__link"
                                         [routerLink]="[ '/about-us' ]" routerLinkActive="route-active">Про наc</a></li>
                                 <li class="nav-menu__item border-hover"><a class="nav-menu__link"
-                                        [routerLink]="[ '/actions' ]" routerLinkActive="route-active">Акції</a></li>
+                                        [routerLink]="[ '/discount' ]" routerLinkActive="route-active">Акції</a></li>
                                 <li class="nav-menu__item address">
                                     <div class="nav-menu__link header-info">
                                         <a class="phone-number" href="tel:0978780837">(097) 878 08 37</a>
@@ -75,8 +75,8 @@
                 </div>
             </nav>
         </div>
-        <div class="burger-menu border-hover" #burger>
-            <svg class="hamburger dropdown-toggle" #hamburger data-bs-toggle="dropdown" aria-expanded="false"
+        <div class="burger-menu border-hover" >
+            <svg class="hamburger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
                 viewBox="0 0 100 100" width="80">
                 <path class="line top"
                     d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
@@ -88,12 +88,12 @@
             </svg>
             <ul class="dropdown-menu">
                 <li class="nav-menu__item border-hover"><a class="nav-menu__link"
-                        [routerLink]="[ '/dostavka-ta-oplata' ]" routerLinkActive="route-active">Доставка та
+                        [routerLink]="[ '/delivery-payment' ]" routerLinkActive="route-active">Доставка та
                         оплата</a>
                 </li>
                 <li class="nav-menu__item border-hover"><a class="nav-menu__link" [routerLink]="[ '/about-us' ]"
                         routerLinkActive="route-active">Про наc</a></li>
-                <li class="nav-menu__item border-hover"><a class="nav-menu__link" [routerLink]="[ '/actions' ]"
+                <li class="nav-menu__item border-hover"><a class="nav-menu__link" [routerLink]="[ '/discount' ]"
                         routerLinkActive="route-active">Акції</a></li>
             </ul>
         </div>
@@ -114,20 +114,20 @@
             <ng-container *ngIf="isLoginRole === 'USER'">
                 <img class="dropdown-toggle" src="assets/icons/user.svg" alt="user" data-bs-toggle="dropdown">
                 <ul class="user-profile dropdown-menu">
-                    <li class="nav-menu__item border-hover"><a class="nav-menu__link" [routerLink]="[ '/kabinet' ]"
+                    <li class="nav-menu__item border-hover"><a class="nav-menu__link" [routerLink]="[ '/cabinet' ]"
                             routerLinkActive="route-active">Особисті дані</a></li>
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link"
-                            [routerLink]="[ '/kabinet/history' ]" routerLinkActive="route-active">Історія замовлень</a>
+                            [routerLink]="[ '/cabinet/history' ]" routerLinkActive="route-active">Історія замовлень</a>
                     </li>
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link"
-                            [routerLink]="[ '/kabinet/password' ]" routerLinkActive="route-active">Зміна паролю</a></li>
+                            [routerLink]="[ '/cabinet/password' ]" routerLinkActive="route-active">Зміна паролю</a></li>
                     <li class="nav-menu__item border-hover"><a class="nav-menu__link" (click)="logOut()">Вихід</a></li>
                 </ul>
             </ng-container>
             <ng-container *ngIf="isLoginRole === 'ADMIN'">
                 <img src="assets/icons/user.svg" alt="user" [routerLink]="['/admin']">
             </ng-container>
-            <ng-container *ngIf="!isAuthorizated">
+            <ng-container *ngIf="!isAuthorization">
                 <img src="assets/icons/user.svg" alt="user" (click)="openAuthDialog()">
             </ng-container>
         </div>

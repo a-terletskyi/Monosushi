@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 
@@ -15,8 +14,7 @@ export class BasketDialogComponent implements OnInit {
   totalCount = 0;
 
   constructor(
-    private orderService: OrderService,
-    public dialogRef: MatDialogRef<BasketDialogComponent>
+    private orderService: OrderService
   ) { }
 
   ngOnInit(): void {

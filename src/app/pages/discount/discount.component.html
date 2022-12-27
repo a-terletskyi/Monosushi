@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="center-info">
+        <h2 class="center-info__title">Акції</h2>
+    </div>
+    <div class="cards-group">
+        <div *ngFor="let discount of discounts" class="card">
+            <div class="card-img">
+                <a class="card-img__link" [routerLink]="['/discount', discount.id]"><img [src]="discount.imagePath === undefined ? 'assets/images/no-image-found.png' : discount.imagePath " class="card-img-top" alt="discount"></a>
+            </div>
+            <div class="card-body">
+                <hr class="card-line">
+                <button type="button" class="button card-btn" [routerLink]="['/discount', discount.id]">Дізнатися
+                    більше</button>
+            </div>
+        </div>
+    </div>

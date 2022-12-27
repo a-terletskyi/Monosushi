@@ -19,7 +19,7 @@ export class CabinetPasswordComponent implements OnInit {
     this.passwordForm = this.fb.group({
       currentPassword: [null, Validators.required],
       newPassword: [null, Validators.required],
-      againNewPassword: [null, Validators.required],
+      confirmationNewPassword: [null, Validators.required],
     });
   }
 

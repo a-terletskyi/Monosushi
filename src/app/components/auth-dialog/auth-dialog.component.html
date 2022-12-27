@@ -1,6 +1,6 @@
 <div class="dialog">
     <div class="dialog-header">
-        <button type="button" class="btn-close" mat-dialog-close></button>
+        <button type="button" class="btn-close" mat-dialog-close="true"></button>
     </div>
     <div class="dialog-body">
         <ng-container *ngIf="dialogState === 'signIn'">
@@ -48,7 +48,7 @@
                             placeholder="Пароль" autocomplete="off" required>
                     </div>
                     <div class="mb-3 response-width">
-                        <input type="password" class="form-control" formControlName="confirmPassword"
+                        <input type="password" class="form-control" formControlName="confirmationPassword"
                             id="signUp-repeatPassword" placeholder="Повторіть пароль" autocomplete="off" required>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
                     <span class="error-message">{{errorMessage}}</span>
                 </div>
                 <div class="mb-3 mt-2 form-check">
-                    <input type="checkbox" class="form-check-input" formControlName="checkBox" id="signUp-checkbox"
+                    <input type="checkbox" class="form-check-input" formControlName="agreement" id="signUp-agreement"
                         required>
-                    <label class="form-check-label" for="signUp-checkbox">Я погоджуюсь з правилами
+                    <label class="form-check-label" for="signUp-agreement">Я погоджуюсь з правилами
                         користування</label>
                 </div>
                 <button type="submit" class="button dialog-btn"

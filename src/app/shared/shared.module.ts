@@ -8,10 +8,24 @@ const MATERIAL = [
     MatInputModule
 ]
 
+// other modals
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [],
-    imports: [...MATERIAL],
-    exports: [...MATERIAL]
+    imports: [
+      ...MATERIAL,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule
+    ],
+    exports: [
+      ...MATERIAL,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule
+    ]
 })
 
 export class SharedModule { }

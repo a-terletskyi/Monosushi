@@ -46,9 +46,9 @@ export class AdminAuthComponent implements OnInit {
     this.loginSubscription = docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
       const currentUser = { ...user, uid: credential.user.uid };
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      if (user && user['role'] === ROLE.USER) { this.router.navigate(['/kabinet']) }
+      if (user && user['role'] === ROLE.USER) { this.router.navigate(['/cabinet']) }
       else if (user && user['role'] === ROLE.ADMIN) { this.router.navigate(['/admin']) }
-      this.accountService.isAuthorizated.next(true);
+      this.accountService.isAuthorization.next(true);
       this.adminLoginForm.reset();
     }, (error) => { this.errorMessage = error })
   }

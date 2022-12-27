@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product';
-import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
+import { ICategoryResponse } from 'src/app/shared/interfaces/category/category';
 import { ProductService } from 'src/app/shared/services/product/product.service';
-import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
+import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { ImageService } from 'src/app/shared/services/image/image.service';
 @Component({
   selector: 'app-admin-product',
@@ -22,7 +22,7 @@ export class AdminProductComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private productsService: ProductService,
-    private categoriesService: CategoriesService,
+    private categoriesService: CategoryService,
     private imageService: ImageService
   ) { }
 
@@ -66,7 +66,7 @@ export class AdminProductComponent implements OnInit {
   }
 
   editProducts(product: IProductResponse): void {
-    
+
     this.productForm.patchValue({
       category: product.category,
       name: product.name,

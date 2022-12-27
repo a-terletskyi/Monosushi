@@ -1,11 +1,11 @@
 {
-  "actions": [
+  "discounts": [
     {
       "name": "Рол тижня",
       "title": "50% знижки на \"Рол тижня\"",
       "description": "<ul>\n<li>Щотижня діє знижка 50% на один з ролів у нашому меню.</li>\n<li>“Рол тижня” ви можете знайти на головній сторінці нашого сайту.</li>\n<li>Знижка діє при мінімальній сумі замовлення 200 грн.</li>\n<li>Ця акція не поєднується з іншими акціями.</li>\n</ul>",
       "date": "2022-08-04T06:29:38.761Z",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Frol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg?alt=media&token=2d353bce-86bd-4405-8eb6-02dd2347087c",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fdiscounts%2Frol-tyzhnya-3.0_page-0001-1-scaled-697x379.jpg?alt=media&token=2c877a22-07eb-4a4a-aef0-e34c7598c7be",
       "id": 1
     },
     {
@@ -13,7 +13,7 @@
       "title": "\"3+1=5\"",
       "description": "<ul>\n<li>Замовляйте 5 ролів, а платіть за 4.</li>\n<li>Замовляйте 10 ролів, а платіть за 8 і так далі.</li>\n<li>Безкоштовним вважається рол з найменшою вартістю.</li>\n<li>Ця акція не поєднується з іншими акціями.</li>\n</ul>",
       "date": "2022-08-08T10:05:39.139Z",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Fpyatyj-v-podarunok-4.0_page-0001-scaled-697x379.jpg?alt=media&token=3bbc83f3-7f02-4372-8321-f2501d61953d",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fdiscounts%2Fpyatyj-v-podarunok-4.0_page-0001-scaled-697x379.jpg?alt=media&token=d91c3661-25f6-4454-bfd7-ed610660a7ba",
       "id": 2
     },
     {
@@ -21,7 +21,7 @@
       "title": "Самовивіз",
       "description": "<p>Забирайте своє замовлення самостійно та отримуйте такі переваги:</p>\n<ul>\n<li>Запечені моно макі з лососем у подарунок.</li>\n<li>Відсутність мінімальної суми замовлення.</li>\n<li>Час очікування на замовлення до 30 хв.</li>\n</ul>\n<ul>\n<li>Для отримання акційного ролу у подарунок зберігається умова мінімальної суми замовлення 200 грн.</li>\n<li>Ця акція не поєднується з іншими акціями.</li>\n</ul>\n",
       "date": "2022-08-08T11:28:57.595Z",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Fsamovyviz-3.0_page-0001-1-scaled-697x379.jpg?alt=media&token=8f8bc497-6e3e-4b35-8cdd-9864c1758420",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fdiscounts%2Fsamovyviz-3.0_page-0001-1-scaled-697x379.jpg?alt=media&token=f4a4d948-9f62-4a2c-8e26-0d478cd6b153",
       "id": 3
     },
     {
@@ -29,7 +29,7 @@
       "title": "День Народження з Моносуші",
       "description": "<ul>\n<li>При оформленні замовлення вкажіть промокод “День народження” та отримайте “Запечений сет” безкоштовно до Вашого замовлення.</li>\n<li>Термін дії акції – День народження плюс один день до та після свята.</li>\n<li>Ця акція починає діяти при мінімальній сумі замовлення 750 грн.</li>\n<li>Для отримання подарунку іменинник має показати кур’єру оригінал документу, що підтверджує його дату народження.</li>\n<li>Ця акція не поєднується з іншими акціями.</li>\n</ul>",
       "date": "2022-08-08T14:13:07.818Z",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Fden-narodzhennya-razom-z-monosushi_page-0001-scaled-697x379.jpg?alt=media&token=223fcda1-8d54-4070-b141-8916e01a0ebc",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fdiscounts%2Fden-narodzhennya-razom-z-monosushi_page-0001-scaled-697x379.jpg?alt=media&token=3b4a74ff-34da-406b-9a27-99013b12d30b",
       "id": 4
     },
     {
@@ -37,7 +37,7 @@
       "title": "Фотомарафон",
       "description": "<ul>\n<li>Розіграш проводиться в соціальній мережі – Instagram.</li>\n<li>Щоб стати учасником розіграшу варто зробити будь-який контент на задану тему з нашими ролами. Це може бути фото, відео, tik-tok.</li>\n<li>Обов’язково позначай нас на пості або сторі, щоб стати учасником марафону. ( інакше ми вас не побачимо )</li>\n<li>Марафон триває тиждень.</li>\n<li>По закінченню марафону користувачі Instagram визначають переможця методом голосування.</li>\n<li>Переможець отримує Запечений сет в подарунок.</li>\n<li>Деталі актуального марафону уточнюйте в нашому Instagram: @monosushi.com.ua</li>\n<li>Ця акція не поєднується з іншими акціями.</li>\n</ul>",
       "date": "2022-08-08T14:14:33.077Z",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Factions%2Ffotomarafon_page-0001-scaled-697x379.jpg?alt=media&token=1fd47efa-f1e1-461f-babc-63b341f19a08",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-ua-e2f28.appspot.com/o/images%2Fdiscounts%2Ffotomarafon_page-0001-scaled-697x379.jpg?alt=media&token=86436779-ff99-4e1e-83b8-9fc6b928283d",
       "id": 5
     }
   ],

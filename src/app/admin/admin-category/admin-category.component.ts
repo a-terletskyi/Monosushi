@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ICategoryResponse } from 'src/app/shared/interfaces/categories/categories';
-import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
+import { ICategoryResponse } from 'src/app/shared/interfaces/category/category';
+import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { ImageService } from 'src/app/shared/services/image/image.service';
 @Component({
   selector: 'app-admin-category',
@@ -19,7 +19,7 @@ export class AdminCategoryComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private categoryService: CategoriesService,
+    private categoryService: CategoryService,
     private imageService: ImageService
   ) { }
 
@@ -82,7 +82,7 @@ export class AdminCategoryComponent implements OnInit {
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.imageService.uploadFile('images/categories', file.name, file)
+    this.imageService.uploadFile('images/category', file.name, file)
       .then(data => {
         this.categoryForm.patchValue({ imagePath: data })
         this.isUploaded = true;
@@ -100,5 +100,5 @@ export class AdminCategoryComponent implements OnInit {
       this.categoryForm.patchValue({ imagePath: null })
     })
   }
-  
+
 }

@@ -1,0 +1,13 @@
+<div class="container">
+    <ul class="breadCrumb">
+        <li class="breadCrumb__item"><a class="breadCrumb__link" [routerLink]="['/']">Головна</a></li>
+        <li class="breadCrumb__item"><a class="breadCrumb__link" [routerLink]="['/discount']">Акції</a></li>
+        <li class="breadCrumb__item"><a class="breadCrumb__link">{{discountDetails.name}}</a></li>
+    </ul>
+    <div class="mini-baner">
+        <div class="center-block">
+            <h2 class="mini-baner__title">{{discountDetails.title}}</h2>
+        </div>
+    </div>
+    <div class="content-block" [innerHtml]="discountDetails.description"></div>
+</div>

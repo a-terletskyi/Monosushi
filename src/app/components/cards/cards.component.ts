@@ -30,7 +30,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   loadProducts(): void {
     let categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
     if (categoryName === null) { categoryName = 'roli' }
-    this.productService.getAllbyCategory(categoryName).subscribe(data => { this.products = data })
+    this.productService.getAllByCategory(categoryName).subscribe(data => { this.products = data })
   }
 
   productCount(product: IProductResponse, status: boolean): void {
