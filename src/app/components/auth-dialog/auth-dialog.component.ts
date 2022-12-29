@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ROLE } from 'src/app/shared/constants/role.constant';
 import { AccountService } from 'src/app/shared/services/account/account.service';
+import { IRegister } from "../../shared/interfaces/account/account";
 
 @Component({
   selector: 'app-auth-dialog',
@@ -20,6 +21,7 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
   registerForm!: FormGroup;
   forgotPassForm!: FormGroup;
   loginSubscription!: Subscription;
+  registerData!: IRegister;
   errorMessage = '';
 
   constructor(
@@ -100,8 +102,8 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
 
   async register(email: string, password: string): Promise<any> {
     const credential = await createUserWithEmailAndPassword(this.auth, email, password);
-    const newUser = {
-      email: credential.user.email,
+    this.registerData = {
+      email: this.registerForm.value.email,
       firstName: this.registerForm.value.firstName,
       lastName: this.registerForm.value.lastName,
       phoneNumber: this.registerForm.value.phoneNumber,
@@ -109,7 +111,7 @@ export class AuthDialogComponent implements OnInit, OnDestroy {
       orders: [],
       role: ROLE.USER
     };
-    await setDoc(doc(this.afs, 'users', credential.user.uid), newUser);
+    await setDoc(doc(this.afs, 'users', credential.user.uid), this.registerData);
   }
 
   forgotPass(): void {

@@ -4,6 +4,15 @@
 @import '../../../shared/styles/mixins';
 @import '../../../shared/styles/common';
 
+.container-fluid {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @include responsive(medium) {
+    text-align: center;
+  }
+}
+
 .empty-history {
     margin-top: 35px;
 
@@ -12,3 +21,58 @@
         cursor: pointer;
     }
 }
+
+.table {
+  text-align: start;
+  overflow: auto;
+
+  .order {
+    border-top: solid 2px $main-color;
+  }
+
+  th,
+  td {
+    padding: 20px;
+    color: $sec-text-color;
+    font-size: 18px;
+    vertical-align: middle;
+
+    @media screen and (max-width:1600px) {
+      font-size: 16px;
+    }
+
+    @include responsive(xlarge) {
+      padding: 10px;
+    }
+  }
+
+td.bold, span.bold {
+  color: $default-text-color;
+  font-family: 'RotondaC-bold';
+}
+
+  .repeat_link {
+    display: block;
+    color: $main-color;
+    background-color: transparent;
+    border: none;
+  }
+
+  .status_done {
+    position: relative;
+    display: block;
+    color: #14d473;
+    background-color: transparent;
+    border: none;
+  }
+
+  .status_done::before {
+    content: "";
+    @include absolute(9px, -14px);
+    @include square(8px,8px,#14d473);
+    color: #0a53be;
+    border-radius: 50%;
+  }
+
+}
+

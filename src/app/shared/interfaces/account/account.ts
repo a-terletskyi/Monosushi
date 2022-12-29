@@ -1,6 +1,16 @@
+import {ROLE} from "../../constants/role.constant";
+
 export interface ILogin {
     email: string,
     password: string
 }
 
-//will add IRegister interface
+export interface IRegister {
+  firstName: string,
+  lastName: string,
+  email: string,
+  phoneNumber: string,
+  address: string,
+  orders: Array<object>,
+  role: ROLE
+}

@@ -1,8 +1,38 @@
 <div class="container-fluid">
-    <ng-container>
+    <ng-container *ngIf="false">
         <div class="empty-history">
-            <p class="text">Поки що ви не зробили жодного замовлення <span class="text_link" [routerLink]="['/product-info/roli']">перейти в каталог</span></p>
+            <p class="text">Поки що ви не зробили жодного замовлення <span class="text_link" [routerLink]="['/product/roli']">перейти в каталог</span></p>
         </div>
     </ng-container>
+  <ng-container *ngIf="true">
+    <div class="overflow-auto">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>№ замовлення</th>
+          <th>Дата та час</th>
+          <th>Адреса</th>
+          <th>Сума</th>
+          <th>Статус</th>
+        </tr>
+        </thead>
+        <tbody class="order">
+           <tr class="order-info">
+              <td class="bold">№ 3151</td>
+              <td>08.2022 18.47.25</td>
+              <td>Самовиніс</td>
+              <td><span class="bold">510</span> грн</td>
+              <td><button type="button" class="status_done">виконано</button></td>
+              <td><button type="button" class="repeat_link link-hover">повторити</button></td>
+            </tr>
+            <tr class="order-product">
+              <td></td>
+              <td class="order__product-name" colspan="2">Запечені моно макі з лососем</td>
+              <td class="order__count" colspan="3">1 шт</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
 </div>
 

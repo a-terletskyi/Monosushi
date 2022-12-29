@@ -1,9 +1,5 @@
-// swiper
-@import 'swiper/scss';
-@import 'swiper/scss/navigation';
-@import 'swiper/scss/pagination';
-// Material
 @import 'app/shared/styles/theme-material';
+@import "swiper/swiper-bundle.min.css";
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -23,11 +19,15 @@ app-root {
     min-height: 100%;
 }
 
-app-admin-action,
+app-admin-discount,
 app-admin-category,
 app-admin-product,
-app-admin-order {
+app-admin-product-info {
     width: 100%;
+}
+
+app-cabinet-history {
+  width: 70%;
 }
 
 html,
@@ -92,5 +92,9 @@ body {
 
     .swiper-pagination-bullet-active {
         background-color: #b5d8f7;
+    }
+
+    .swiper-scrollbar{
+    display: none;
     }
 }
