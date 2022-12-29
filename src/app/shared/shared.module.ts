@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 // components
 import { CardsComponent } from "../components/cards/cards.component";
@@ -10,12 +11,11 @@ import { CategoriesTabsComponent } from "../components/categories-tabs/categorie
 
 // material
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {HttpClientModule} from "@angular/common/http";
+import { MatInputModule } from '@angular/material/input';
 
 const MATERIAL = [
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
 ]
 
 @NgModule({

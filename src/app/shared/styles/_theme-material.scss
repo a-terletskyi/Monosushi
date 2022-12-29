@@ -10,7 +10,7 @@
 }
 
 .basket-backdrop {
-    background-color: transparent;
+    backdrop-filter: blur(1px);
 }
 
 .auth-dialog,

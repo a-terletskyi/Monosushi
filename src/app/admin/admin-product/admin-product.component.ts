@@ -6,7 +6,7 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { ImageService } from 'src/app/shared/services/image/image.service';
 @Component({
-  selector: 'app-admin-product',
+  selector: 'app-admin-product-info',
   templateUrl: './admin-product.component.html',
   styleUrls: ['./admin-product.component.scss']
 })

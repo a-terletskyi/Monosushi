@@ -81,7 +81,7 @@ export class HeaderComponent implements OnInit {
       maxWidth: '600px',
       backdropClass: 'back-color',
       panelClass: 'auth-dialog',
-      autoFocus: "input"
+      autoFocus: false
     })
   }
 
@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit {
       maxWidth: '600px',
       backdropClass: 'back-color',
       panelClass: 'call-dialog',
-      autoFocus: "input"
+      autoFocus: false
     })
   }
 
