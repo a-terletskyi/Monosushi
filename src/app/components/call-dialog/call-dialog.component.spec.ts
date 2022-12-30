@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CallDialogComponent } from './call-dialog.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatDialogRef } from "@angular/material/dialog";
 
 describe('CallDialogComponent', () => {
   let component: CallDialogComponent;
@@ -8,7 +10,13 @@ describe('CallDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CallDialogComponent ]
+      declarations: [ CallDialogComponent ],
+      imports: [
+        ReactiveFormsModule
+      ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
   });

@@ -13,7 +13,7 @@ export class ProductInfoComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
-    private activatedRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void { this.loadProduct() }

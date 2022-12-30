@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit, OnDestroy {
-  private eventSubscription!: Subscription;
+  public eventSubscription!: Subscription;
   products: IProductResponse[] = [];
 
   constructor(

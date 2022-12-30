@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
 
 // components
 import { CardsComponent } from "../components/cards/cards.component";
@@ -28,7 +27,6 @@ const MATERIAL = [
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     ...MATERIAL,
   ],
     exports: [
@@ -36,7 +34,6 @@ const MATERIAL = [
       RouterModule,
       FormsModule,
       ReactiveFormsModule,
-      HttpClientModule,
       CardsComponent,
       CategoriesTabsComponent,
       ...MATERIAL,

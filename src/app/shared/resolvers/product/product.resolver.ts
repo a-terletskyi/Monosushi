@@ -13,5 +13,5 @@ export class ProductResolver implements Resolve<IProductResponse> {
   resolve(route: ActivatedRouteSnapshot): Observable<IProductResponse> {
     return this.productService.getOne(Number(route.paramMap.get('id')));
   }
-  
+
 }
